@@ -1,6 +1,5 @@
 package com.board.controller;
 
-import java.text.SimpleDateFormat;
 import java.sql.Date;
 import java.util.List;
 
@@ -15,7 +14,10 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.board.domain.BoardVO;
+import com.board.domain.Reply;
 import com.board.mapper.BoardMapper;
+import com.board.mapper.ReplyMapper;
+import com.board.mapper.UserMapper;
 
 
 @Controller
@@ -24,14 +26,23 @@ public class BoardListController {
 
 	@Autowired
 	private BoardMapper boardMapper;
-
+	@Autowired
+	private ReplyMapper replyMapper;
+	@Autowired
+	private UserMapper userMapper;
 	
 	
 	
 	@RequestMapping(method=RequestMethod.GET)
 	public ModelAndView list() throws Exception{
 		List<BoardVO> list = boardMapper.boardList();
-		return new ModelAndView("boardList","list",list);
+		
+		ModelAndView view = new ModelAndView();
+		
+		view.addObject("list",list);
+		view.setViewName("boardList");
+		
+		return view;
 	}
 	
 	@RequestMapping(value="/daily", method=RequestMethod.GET)
@@ -77,9 +88,19 @@ public class BoardListController {
 	public ModelAndView view(@PathVariable("bno") int bno) throws Exception{
 		
 		BoardVO board = boardMapper.boardView(bno);
+		List<Reply> reply = replyMapper.replyList(bno);
+		
+		
 		boardMapper.hitPlus(bno);
 		
-		return new ModelAndView("boardView","board",board);
+		
+		
+		ModelAndView view = new ModelAndView();
+		view.addObject("board", board);
+		view.addObject("reply",reply);
+		view.setViewName("boardView");
+		
+		return view;
 		
 	}
 	
@@ -88,7 +109,7 @@ public class BoardListController {
 		
 		BoardVO board = boardMapper.boardView(bno);
 		
-		return new ModelAndView("Updateboard","board",board);
+		return new ModelAndView("boardUpdate","board",board);
 	}
 	
 	@RequestMapping(value="/post/{bno}", method=RequestMethod.PATCH)

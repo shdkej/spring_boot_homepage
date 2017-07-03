@@ -26,18 +26,19 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter{
 			.sessionManagement().sessionCreationPolicy(SessionCreationPolicy.NEVER)
 				.and()
 			.authorizeRequests()
-				.antMatchers("/","/createmember","/logintemplelet/**","/assets/**").permitAll()
+				.antMatchers("/","/createmember","/logintemplelet/**","/assets/**","/images/**","/*.html").permitAll()
 				.and()
 			.authorizeRequests()
 				.antMatchers("/login").permitAll()
-				.antMatchers("/board").hasAuthority("USER")
-				.antMatchers("/admin").hasAuthority("ADMIN")
+			//	.antMatchers("/board").hasAuthority("USER")
+				.antMatchers("/Member").hasAuthority("ROLE_ADMIN")
 				.anyRequest().authenticated()
 				.and()
 				.formLogin()
 				.loginPage("/login")
 				.and()
-			.logout();
+			.logout()
+			.logoutSuccessUrl("/");
 		
 	}
 	

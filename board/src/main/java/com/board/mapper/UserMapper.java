@@ -9,11 +9,13 @@ import com.board.domain.User;
 
 @Mapper
 public interface UserMapper {
+	public List<User> userlist();
 	public User readUser(String username);
 	public List<GrantedAuthority> readAuthority(String username);
 	public void createUser(User user);
 	public void createAuthority(User user);
 	public void deleteUser(String username);
 	public void deleteAuthority(String username);
+	public void memberUpdate(User user) throws Exception;
 
 }

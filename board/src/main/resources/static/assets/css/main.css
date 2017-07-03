@@ -1251,7 +1251,7 @@
 		font-weight: 700;
 		text-transform: uppercase;
 		text-decoration: none;
-		background: #b1ddab;
+		background: #478AD8;
 		color: #fff;
 		border: 0;
 		line-height: 1em;
@@ -1648,7 +1648,7 @@
 
 	#main-wrapper {
 		background: #fff;
-		border-top: solid 5px #b1ddab;
+		border-top: solid 5px #478AD8;
 		border-bottom: solid 5px #c1cac5;
 	}
 
@@ -2000,12 +2000,12 @@
 					}
 
 					#nav li.current a {
-						background: #b1ddab;
+						background: #478AD8;
 						color: #fff;
 					}
 
 			.dropotron {
-				background: #6B7770;
+				background: #6b7770;
 				color: #fff;
 				border-radius: 6px;
 				line-height: 2.75em;
@@ -2052,7 +2052,7 @@
 						left: 50%;
 						margin-left: -1em;
 						top: -0.65em;
-						border-bottom: solid 1em #6B7770;
+						border-bottom: solid 1em #6b7770;
 						border-left: solid 1em transparent;
 						border-right: solid 1em transparent;
 					}
@@ -2527,7 +2527,7 @@
 						position: absolute;
 						left: 0;
 						top: 0;
-						background: #b1ddab;
+						background: #478AD8;
 						width: 44px;
 						height: 44px;
 						content: '\f0c9';

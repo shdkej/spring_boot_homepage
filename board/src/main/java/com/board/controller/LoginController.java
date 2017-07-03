@@ -2,6 +2,7 @@ package com.board.controller;
 
 import java.util.Date;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,6 +12,7 @@ import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.web.context.HttpSessionSecurityContextRepository;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -64,6 +66,18 @@ public class LoginController {
 		
 		return "redirect://localhost:8080/login";
 	}
+	
+	
+/*	@RequestMapping("/error")
+	@ExceptionHandler(CustomAuthException.class)
+	public ModelAndView loginautherror(HttpServletRequest req, CustomAuthException exception){
+		ModelAndView view = new ModelAndView();
+		view.addObject("exception",exception);
+		view.addObject("url",req.getRequestURL());
+		view.setViewName("error");
+		return view;
+	}
+	*/
 
 
 }

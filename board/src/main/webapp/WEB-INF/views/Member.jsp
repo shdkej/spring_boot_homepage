@@ -1,16 +1,14 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<%@ page import="java.util.ArrayList"%>
-<%@ page import="login.JDBC_memberDAO"%>
-<%@ page import="login.MemberVO"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
 <meta charset="utf-8" />
 <link rel="apple-touch-icon" sizes="76x76"
-	href="sboard/assets/img/apple-icon.png">
+	href="/bassets/img/apple-icon.png">
 <link rel="icon" type="image/png" sizes="96x96"
-	href="sboard/assets/img/favicon.png">
+	href="/bassets/img/favicon.png">
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
 
 <title>관리자용</title>
@@ -22,16 +20,16 @@
 
 
 <!-- Bootstrap core CSS     -->
-<link href="sboard/assets/css/bootstrap.min.css" rel="stylesheet" />
+<link href="/bassets/css/bootstrap.min.css" rel="stylesheet" />
 
 <!-- Animation library for notifications   -->
-<link href="sboard/assets/css/animate.min.css" rel="stylesheet" />
+<link href="/bassets/css/animate.min.css" rel="stylesheet" />
 
 <!--  Paper Dashboard core CSS    -->
-<link href="sboard/assets/css/paper-dashboard.css" rel="stylesheet" />
+<link href="/bassets/css/paper-dashboard.css" rel="stylesheet" />
 
 <!--  CSS for Demo Purpose, don't include it in your project     -->
-<link href="sboard/assets/css/demo.css" rel="stylesheet" />
+<link href="/bassets/css/demo.css" rel="stylesheet" />
 
 <!--  Fonts and icons     -->
 <link
@@ -39,39 +37,43 @@
 	rel="stylesheet">
 <link href='https://fonts.googleapis.com/css?family=Muli:400,300'
 	rel='stylesheet' type='text/css'>
-<link href="sboard/assets/css/themify-icons.css" rel="stylesheet">
+<link href="/bassets/css/themify-icons.css" rel="stylesheet">
 
 </head>
 <body>
-	<%
-		String manager = (String)session.getAttribute("uid");
-		String equal = "admin";
-		if(manager!=equal){
-		request.setCharacterEncoding("UTF-8");
-			JDBC_memberDAO dao = JDBC_memberDAO.getInstance();
-		ArrayList<MemberVO> list = (ArrayList)dao.getMemberlist();
-		MemberVO lists = null;
-	%>
-	<div class="wrapper">
+
+		<div class="wrapper">
 		<div class="sidebar" data-background-color="white"
 			data-active-color="danger">
 			<div class="sidebar-wrapper">
 				<div class="logo">
-					<a href="/main.html" class="simple-text">
-						GVM </a>
+					<a href="/" class="simple-text"> GVM </a>
 				</div>
 
+
+
 				<ul class="nav">
-					<li><a href="/sboard/managerboard.jsp"> <i
+					<li class=""><a href="/board"> <i
+							class="ti-view-list-alt"></i>
+							<p>전체 글 보기</p>
+					</a></li>
+
+					<li class=""><a
+						href="/board2"> <i
+							class="ti-view-list"></i>
+							<p>공유 자료</p>
+					</a></li>
+
+					<li class=""><a
+						href="/board"> <i
 							class="ti-view-list"></i>
 							<p>업무일지</p>
 					</a></li>
-				</ul>
-				<ul class="nav">
-					<li class="active"><a href="member.jsp"> <i
-							class="ti-view-list-alt"></i>
+					<sec:authorize access="hasRole('ROLE_ADMIN')">
+					<li class="active"><a href="/Member"> <i class="ti-user"></i>
 							<p>회원관리</p>
 					</a></li>
+					</sec:authorize>
 				</ul>
 			</div>
 		</div>
@@ -84,13 +86,13 @@
 							class="icon-bar bar1"></span> <span class="icon-bar bar2"></span>
 						<span class="icon-bar bar3"></span>
 					</button>
-					<a class="navbar-brand" href="managerboard.jsp">관리자 메뉴</a>
+					<a class="navbar-brand" href="/board">전체 글 보기</a>
 				</div>
 				<div class="collapse navbar-collapse">
 					<ul class="nav navbar-nav navbar-right">
-						<li><a href="logout.jsp" class="dropdown-toggle"
+						<li><a href="/logout.jsp" class="dropdown-toggle"
 							data-toggle="dropdown"> <i class="ti-panel"></i>
-								<p>Setting</p>
+								<p>setting</p>
 						</a></li>
 						<li class="dropdown"><a href="#" class="dropdown-toggle"
 							data-toggle="dropdown"> <i class="ti-bell"></i>
@@ -104,7 +106,7 @@
 								<li><a href="#">Notification 4</a></li>
 								<li><a href="#">Another notification</a></li>
 							</ul></li>
-						<li><a href="/logout.jsp"> <i class="ti-settings"></i>
+						<li><a href="/logout"> <i class="ti-settings"></i>
 								<p>Logout</p>
 						</a></li>
 					</ul>
@@ -134,30 +136,27 @@
 										<th>주소</th>
 										<th>입사 일자</th>
 									</thead>
-									<%
-										for(MemberVO vo : list){
-									%>
+									<c:forEach var="member" items="${list }"> 
 									<tbody>
 										<tr>
-											<td align="center" width="9%"><%=vo.getNum()%></td>
-											<td align="center" width="9%"><%=vo.getJob_id()%></td>
-											<td align="center" width="9%"><%=vo.getDepartment_id()%></td>
-											<td align="center" width="10%"><a><%=vo.getName()%></a></td>
-											<td align="left" width="12%"><%=vo.getBirth()%></td>
-											<td align="center" width="15%"><%=vo.getMail()%></td>
-											<td align="center" width="15%"><%=vo.getPhone()%></td>
-											<td align="center" width="15%"><%=vo.getAddress()%></td>
-											<td align="center" width="20%"><%=vo.getHire_date()%></td>
+											<td align="center" width="9%">${member.num }</td>
+											<td align="center" width="9%">${member.job_id}</td>
+											<td align="center" width="9%">${member.department}</td>
+											<td align="center" width="10%"><a>${member.name}</a></td>
+											<td align="left" width="12%">${member.birth}</td>
+											<td align="center" width="15%">${member.mail}</td>
+											<td align="center" width="15%">${member.phone}</td>
+											<td align="center" width="15%">${member.address}</td>
+											<td align="center" width="20%">${member.hire_date}</td>
 											<td>
 												<button type="submit" class="btn btn-info btn-fill btn-wd"
-													onclick="location='UpdateMemberView.jsp?num=<%=vo.getNum()%>'">수정
+													onclick="location='/member/${member.username}'">수정
 													하기</button>
 											</td>
 										</tr>
-										<%
-											}
-										%>
+
 									</tbody>
+									</c:forEach>
 								</table>
 								<table width="100%" cellpadding="0" cellspacing="0" border="0">
 									<tr>
@@ -176,35 +175,29 @@
 		</div>
 	</div>
 </div>
-	<%}else{
-		%><script>
-			alert("관리자만 접근 가능한 페이지 입니다.");
-			location.href = "/sboard/board.jsp";
-		</script>
-		<%}%>
 </body>
 
 <!--   Core JS Files   -->
-<script src="sboard/assets/js/jquery-1.10.2.js" type="text/javascript"></script>
-<script src="sboard/assets/js/bootstrap.min.js" type="text/javascript"></script>
+<script src="/bassets/js/jquery-1.10.2.js" type="text/javascript"></script>
+<script src="/bassets/js/bootstrap.min.js" type="text/javascript"></script>
 
 <!--  Checkbox, Radio & Switch Plugins -->
-<script src="sboard/assets/js/bootstrap-checkbox-radio.js"></script>
+<script src="/bassets/js/bootstrap-checkbox-radio.js"></script>
 
 <!--  Charts Plugin -->
-<script src="sboard/assets/js/chartist.min.js"></script>
+<script src="/bassets/js/chartist.min.js"></script>
 
 <!--  Notifications Plugin    -->
-<script src="sboard/assets/js/bootstrap-notify.js"></script>
+<script src="/bassets/js/bootstrap-notify.js"></script>
 
 <!--  Google Maps Plugin    -->
 <script type="text/javascript"
 	src="https://maps.googleapis.com/maps/api/js"></script>
 
 <!-- Paper Dashboard Core javascript and methods for Demo purpose -->
-<script src="sboard/assets/js/paper-dashboard.js"></script>
+<script src="/bassets/js/paper-dashboard.js"></script>
 
 <!-- Paper Dashboard DEMO methods, don't include it in your project! -->
-<script src="sboard/assets/js/demo.js"></script>
+<script src="/bassets/js/demo.js"></script>
 
 </html>

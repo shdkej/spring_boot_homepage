@@ -20,6 +20,7 @@ import org.springframework.transaction.PlatformTransactionManager;
 
 import com.board.support.DB1;
 import com.board.support.DB2;
+import com.board.support.DB3;
 
 
 public abstract class DatabaseConfig {
@@ -77,4 +78,23 @@ class Db2DatabaseConfig extends DatabaseConfig {
 		configureSqlSessionFactory(sessionFactoryBean, db2DataSource);
 		return sessionFactoryBean.getObject();
 	}
+}
+
+@Configuration
+@MapperScan(basePackages = "com.board.mapper", annotationClass = DB3.class, sqlSessionFactoryRef = "db3SqlSessionFactory")
+class Db3DatabaseConfig extends DatabaseConfig {
+
+	@Bean(name = "db3DataSource", destroyMethod = "close")
+	@ConfigurationProperties(prefix = "spring.db3.datasource")
+	public DataSource db3DataSource() {
+		return DataSourceBuilder.create().build();
+	}
+	
+	@Bean(name = "db3SqlSessionFactory")
+	public SqlSessionFactory db2SqlSessionFactory(@Qualifier("db3DataSource") DataSource db3DataSource, ApplicationContext applicationContext) throws Exception{
+		SqlSessionFactoryBean sessionFactoryBean = new SqlSessionFactoryBean();
+		configureSqlSessionFactory(sessionFactoryBean, db3DataSource);
+		return sessionFactoryBean.getObject();
+	}
+	
 }
