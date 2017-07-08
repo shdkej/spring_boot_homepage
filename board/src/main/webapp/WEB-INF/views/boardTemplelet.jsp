@@ -73,7 +73,7 @@
 						<p>전체 글 보기</p>
 				</a></li>
 
-				<li class=""><a href="/board2"> <i class="ti-view-list"></i>
+				<li class=""><a href="/board/${board.boardname }"> <i class="ti-view-list"></i>
 						<p>공유 자료</p>
 				</a></li>
 

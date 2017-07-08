@@ -46,5 +46,9 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		delete from dailyboard where bno = #{bno}
 	</delete>
 	
+	    <select id="boardList2" resultType="com.board.domain.Board2">
+        select * from #{boardname}
+    </select>
+	
 	
 </mapper>

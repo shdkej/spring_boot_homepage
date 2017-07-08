@@ -1129,6 +1129,9 @@ textarea.form-control {
   margin-bottom: 22px;
   padding: 0;
   width: 15px; }
+  .tleft{
+	text-align:left !important;
+}
 .table > thead > tr > th,
 .table > tbody > tr > th,
 .table > tfoot > tr > th,
@@ -2892,11 +2895,50 @@ textarea.form-control {
   .table-responsive {
     overflow: visible; } }
 @media (max-width: 991px) {
+
   .table-responsive {
     width: 100%;
     margin-bottom: 15px;
-    border: 1px solid #dddddd;
+    border: 1px solid #dddddd; 
     overflow-x: scroll;
     overflow-y: hidden;
     -ms-overflow-style: -ms-autohiding-scrollbar;
-    -webkit-overflow-scrolling: touch; } }
+    -webkit-overflow-scrolling: touch; 
+     } }
+
+
+@media (max-width: 690px) {
+table thead,
+table tbody,
+table tr,
+table th,
+table td{
+border:0 !important;
+padding:2px !important;
+}
+  .table-responsive {
+    overflow:hidden; }
+
+.trtr{
+display:block;
+border-bottom:1px solid #dddddd !important;
+}
+
+table td{
+font-size:7px;
+}
+
+
+
+.tbold{
+display:block;
+overflow:hidden !important;
+font-size:17px;
+text-align:left !important;
+}
+
+.thide{
+display:none;
+}
+
+}

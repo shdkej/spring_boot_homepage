@@ -37,16 +37,7 @@
 	<div class="wrapper">
 		<jsp:include page="boardTemplelet.jsp"></jsp:include>
 
-
-		<div class="header">
-			<h4 class="title">업무일지</h4>
-			<p class="category"></p>
-
 			<table width="100%" border="0" cellspacing="0" cellpadding="0">
-				<tr>
-					<td height="10"></td>
-				</tr>
-
 				<tr>
 					<td align="center"><a
 						href="<c:url value='/board/daily' />?year=<%=year - 1%>&amp;month=<%=month%>"
@@ -82,41 +73,38 @@
 				</tr>
 			</table>
 
-			<div class="content table-responsive table-full-width">
-				<table class="table table-striped">
-					<thead>
-						<th>번호</th>
-						<th>제목</th>
-						<th>작성자</th>
-						<th>작성일</th>
-						<th>조회수</th>
-					</thead>
-					<tbody>
+			<table class="table table-striped">
+				<thead class="thide">
+					<th>번호</th>
+					<th>제목</th>
+					<th>작성자</th>
+					<th>작성일</th>
+					<th>조회수</th>
+				</thead>
+				<tbody>
 
-						<c:forEach var="board" items="${list}">
-							<tr>
-								<td align="center" width="10%">${board.bno }</td>
-								<td align="left" width="50%"><a href="/board/${board.bno }">${board.subject }</a></td>
-								<td align="center" width="10%">${board.writer }</td>
-								<td align="center" width="15%">${board.reg_date }</td>
-								<td align="center" width="10%">${board.hit }</td>
-								<td>&nbsp;</td>
-							</tr>
-						</c:forEach>
+					<c:forEach var="board" items="${list}">
+						<tr class="trtr">
+							<td class="thide" align="center" width="10%">${board.bno }</td>
+							<td class="tbold"><a
+								href="/board/${board.bno }">${board.subject }</a></td>
+							<td align="center" >${board.writer }</td>
+							<td align="center" >${board.reg_date }</td>
+							<td class="thide" align="center" width="10%">${board.hit }</td>
+						</tr>
+					</c:forEach>
 
-					</tbody>
-				</table>
-				<table width="100%" cellpadding="0" cellspacing="0" border="0">
-					<tr>
-						<td colspan="4" height="5"></td>
-					</tr>
-					<tr align="center">
-						<td><input type=button value="글쓰기"
-							onclick="location.href='/board/post'" class="btn"></td>
-					</tr>
-				</table>
-			</div>
-		</div>
+				</tbody>
+			</table>
+			<table width="100%" cellpadding="0" cellspacing="0" border="0">
+				<tr>
+					<td colspan="4" height="5"></td>
+				</tr>
+				<tr align="center">
+					<td><input type=button value="글쓰기"
+						onclick="location.href='/board/post'" class="btn"></td>
+				</tr>
+			</table>
 	</div>
 </body>
 

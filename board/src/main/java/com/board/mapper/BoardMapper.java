@@ -1,8 +1,8 @@
 package com.board.mapper;
 
-import java.util.Date;
 import java.util.List;
 
+import com.board.domain.Board2;
 import com.board.domain.BoardVO;
 import com.board.support.DB1;
 
@@ -22,5 +22,7 @@ public interface BoardMapper {
 	public void boardUpdate(BoardVO vo) throws Exception;
 	
 	public void boardDelete(int bno) throws Exception;
+	
+	public List<Board2> boardList2() throws Exception;
 
 }

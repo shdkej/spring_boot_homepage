@@ -21,38 +21,27 @@
 
 	<div class="wrapper">
 		<jsp:include page="boardTemplelet.jsp"></jsp:include>
-		
+
 		<div class="content table-responsive table-full-width">
 			<form action="/board/post" method="POST">
 
 				<table class="table table-striped">
 					<tr>
-						<td>&nbsp;</td>
-						<td width="76">제목</td>
-						<td><input name="subject" size="50" maxlength="100"
+						<td width="100%"><input name="subject" maxlength="100"
+							placeholder="제목" class="form-control border-input"></td>
+						<td><input type="hidden" name="writer" size="50"
+							maxlength="50" value="${username}"
 							class="form-control border-input"></td>
-						<td>&nbsp;</td>
 					</tr>
 					<tr>
-						<td>&nbsp;</td>
-						<td width="76">이름</td>
-						<td><input name="writer" size="50" maxlength="50"
-							value="${username}" class="form-control border-input"></td>
-						<td>&nbsp;</td>
-					</tr>
-					<tr>
-						<td>&nbsp;</td>
-						<td width="76">내용</td>
-						<td><textarea id="editor1" name="content"
+						<td><textarea id="editor" name="content"
 								style="width: 100%; height: 200px;"></textarea></td>
-						<td>&nbsp;</td>
 					</tr>
 					<tr align="center">
-						<td>&nbsp;</td>
-						<td colspan="2"><input type="submit" value="등록" class="btn">
+
+						<td colspan="2"><input type="submit" value="등록" class="btn" >
 							<input type=button value="취소" class="btn"
 							OnClick="window.location='/board'" />
-						<td>&nbsp;</td>
 					</tr>
 				</table>
 			</form>
@@ -61,10 +50,20 @@
 
 	<script type="text/javascript">
 		//<![CDATA[
-		CKEDITOR.replace('editor1', {
+		CKEDITOR.replace('editor', {
 			skin : 'moono-lisa'
 		});
 		//]]>
-	</script>
+
+		$(function() {
+		    $('#editor').keyup(function (e){
+		        var content = $(this).val();
+		        $(this).height(((content.split('\n').length + 1) * 1.5) + 'em');
+		        $('#counter').html(content.length + '/100');
+		    });
+		    $('#editor').keyup();
+		});
+</script>
+
 </body>
 </html>

@@ -23,32 +23,20 @@
 
 				<table class="table table-striped">
 					<tr>
-						<td>&nbsp;</td>
-						<td>제목</td>
 						<td><input name="subject" size="50" maxlength="100"
 							value="${board.subject }" class="form-control border-input"></td>
-						<td>&nbsp;</td>
+						<td><input type="hidden" name="writer" size="50"
+							maxlength="50" value="${board.writer}"
+							class="form-control border-input"></td>
 					</tr>
 					<tr>
-						<td>&nbsp;</td>
-						<td>프로젝트</td>
-						<td><input name="writer" size="50" maxlength="50"
-							value="${board.writer}" class="form-control border-input"></td>
-						<td>&nbsp;</td>
-					</tr>
-					<tr>
-						<td>&nbsp;</td>
-						<td>내용</td>
 						<td><textarea id="editor1" name="content"
 								style="width: 100%; height: 200px;">${board.content}</textarea></td>
-						<td>&nbsp;</td>
 					</tr>
 					<tr align="center">
-						<td>&nbsp;</td>
 						<td colspan="2"><input type="submit" value="수정" class="btn">
 							<input type=button value="취소" class="btn"
 							OnClick="window.location='/board'" />
-						<td>&nbsp;</td>
 					</tr>
 				</table>
 			</form:form>

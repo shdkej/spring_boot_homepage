@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.board.domain.Board2;
 import com.board.domain.BoardVO;
 import com.board.domain.Reply;
 import com.board.mapper.BoardMapper;
@@ -126,6 +127,18 @@ public class BoardListController {
 		boardMapper.boardDelete(bno);
 		
 		return "redirect://localhost:8080/board/";
+	}
+	
+	@RequestMapping(value="/{board}" ,method=RequestMethod.GET)
+	public ModelAndView list3(@ModelAttribute("board")Board2 board) throws Exception{
+		List<Board2> list3 = boardMapper.boardList2();
+		
+		ModelAndView view = new ModelAndView();
+		
+		view.addObject("list",list3);
+		view.setViewName("boardlist2");
+		
+		return view;
 	}
 
 }

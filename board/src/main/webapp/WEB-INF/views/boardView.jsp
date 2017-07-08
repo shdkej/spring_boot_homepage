@@ -19,10 +19,6 @@
 	<div class="wrapper">
 		<jsp:include page="boardTemplelet.jsp"></jsp:include>
 
-		<div class="header">
-			<h4 class="title">업무 일지</h4>
-			<p class="category"></p>
-		</div>
 		<div class="content table-responsive table-full-width">
 			<table width="100%" class="table table-striped">
 				<tr></tr>
@@ -44,8 +40,8 @@
 			</table>
 			<table width="100%" class="table table-striped">
 				<tr>
-					<td width="76">&nbsp;</td>
-					<td width="319">${board.content }</td>
+					
+					<td class="tleft" width="319">${board.content }</td>
 					<td width="1" colspan="1" height="200">
 				</tr>
 			</table>
@@ -60,7 +56,7 @@
 					<tr>
 						<td align="left" width="10%">${reply.r_name }</td>
 						<td>&nbsp;</td>
-						<td width="70%">${reply.r_content }</td>
+						<td class="tleft" width="70%">${reply.r_content }</td>
 						<td>&nbsp;</td>
 						<td width="20%">${reply.r_date }</td>
 						<c:if test="${username == reply.r_name}">
@@ -76,25 +72,26 @@
 						<input type="hidden" name="r_name" value="${username }" />
 						<!-- <input type="hidden" name="r_password" value=""/> -->
 						<input type="hidden" name="bno" value="${board.bno}" />
-					<td width="90%"><textarea id="content" name="r_content"
-							rows="10" maxlength="100"></textarea><span id="counter">###</span></td>
-					<td width="10%"><input type="submit" value="입력"
-						class="btn btn-info btn-fill btn-wd" width="10%" /></td>
+					<tr><td><textarea id="content" name="r_content"
+							rows="5" maxlength="100" style="width:100%;"></textarea><span id="counter">###</span></td></tr>
+					<td><input type="submit" value="입력"
+						class="btn btn-fill btn-wd" align="center" /></td>
 					</form>
 				</tr>
 			</table>
 			<table width="100%" class="table table-striped">
 				<tr align="center">
-					<td colspan="2" width="399"><input type=button value="글쓰기"
+					<td><input type=button value="글쓰기"
 						onclick="location.href='/board/post'"
-						class="btn btn-info btn-fill btn-wd"> <input type=button
+						class="btn btn-info btn-fill btn-wd"/> <input type=button
 						value="목록" onclick="location.href='/board'"
-						class="btn btn-info btn-fill btn-wd"> <c:if
+						class="btn btn-info btn-fill btn-wd"/>
+						<c:if
 							test="${username == board.writer}">
 							<input type=button value="수정"
 								onclick="location.href='/board/post/${board.bno}'"
 								class="btn btn-info btn-fill btn-wd">
-							<input type="button" value="삭제" onclick="" class="btn">
+							<input type="button" value="삭제" onclick="" class="btn"></td>
 							<%-- 													<form:form action="/board/post/${board.bno}"
 														method="DELETE">
 														<input type="submit" value="삭제">
@@ -106,17 +103,7 @@
 	</div>
 
 <script type="text/javascript">
-$(document).ready(function() {
 
-    $('#test').on('keyup', function() {
-
-        if($(this).val().length > 100) {
-            $(this).val($(this).val().substring(0, 100));
-        }
-
-    });
-
-});
 $(function() {
     $('#content').keyup(function (e){
         var content = $(this).val();
@@ -139,19 +126,7 @@ $(function() {
 	}
 	
 	</script>
-	<script type="text/javascript">
-	
-	$(document).ready(function(){	
-		//default usage
-		$("#message1").charCount();
-		//custom usage
-		$("#message2").charCount({
-			allowed: 150,		
-			warning: 20,
-			counterText: 'Characters left: '	
-		});
-	});
-</script>
+
 	<style>
 form {
 	width: 500px;

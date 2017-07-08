@@ -2,11 +2,10 @@ package com.board.domain;
 
 import java.sql.Date;
 
-public class BoardVO {
+public class Board2 {
 	
 	
 	private String boardname;
-
 	private int bno;
 	private String subject;
     private String content;
