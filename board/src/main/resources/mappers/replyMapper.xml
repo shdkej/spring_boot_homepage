@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper 
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+ 
+<mapper namespace="com.board.mapper.ReplyMapper">
+ 
+    <insert id="replyInsert" parameterType="com.board.domain.Reply">
+        insert into Reply(bno,r_name,r_password,r_content,r_date)
+            values
+        (#{bno},#{r_name},#{r_password},#{r_content},now())
+    </insert>
+    
+    <select id="replyList" parameterType="int" resultType="com.board.domain.Reply">
+        select * from Reply where bno = #{bno}
+    </select>
+     
+    <select id="replyView" parameterType="int" resultType="com.board.domain.Reply">
+    	select * from Reply where r_no = #{r_no}
+    	
+    </select>
+ 
+	<delete id="ReplyDelete" parameterType="int">
+		delete from Reply where r_no = #{r_no}
+	</delete>
+	
+	
+</mapper>
