@@ -1,5 +1,5 @@
 CREATE TABLE users(
-num int DEFAULT NULL ,
+num serial primary key,
 username varchar(20) NOT NULL,
 password varchar(500) NOT NULL,
 name varchar(20) NOT NULL,
@@ -16,6 +16,8 @@ isAccountNonLocked boolean DEFAULT true,
 isCredentialsNonExpired boolean DEFAULT true,
 isEnabled boolean DEFAULT true,
 UNIQUE KEY username_UNIQUE (username),
+CONSTRAINT fk_job FOREIGN KEY (job_id) REFERENCES job(job_no) ON DELETE CASCADE ON UPDATE CASCADE,
+CONSTRAINT fk_dep FOREIGN KEY (department) REFERENCES department(dep_no) ON DELETE CASCADE ON UPDATE CASCADE
 );
 
 
@@ -27,33 +29,42 @@ CREATE TABLE authority(
 
 
 CREATE TABLE job (
-  job_no int NOT NULL,
-  job_name varchar(45) DEFAULT NULL,
-  PRIMARY KEY (job_no)
-CONSTRAINT fk_job FOREIGN KEY (job_no) REFERENCES users(job_id) ON DELETE CASCADE ON UPDATE CASCADE
+  job_no serial primary key,
+  job_name varchar(45) DEFAULT NULL
 );
 
+INSERT INTO job(job_name) values ('사원');
+INSERT INTO job(job_name) values ('주임');
+INSERT INTO job(job_name) values ('대리');
+INSERT INTO job(job_name) values ('과장');
+INSERT INTO job(job_name) values ('차장');
+INSERT INTO job(job_name) values ('부장');
+INSERT INTO job(job_name) values ('사장');
 
 CREATE TABLE department (
-  dep_no int NOT NULL,
-  dep_name varchar(45) DEFAULT NULL,
-  PRIMARY KEY (dep_no),
-CONSTRAINT fk_dep FOREIGN KEY (dep_no) REFERENCES users(department) ON DELETE CASCADE ON UPDATE CASCADE
+  dep_no serial primary key,
+  dep_name varchar(45) DEFAULT NULL
 );
+
+INSERT INTO department(dep_name) values ('제어(PC)');
+INSERT INTO department(dep_name) values ('제어(PLC)');
+INSERT INTO department(dep_name) values ('전장');
+INSERT INTO department(dep_name) values ('기구조립');
+INSERT INTO department(dep_name) values ('설계');
+INSERT INTO department(dep_name) values ('총무');
 
 
 CREATE TABLE dailyboard (
-  bno int NOT NULL AUTO_INCREMENT,
+  bno serial primary key,
   subject varchar(30) DEFAULT NULL,
   content varchar(200) DEFAULT NULL,
   writer varchar(15) DEFAULT NULL,
-  reg_date datetime DEFAULT CURRENT_TIMESTAMP,
-  hit int DEFAULT NULL,
-  PRIMARY KEY (bno)
+  reg_date date DEFAULT CURRENT_TIMESTAMP,
+  hit int DEFAULT NULL
 );
 
 CREATE TABLE reply (
-  bno int NOT NULL,
+  bno serial primary key,
   r_name varchar(45) DEFAULT NULL,
   r_password varchar(45) DEFAULT NULL,
   r_content varchar(150) DEFAULT NULL,
@@ -63,7 +74,7 @@ CREATE TABLE reply (
 
 CREATE TABLE signboard (
   name varchar(45) DEFAULT NULL,
-  signno int(5) NOT NULL AUTO_INCREMENT,
+  signno serial primary key,
   signtitle varchar(45) DEFAULT NULL,
   signcontent varchar(100) DEFAULT NULL,
   checkno varchar(10) DEFAULT 1,
@@ -76,18 +87,17 @@ CREATE TABLE signboard (
   denycouse varchar(55) DEFAULT NULL,
   reg_date date DEFAULT NULL,
   signdocno int DEFAULT NULL,
-  department int DEFAULT NULL,
-  PRIMARY KEY (signno)
+  department int DEFAULT NULL
 );
 
 CREATE TABLE signdoc (
   name varchar(45) DEFAULT NULL,
-  docno int DEFAULT NULL,
+  docno serial primary key,
   docname varchar(45) DEFAULT NULL,
   doctype int DEFAULT NULL,
   doclevel int DEFAULT NULL,
   content1 varchar(500) DEFAULT NULL,
   content2 varchar(45) DEFAULT NULL,
   content3 varchar(45) DEFAULT NULL,
-  reg_date datetime DEFAULT CURRENT_TIMESTAMP
+  reg_date date DEFAULT CURRENT_TIMESTAMP
 );
