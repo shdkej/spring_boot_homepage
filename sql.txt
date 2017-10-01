@@ -1,18 +1,6 @@
-CREATE TABLE department (
-  dep_no serial primary key,
-  dep_name varchar(45) DEFAULT NULL
-);
-
-
-CREATE TABLE job (
-  job_no serial primary key,
-  job_name varchar(45) DEFAULT NULL
-);
-
-
 CREATE TABLE users(
 num serial primary key,
-username varchar(20) UNIQUE NOT NULL,
+username varchar(20) NOT NULL,
 password varchar(500) NOT NULL,
 name varchar(20) NOT NULL,
 job_id int DEFAULT NULL,
@@ -37,6 +25,33 @@ CREATE TABLE authority(
   authority_name varchar(45) NOT NULL DEFAULT 'ROLE_USER',
   CONSTRAINT fk_auth_username FOREIGN KEY (username) REFERENCES users(username) ON DELETE CASCADE ON UPDATE CASCADE
 );
+
+
+CREATE TABLE job (
+  job_no serial primary key,
+  job_name varchar(45) DEFAULT NULL
+);
+
+INSERT INTO job(job_name) values ('사원');
+INSERT INTO job(job_name) values ('주임');
+INSERT INTO job(job_name) values ('대리');
+INSERT INTO job(job_name) values ('과장');
+INSERT INTO job(job_name) values ('차장');
+INSERT INTO job(job_name) values ('부장');
+INSERT INTO job(job_name) values ('사장');
+
+CREATE TABLE department (
+  dep_no serial primary key,
+  dep_name varchar(45) DEFAULT NULL
+);
+
+INSERT INTO department(dep_name) values ('제어(PC)');
+INSERT INTO department(dep_name) values ('제어(PLC)');
+INSERT INTO department(dep_name) values ('전장');
+INSERT INTO department(dep_name) values ('기구조립');
+INSERT INTO department(dep_name) values ('설계');
+INSERT INTO department(dep_name) values ('총무');
+
 
 CREATE TABLE dailyboard (
   bno serial primary key,
@@ -85,23 +100,3 @@ CREATE TABLE signdoc (
   content3 varchar(45) DEFAULT NULL,
   reg_date date DEFAULT CURRENT_TIMESTAMP
 );
-
-
-
-
-INSERT INTO job(job_name) values ('사원');
-INSERT INTO job(job_name) values ('주임');
-INSERT INTO job(job_name) values ('대리');
-INSERT INTO job(job_name) values ('과장');
-INSERT INTO job(job_name) values ('차장');
-INSERT INTO job(job_name) values ('부장');
-INSERT INTO job(job_name) values ('사장');
-
-
-INSERT INTO department(dep_name) values ('제어(PC)');
-INSERT INTO department(dep_name) values ('제어(PLC)');
-INSERT INTO department(dep_name) values ('전장');
-INSERT INTO department(dep_name) values ('기구조립');
-INSERT INTO department(dep_name) values ('설계');
-INSERT INTO department(dep_name) values ('총무');
-
