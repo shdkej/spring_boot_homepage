@@ -25,7 +25,7 @@
 			<tr>
 				<td colspan="2">
 				<font color="red">
-				<p>Your login attempt was not successful, try again.</p>
+				<p>${message}</p>
 				</font>
 				<c:remove scope="session" var="SPRING_SECURITY_LAST_EXCEPTION"/>
 				</td>

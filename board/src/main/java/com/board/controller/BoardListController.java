@@ -39,7 +39,6 @@ public class BoardListController {
 		List<BoardVO> list = boardMapper.boardList();
 		
 		ModelAndView view = new ModelAndView();
-		HttpSession session = null ;
 		
 		view.addObject("list",list);
 		view.setViewName("boardList");

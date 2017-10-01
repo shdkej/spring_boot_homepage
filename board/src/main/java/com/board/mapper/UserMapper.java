@@ -17,5 +17,6 @@ public interface UserMapper {
 	public void deleteUser(String username);
 	public void deleteAuthority(String username);
 	public void memberUpdate(User user) throws Exception;
+	public User readUser1(String username);
 
 }

@@ -49,10 +49,10 @@ public class LoginController {
 		SecurityContextHolder.getContext().setAuthentication(authentication);
 		session.setAttribute(HttpSessionSecurityContextRepository.SPRING_SECURITY_CONTEXT_KEY, SecurityContextHolder.getContext());
 		
-		User user = userService.readUser(username);
-		NotificationService.start();
+//		User user = userService.readUser(username);
+//		NotificationService.start();
 		
-		return "redirect://localhost:8080/board"; //new AuthenticationToken(user.getName(),user.getAuthorities(),session.getId());
+		return "redirect://localhost:8080/board";
 	}
 	
 	@RequestMapping(value="/createmember", method=RequestMethod.GET)
@@ -67,19 +67,6 @@ public class LoginController {
 		
 		return "redirect://localhost:8080/login";
 	}
-	
-	
-/*	@RequestMapping("/error")
-	@ExceptionHandler(CustomAuthException.class)
-	public ModelAndView loginautherror(HttpServletRequest req, CustomAuthException exception){
-		ModelAndView view = new ModelAndView();
-		view.addObject("exception",exception);
-		view.addObject("url",req.getRequestURL());
-		view.setViewName("error");
-		return view;
-	}
-	*/
-
 
 }
 

@@ -15,7 +15,7 @@
 </head>
 <body onLoad=stb()>
  <div class="login-wrap">
-  <h2> 회원가입 Form </h2>
+  <h2> 회원가입  </h2>
   
   <div class="form">
    <form method = "POST" action="/createmember" name=myform onSubmit="return(check_form());">

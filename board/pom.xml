@@ -69,6 +69,13 @@
 			<version>1.5.4.RELEASE</version>
 		</dependency>
 
+		<!-- PostgreSQL 9.1-901 -->
+		<dependency>
+			<groupId>postgresql</groupId>
+			<artifactId>postgresql</artifactId>
+			<version>9.1-901.jdbc4</version>
+		</dependency>
+
 
 		<dependency>
 			<groupId>org.springframework.security</groupId>

@@ -2,9 +2,6 @@ package com.board.controller;
 
 import java.util.List;
 
-import javax.servlet.http.HttpSession;
-
-import org.apache.catalina.servlet4preview.http.HttpServletRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -15,12 +12,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.board.domain.AuthenticationRequest;
 import com.board.domain.Sign;
 import com.board.domain.User;
 import com.board.mapper.SignMapper;
 import com.board.mapper.UserMapper;
-import com.board.service.NotificationService;
 
 @Controller
 @RequestMapping(value="/sign")

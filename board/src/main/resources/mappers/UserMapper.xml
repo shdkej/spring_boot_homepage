@@ -3,13 +3,18 @@
 <mapper namespace="com.board.mapper.UserMapper">
 
 	<select id="userlist" resultType="com.board.domain.User">
-		SELECT * FROM user
+		SELECT * FROM users
 	</select>
-
+	
+	<select id="readUser1" parameterType="String" resultType="com.board.domain.User">
+		SELECT *
+		FROM users
+		WHERE username = #{username}
+	</select>
 
 	<select id="readUser" parameterType="String" resultType="com.board.domain.User">
 		SELECT *
-		FROM user u JOIN job j
+		FROM users u JOIN job j
 		ON u.job_id = j.job_no
 		JOIN department d
 		ON u.department = d.dep_no
@@ -24,7 +29,7 @@
 
 	<insert id="createUser" parameterType="com.board.domain.User">
 		INSERT INTO
-		user(username,password,name,gender,birth,mail,phone,address,hire_date)
+		users(username,password,name,gender,birth,mail,phone,address,hire_date)
 		VALUES
 		(#{username},#{password},#{name},#{gender},#{birth},#{mail},#{phone},#{address},now())
 	</insert>
@@ -38,14 +43,14 @@
 	</insert>
 
 	<update id="memberUpdate" parameterType="com.board.domain.User">
-		update user set
+		update users set
 		num=#{num}, job_id =  #{job_id},name = #{name}, department = #{department},  birth = #{birth}, mail = #{mail},
 		phone = #{phone}, address = #{address}, hire_date = #{hire_date}
 		where username = #{username}
 	</update>
 
 	<delete id="deleteUser" parameterType="String">
-		DELETE FROM user WHERE
+		DELETE FROM users WHERE
 		username = #{username}
 	</delete>
 
