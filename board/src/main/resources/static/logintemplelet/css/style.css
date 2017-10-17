@@ -30,6 +30,9 @@ html .login-wrap .form {
 }
 html .login-wrap .form input[type="text"],
 html .login-wrap .form input[type="password"],
+html .login-wrap .form input[type="email"],
+html .login-wrap .form input[type="date"],
+html .login-wrap .form input[type="tel"],
 html .login-wrap .form button {
   width: 80%;
   margin-left: 10%;
@@ -40,13 +43,19 @@ html .login-wrap .form button {
   -moz-outline-style: none;
 }
 html .login-wrap .form input[type="text"],
-html .login-wrap .form input[type="password"] {
+html .login-wrap .form input[type="password"],
+html .login-wrap .form input[type="email"],
+html .login-wrap .form input[type="tel"],
+html .login-wrap .form input[type="date"] {
   border: 1px solid #bbb;
   padding: 0 0 0 10px;
   font-size: 14px;
 }
 html .login-wrap .form input[type="text"]:focus,
-html .login-wrap .form input[type="password"]:focus {
+html .login-wrap .form input[type="password"]:focus,
+html .login-wrap .form input[type="email"],
+html .login-wrap .form input[type="tel"],
+html .login-wrap .form input[type="date"] {
   border: 1px solid #3498db;
 }
 html .login-wrap .form a {

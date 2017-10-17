@@ -15,7 +15,7 @@
 </head>
 <body onLoad=stb()>
  <div class="login-wrap">
-  <h2> 회원가입 Form </h2>
+  <h2> 회원가입  </h2>
   
   <div class="form">
    <form method = "POST" action="/createmember" name=myform onSubmit="return(check_form());">
@@ -26,10 +26,9 @@
 		<center><input type ="radio" name="gender" value="man" id="man" checked="checked"><label for="man"><b>man</b></label>
 		<input type ="radio" name="gender" value="woman" id="woman"><label for="woman"><b>woman</b></label></center><br/>
 		<br/>
-		<input type="text" name="birth" placeholder="99-09-09 형식으로 입력 바랍니다."/><br/>
-        <input type="text" name="mail" id="f20" placeholder="e-mail"/><br/>
-        <input type="text" name="phone" placeholder="Phone - '-'를 빼고 입력해 주세요."/><br/>
-        <input type="text" name="address" placeholder="주소 - 생략 가능" /><br/>
+		<input type="date" name="birth" placeholder="99-09-09 형식으로 입력 바랍니다."/><br/>
+        <input type="email" name="mail" id="f20" placeholder="e-mail"/><br/>
+        <input type="tel" name="phone" placeholder="Phone - '-'를 빼고 입력해 주세요."/><br/>
         <center><input type="submit" value="가입" class="btn-blue"/>
         <input type="button" value="뒤로가기" onclick="window.location='/login'" class="btn-blue"/></center>
     </form>

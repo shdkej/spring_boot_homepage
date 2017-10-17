@@ -4,6 +4,7 @@ import java.sql.Date;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -13,7 +14,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.board.domain.Board2;
 import com.board.domain.BoardVO;
 import com.board.domain.Reply;
 import com.board.mapper.BoardMapper;
@@ -42,7 +42,7 @@ public class BoardListController {
 		
 		view.addObject("list",list);
 		view.setViewName("boardList");
-		
+
 		return view;
 	}
 	
@@ -58,7 +58,6 @@ public class BoardListController {
 		
 		BoardVO date = new BoardVO();
 		date.setReg_date(d);
-		
 		
 		List<BoardVO> list = boardMapper.boardListforday(date);
 		
@@ -100,7 +99,6 @@ public class BoardListController {
 		view.addObject("board", board);
 		view.addObject("reply",reply);
 		view.setViewName("boardView");
-		
 		return view;
 		
 	}
@@ -121,24 +119,11 @@ public class BoardListController {
 		return "redirect://localhost:8080/board/"+bno;
 	}
 	
-	@RequestMapping(value="/post/{bno}", method=RequestMethod.DELETE)
+	@RequestMapping(value="/delete/{bno}", method=RequestMethod.DELETE)
 	public String delete(@PathVariable("bno") int bno) throws Exception{
 		
 		boardMapper.boardDelete(bno);
 		
 		return "redirect://localhost:8080/board/";
 	}
-	
-	@RequestMapping(value="/{board}" ,method=RequestMethod.GET)
-	public ModelAndView list3(@ModelAttribute("board")Board2 board) throws Exception{
-		List<Board2> list3 = boardMapper.boardList2();
-		
-		ModelAndView view = new ModelAndView();
-		
-		view.addObject("list",list3);
-		view.setViewName("boardlist2");
-		
-		return view;
-	}
-
 }

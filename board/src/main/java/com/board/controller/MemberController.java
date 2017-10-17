@@ -44,9 +44,12 @@ public class MemberController {
 	}
 	
 	@RequestMapping(value="/{username}", method=RequestMethod.PATCH)
-	public String update(@ModelAttribute("User")User user,@PathVariable("username")String username) throws Exception{
+	public ModelAndView update(@ModelAttribute("User")User user,@PathVariable("username")String username) throws Exception{
 		userMapper.memberUpdate(user);
-		return "redirect://localhost:8080/member";
+		ModelAndView mv = new ModelAndView();
+		mv.setViewName("boardList");
+		return mv;
+		
 	}
 	
 }

@@ -6,9 +6,9 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 <mapper namespace="com.board.mapper.ReplyMapper">
  
     <insert id="replyInsert" parameterType="com.board.domain.Reply">
-        insert into Reply(bno,r_name,r_password,r_content,r_date)
+        insert into Reply(bno,r_name,r_content,r_date)
             values
-        (#{bno},#{r_name},#{r_password},#{r_content},now())
+        (#{bno},#{r_name},#{r_content},now())
     </insert>
     
     <select id="replyList" parameterType="int" resultType="com.board.domain.Reply">

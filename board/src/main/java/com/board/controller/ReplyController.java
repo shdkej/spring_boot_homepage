@@ -1,6 +1,6 @@
 package com.board.controller;
 
-import org.apache.catalina.servlet4preview.http.HttpServletRequest;
+import javax.servlet.http.HttpServletRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import com.board.domain.Reply;
 import com.board.domain.User;
 import com.board.mapper.ReplyMapper;
+import com.board.service.NotificationService;
 
 @Controller
 public class ReplyController {
@@ -23,17 +24,19 @@ public class ReplyController {
 	public String replyInsert(@ModelAttribute("Reply")Reply reply,HttpServletRequest request,@ModelAttribute("User") User user) throws Exception{
 		
 		String bno = request.getParameter("bno");
-		
-		
-		/*
-		String r_name = request.getParameter("r_name");
-		int r_no = Integer.parseInt(request.getParameter("r_no"));
-		r_no++;
-		*/
-		
 		replyMapper.replyInsert(reply);
-		
+		String name = request.getUserPrincipal().getName();
+		NotificationService.start();
+		NotificationService.send(name);
 		return "redirect://localhost:8080/board/"+bno;
+	}
+	
+	@RequestMapping(value="/reply/delete/{bno}", method=RequestMethod.DELETE)
+	public String delete(@PathVariable("bno") int bno) throws Exception{
+		
+		replyMapper.replyDelete(bno);
+		
+		return "redirect://localhost:8080/board/";
 	}
 	
 

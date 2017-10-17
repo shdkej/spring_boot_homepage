@@ -27,6 +27,7 @@
 
 				<table class="table table-striped">
 					<tr>
+						
 						<td width="100%"><input name="subject" maxlength="100"
 							placeholder="제목" class="form-control border-input"></td>
 						<td><input type="hidden" name="writer" size="50"

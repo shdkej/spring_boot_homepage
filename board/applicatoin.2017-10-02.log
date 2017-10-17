@@ -1,0 +1,678 @@
+2017:10:02 14:27:26.221 INFO  --- [main] com.board.BoardApplication : Starting BoardApplication on HP with PID 1284 (A:\Develop\workspace\board\target\classes started by pi in A:\Develop\workspace\board) 
+2017:10:02 14:27:26.230 INFO  --- [main] com.board.BoardApplication : No active profile set, falling back to default profiles: default 
+2017:10:02 14:27:26.294 INFO  --- [main] o.s.b.c.e.AnnotationConfigEmbeddedWebApplicationContext : Refreshing org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@1b61f4a: startup date [Mon Oct 02 14:27:26 KST 2017]; root of context hierarchy 
+2017:10:02 14:27:28.046 INFO  --- [main] o.s.b.c.e.t.TomcatEmbeddedServletContainer : Tomcat initialized with port(s): 8080 (http) 
+2017:10:02 14:27:28.064 INFO  --- [main] o.a.catalina.core.StandardService : Starting service Tomcat 
+2017:10:02 14:27:28.065 INFO  --- [main] o.a.catalina.core.StandardEngine : Starting Servlet Engine: Apache Tomcat/8.5.14 
+2017:10:02 14:27:28.299 INFO  --- [localhost-startStop-1] o.apache.jasper.servlet.TldScanner : At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time. 
+2017:10:02 14:27:28.304 INFO  --- [localhost-startStop-1] o.a.c.c.C.[Tomcat].[localhost].[/] : Initializing Spring embedded WebApplicationContext 
+2017:10:02 14:27:28.309 INFO  --- [localhost-startStop-1] o.s.web.context.ContextLoader : Root WebApplicationContext: initialization completed in 2014 ms 
+2017:10:02 14:27:28.501 INFO  --- [localhost-startStop-1] o.s.b.w.s.FilterRegistrationBean : Mapping filter: 'simpleCorsFilter' to: [/*] 
+2017:10:02 14:27:28.501 INFO  --- [localhost-startStop-1] o.s.b.w.s.FilterRegistrationBean : Mapping filter: 'characterEncodingFilter' to: [/*] 
+2017:10:02 14:27:28.502 INFO  --- [localhost-startStop-1] o.s.b.w.s.FilterRegistrationBean : Mapping filter: 'httpPutFormContentFilter' to: [/*] 
+2017:10:02 14:27:28.507 INFO  --- [localhost-startStop-1] o.s.b.w.s.FilterRegistrationBean : Mapping filter: 'requestContextFilter' to: [/*] 
+2017:10:02 14:27:28.508 INFO  --- [localhost-startStop-1] o.s.b.w.s.DelegatingFilterProxyRegistrationBean : Mapping filter: 'springSecurityFilterChain' to: [/*] 
+2017:10:02 14:27:28.509 INFO  --- [localhost-startStop-1] o.s.b.w.s.FilterRegistrationBean : Mapping filter: 'hiddenHttpMethodFilter' to: [/*] 
+2017:10:02 14:27:28.509 INFO  --- [localhost-startStop-1] o.s.b.w.s.ServletRegistrationBean : Mapping servlet: 'dispatcherServlet' to [/] 
+2017:10:02 14:27:29.834 INFO  --- [main] o.s.s.w.DefaultSecurityFilterChain : Creating filter chain: org.springframework.security.web.util.matcher.AnyRequestMatcher@1, [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@12bfea, org.springframework.security.web.context.SecurityContextPersistenceFilter@573c86, org.springframework.security.web.header.HeaderWriterFilter@2b06fb, org.springframework.security.web.authentication.logout.LogoutFilter@6cf771, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@117b708, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@229fa7, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@d1f1d4, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@a6a68e, org.springframework.security.web.session.SessionManagementFilter@534b5b, org.springframework.security.web.access.ExceptionTranslationFilter@1d7796b, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@35d3ed] 
+2017:10:02 14:27:29.927 INFO  --- [main] o.s.w.s.m.m.a.RequestMappingHandlerAdapter : Looking for @ControllerAdvice: org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@1b61f4a: startup date [Mon Oct 02 14:27:26 KST 2017]; root of context hierarchy 
+2017:10:02 14:27:30.005 INFO  --- [main] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/board/post/{bno}],methods=[PATCH]}" onto public java.lang.String com.board.controller.BoardListController.update(com.board.domain.BoardVO,int) throws java.lang.Exception 
+2017:10:02 14:27:30.007 INFO  --- [main] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/board/post],methods=[POST]}" onto public java.lang.String com.board.controller.BoardListController.write(com.board.domain.BoardVO) throws java.lang.Exception 
+2017:10:02 14:27:30.018 INFO  --- [main] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/board/delete/{bno}],methods=[DELETE]}" onto public java.lang.String com.board.controller.BoardListController.delete(int) throws java.lang.Exception 
+2017:10:02 14:27:30.019 INFO  --- [main] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/board],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView com.board.controller.BoardListController.list() throws java.lang.Exception 
+2017:10:02 14:27:30.019 INFO  --- [main] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/board/post/{bno}],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView com.board.controller.BoardListController.updateForm(int) throws java.lang.Exception 
+2017:10:02 14:27:30.019 INFO  --- [main] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/board/{bno}],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView com.board.controller.BoardListController.view(int) throws java.lang.Exception 
+2017:10:02 14:27:30.024 INFO  --- [main] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/board/post],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView com.board.controller.BoardListController.writeForm() throws java.lang.Exception 
+2017:10:02 14:27:30.025 INFO  --- [main] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/board/daily],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView com.board.controller.BoardListController.list3(javax.servlet.http.HttpServletRequest) throws java.lang.Exception 
+2017:10:02 14:27:30.025 INFO  --- [main] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/board],methods=[POST]}" onto public org.springframework.web.servlet.ModelAndView com.board.controller.BoardListController.list2() throws java.lang.Exception 
+2017:10:02 14:27:30.026 INFO  --- [main] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/createmember],methods=[POST]}" onto public java.lang.String com.board.controller.LoginController.join(com.board.domain.User) throws java.lang.Exception 
+2017:10:02 14:27:30.026 INFO  --- [main] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/login],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView com.board.controller.LoginController.login() throws java.lang.Exception 
+2017:10:02 14:27:30.027 INFO  --- [main] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/login],methods=[POST]}" onto public java.lang.String com.board.controller.LoginController.login(com.board.domain.AuthenticationRequest,javax.servlet.http.HttpSession) throws java.io.IOException 
+2017:10:02 14:27:30.027 INFO  --- [main] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/createmember],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView com.board.controller.LoginController.joinform() throws java.lang.Exception 
+2017:10:02 14:27:30.029 INFO  --- [main] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/member/{username}],methods=[PATCH]}" onto public java.lang.String com.board.controller.MemberController.update(com.board.domain.User,java.lang.String) throws java.lang.Exception 
+2017:10:02 14:27:30.034 INFO  --- [main] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/member],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView com.board.controller.MemberController.list(org.springframework.security.core.userdetails.UserDetails) throws com.board.controller.CustomAuthException 
+2017:10:02 14:27:30.034 INFO  --- [main] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/member/{username}],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView com.board.controller.MemberController.updateform(java.lang.String) throws java.lang.Exception 
+2017:10:02 14:27:30.035 INFO  --- [main] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/reply/delete/{bno}],methods=[DELETE]}" onto public java.lang.String com.board.controller.ReplyController.delete(int) throws java.lang.Exception 
+2017:10:02 14:27:30.036 INFO  --- [main] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/reply],methods=[POST]}" onto public java.lang.String com.board.controller.ReplyController.replyInsert(com.board.domain.Reply,javax.servlet.http.HttpServletRequest,com.board.domain.User) throws java.lang.Exception 
+2017:10:02 14:27:30.038 INFO  --- [main] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/sign/{docno}],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView com.board.controller.SignBoardController.signwrite(int,org.springframework.security.core.userdetails.UserDetails) throws java.lang.Exception 
+2017:10:02 14:27:30.038 INFO  --- [main] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/sign],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView com.board.controller.SignBoardController.signready(org.springframework.security.core.userdetails.UserDetails) throws java.lang.Exception 
+2017:10:02 14:27:30.038 INFO  --- [main] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/sign/post],methods=[POST]}" onto public java.lang.String com.board.controller.SignBoardController.signpost(com.board.domain.Sign) throws java.lang.Exception 
+2017:10:02 14:27:30.038 INFO  --- [main] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/sign/check/{signno}],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView com.board.controller.SignBoardController.signview(int,org.springframework.security.core.userdetails.UserDetails) throws java.lang.Exception 
+2017:10:02 14:27:30.040 INFO  --- [main] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/sign/permit],methods=[POST]}" onto public java.lang.String com.board.controller.SignBoardController.signok(org.springframework.security.core.userdetails.UserDetails,com.board.domain.Sign) throws java.lang.Exception 
+2017:10:02 14:27:30.040 INFO  --- [main] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/sign/post],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView com.board.controller.SignBoardController.signlist() throws java.lang.Exception 
+2017:10:02 14:27:30.042 INFO  --- [main] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/error]}" onto public org.springframework.http.ResponseEntity<java.util.Map<java.lang.String, java.lang.Object>> org.springframework.boot.autoconfigure.web.BasicErrorController.error(javax.servlet.http.HttpServletRequest) 
+2017:10:02 14:27:30.043 INFO  --- [main] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/error],produces=[text/html]}" onto public org.springframework.web.servlet.ModelAndView org.springframework.boot.autoconfigure.web.BasicErrorController.errorHtml(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse) 
+2017:10:02 14:27:30.074 INFO  --- [main] o.s.w.s.h.SimpleUrlHandlerMapping : Mapped URL path [/webjars/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler] 
+2017:10:02 14:27:30.075 INFO  --- [main] o.s.w.s.h.SimpleUrlHandlerMapping : Mapped URL path [/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler] 
+2017:10:02 14:27:30.122 INFO  --- [main] o.s.w.s.h.SimpleUrlHandlerMapping : Mapped URL path [/**/favicon.ico] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler] 
+2017:10:02 14:27:30.136 INFO  --- [main] o.s.b.a.w.WebMvcAutoConfiguration$WelcomePageHandlerMapping : Adding welcome page: class path resource [static/index.html] 
+2017:10:02 14:27:30.342 INFO  --- [main] o.s.j.e.a.AnnotationMBeanExporter : Registering beans for JMX exposure on startup 
+2017:10:02 14:27:30.410 INFO  --- [main] o.s.b.c.e.t.TomcatEmbeddedServletContainer : Tomcat started on port(s): 8080 (http) 
+2017:10:02 14:27:30.414 INFO  --- [main] com.board.BoardApplication : Started BoardApplication in 4.601 seconds (JVM running for 5.294) 
+2017:10:02 14:27:40.640 INFO  --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/] : Initializing Spring FrameworkServlet 'dispatcherServlet' 
+2017:10:02 14:27:40.652 INFO  --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet : FrameworkServlet 'dispatcherServlet': initialization started 
+2017:10:02 14:27:40.684 INFO  --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet : FrameworkServlet 'dispatcherServlet': initialization completed in 32 ms 
+2017:10:02 14:29:18.416 INFO  --- [main] com.board.BoardApplication : Starting BoardApplication on HP with PID 7864 (A:\Develop\workspace\board\target\classes started by pi in A:\Develop\workspace\board) 
+2017:10:02 14:29:18.422 INFO  --- [main] com.board.BoardApplication : No active profile set, falling back to default profiles: default 
+2017:10:02 14:29:18.469 INFO  --- [main] o.s.b.c.e.AnnotationConfigEmbeddedWebApplicationContext : Refreshing org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@1b61f4a: startup date [Mon Oct 02 14:29:18 KST 2017]; root of context hierarchy 
+2017:10:02 14:29:19.958 INFO  --- [main] o.s.b.c.e.t.TomcatEmbeddedServletContainer : Tomcat initialized with port(s): 8080 (http) 
+2017:10:02 14:29:19.971 INFO  --- [main] o.a.catalina.core.StandardService : Starting service Tomcat 
+2017:10:02 14:29:19.971 INFO  --- [main] o.a.catalina.core.StandardEngine : Starting Servlet Engine: Apache Tomcat/8.5.14 
+2017:10:02 14:29:20.202 INFO  --- [localhost-startStop-1] o.apache.jasper.servlet.TldScanner : At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time. 
+2017:10:02 14:29:20.204 INFO  --- [localhost-startStop-1] o.a.c.c.C.[Tomcat].[localhost].[/] : Initializing Spring embedded WebApplicationContext 
+2017:10:02 14:29:20.204 INFO  --- [localhost-startStop-1] o.s.web.context.ContextLoader : Root WebApplicationContext: initialization completed in 1735 ms 
+2017:10:02 14:29:20.382 INFO  --- [localhost-startStop-1] o.s.b.w.s.FilterRegistrationBean : Mapping filter: 'simpleCorsFilter' to: [/*] 
+2017:10:02 14:29:20.382 INFO  --- [localhost-startStop-1] o.s.b.w.s.FilterRegistrationBean : Mapping filter: 'characterEncodingFilter' to: [/*] 
+2017:10:02 14:29:20.382 INFO  --- [localhost-startStop-1] o.s.b.w.s.FilterRegistrationBean : Mapping filter: 'httpPutFormContentFilter' to: [/*] 
+2017:10:02 14:29:20.382 INFO  --- [localhost-startStop-1] o.s.b.w.s.FilterRegistrationBean : Mapping filter: 'requestContextFilter' to: [/*] 
+2017:10:02 14:29:20.382 INFO  --- [localhost-startStop-1] o.s.b.w.s.DelegatingFilterProxyRegistrationBean : Mapping filter: 'springSecurityFilterChain' to: [/*] 
+2017:10:02 14:29:20.382 INFO  --- [localhost-startStop-1] o.s.b.w.s.FilterRegistrationBean : Mapping filter: 'hiddenHttpMethodFilter' to: [/*] 
+2017:10:02 14:29:20.382 INFO  --- [localhost-startStop-1] o.s.b.w.s.ServletRegistrationBean : Mapping servlet: 'dispatcherServlet' to [/] 
+2017:10:02 14:29:21.606 INFO  --- [main] o.s.s.w.DefaultSecurityFilterChain : Creating filter chain: org.springframework.security.web.util.matcher.AnyRequestMatcher@1, [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@c587de, org.springframework.security.web.context.SecurityContextPersistenceFilter@e53f6a, org.springframework.security.web.header.HeaderWriterFilter@d1f1d4, org.springframework.security.web.authentication.logout.LogoutFilter@1962194, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@9a1f8d, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@e69ad8, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@1d8c559, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@db8504, org.springframework.security.web.session.SessionManagementFilter@389761, org.springframework.security.web.access.ExceptionTranslationFilter@f19647, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@15e3f51] 
+2017:10:02 14:29:21.686 INFO  --- [main] o.s.w.s.m.m.a.RequestMappingHandlerAdapter : Looking for @ControllerAdvice: org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@1b61f4a: startup date [Mon Oct 02 14:29:18 KST 2017]; root of context hierarchy 
+2017:10:02 14:29:21.823 INFO  --- [main] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/board/post/{bno}],methods=[PATCH]}" onto public java.lang.String com.board.controller.BoardListController.update(com.board.domain.BoardVO,int) throws java.lang.Exception 
+2017:10:02 14:29:21.823 INFO  --- [main] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/board/post],methods=[POST]}" onto public java.lang.String com.board.controller.BoardListController.write(com.board.domain.BoardVO) throws java.lang.Exception 
+2017:10:02 14:29:21.839 INFO  --- [main] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/board/delete/{bno}],methods=[DELETE]}" onto public java.lang.String com.board.controller.BoardListController.delete(int) throws java.lang.Exception 
+2017:10:02 14:29:21.839 INFO  --- [main] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/board],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView com.board.controller.BoardListController.list() throws java.lang.Exception 
+2017:10:02 14:29:21.839 INFO  --- [main] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/board/post/{bno}],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView com.board.controller.BoardListController.updateForm(int) throws java.lang.Exception 
+2017:10:02 14:29:21.839 INFO  --- [main] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/board/{bno}],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView com.board.controller.BoardListController.view(int) throws java.lang.Exception 
+2017:10:02 14:29:21.839 INFO  --- [main] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/board/post],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView com.board.controller.BoardListController.writeForm() throws java.lang.Exception 
+2017:10:02 14:29:21.839 INFO  --- [main] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/board],methods=[POST]}" onto public org.springframework.web.servlet.ModelAndView com.board.controller.BoardListController.list2() throws java.lang.Exception 
+2017:10:02 14:29:21.839 INFO  --- [main] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/board/daily],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView com.board.controller.BoardListController.list3(javax.servlet.http.HttpServletRequest) throws java.lang.Exception 
+2017:10:02 14:29:21.839 INFO  --- [main] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/createmember],methods=[POST]}" onto public java.lang.String com.board.controller.LoginController.join(com.board.domain.User) throws java.lang.Exception 
+2017:10:02 14:29:21.839 INFO  --- [main] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/login],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView com.board.controller.LoginController.login() throws java.lang.Exception 
+2017:10:02 14:29:21.839 INFO  --- [main] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/login],methods=[POST]}" onto public java.lang.String com.board.controller.LoginController.login(com.board.domain.AuthenticationRequest,javax.servlet.http.HttpSession) throws java.io.IOException 
+2017:10:02 14:29:21.839 INFO  --- [main] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/createmember],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView com.board.controller.LoginController.joinform() throws java.lang.Exception 
+2017:10:02 14:29:21.839 INFO  --- [main] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/member/{username}],methods=[PATCH]}" onto public java.lang.String com.board.controller.MemberController.update(com.board.domain.User,java.lang.String) throws java.lang.Exception 
+2017:10:02 14:29:21.855 INFO  --- [main] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/member],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView com.board.controller.MemberController.list(org.springframework.security.core.userdetails.UserDetails) throws com.board.controller.CustomAuthException 
+2017:10:02 14:29:21.855 INFO  --- [main] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/member/{username}],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView com.board.controller.MemberController.updateform(java.lang.String) throws java.lang.Exception 
+2017:10:02 14:29:21.855 INFO  --- [main] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/reply/delete/{bno}],methods=[DELETE]}" onto public java.lang.String com.board.controller.ReplyController.delete(int) throws java.lang.Exception 
+2017:10:02 14:29:21.855 INFO  --- [main] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/reply],methods=[POST]}" onto public java.lang.String com.board.controller.ReplyController.replyInsert(com.board.domain.Reply,javax.servlet.http.HttpServletRequest,com.board.domain.User) throws java.lang.Exception 
+2017:10:02 14:29:21.855 INFO  --- [main] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/sign],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView com.board.controller.SignBoardController.signready(org.springframework.security.core.userdetails.UserDetails) throws java.lang.Exception 
+2017:10:02 14:29:21.855 INFO  --- [main] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/sign/{docno}],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView com.board.controller.SignBoardController.signwrite(int,org.springframework.security.core.userdetails.UserDetails) throws java.lang.Exception 
+2017:10:02 14:29:21.855 INFO  --- [main] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/sign/post],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView com.board.controller.SignBoardController.signlist() throws java.lang.Exception 
+2017:10:02 14:29:21.855 INFO  --- [main] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/sign/post],methods=[POST]}" onto public java.lang.String com.board.controller.SignBoardController.signpost(com.board.domain.Sign) throws java.lang.Exception 
+2017:10:02 14:29:21.855 INFO  --- [main] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/sign/check/{signno}],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView com.board.controller.SignBoardController.signview(int,org.springframework.security.core.userdetails.UserDetails) throws java.lang.Exception 
+2017:10:02 14:29:21.855 INFO  --- [main] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/sign/permit],methods=[POST]}" onto public java.lang.String com.board.controller.SignBoardController.signok(org.springframework.security.core.userdetails.UserDetails,com.board.domain.Sign) throws java.lang.Exception 
+2017:10:02 14:29:21.855 INFO  --- [main] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/error]}" onto public org.springframework.http.ResponseEntity<java.util.Map<java.lang.String, java.lang.Object>> org.springframework.boot.autoconfigure.web.BasicErrorController.error(javax.servlet.http.HttpServletRequest) 
+2017:10:02 14:29:21.855 INFO  --- [main] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/error],produces=[text/html]}" onto public org.springframework.web.servlet.ModelAndView org.springframework.boot.autoconfigure.web.BasicErrorController.errorHtml(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse) 
+2017:10:02 14:29:21.886 INFO  --- [main] o.s.w.s.h.SimpleUrlHandlerMapping : Mapped URL path [/webjars/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler] 
+2017:10:02 14:29:21.886 INFO  --- [main] o.s.w.s.h.SimpleUrlHandlerMapping : Mapped URL path [/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler] 
+2017:10:02 14:29:21.924 INFO  --- [main] o.s.w.s.h.SimpleUrlHandlerMapping : Mapped URL path [/**/favicon.ico] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler] 
+2017:10:02 14:29:21.939 INFO  --- [main] o.s.b.a.w.WebMvcAutoConfiguration$WelcomePageHandlerMapping : Adding welcome page: class path resource [static/index.html] 
+2017:10:02 14:29:22.156 INFO  --- [main] o.s.j.e.a.AnnotationMBeanExporter : Registering beans for JMX exposure on startup 
+2017:10:02 14:29:22.224 INFO  --- [main] o.s.b.c.e.t.TomcatEmbeddedServletContainer : Tomcat started on port(s): 8080 (http) 
+2017:10:02 14:29:22.224 INFO  --- [main] com.board.BoardApplication : Started BoardApplication in 4.225 seconds (JVM running for 4.882) 
+2017:10:02 14:29:27.198 INFO  --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/] : Initializing Spring FrameworkServlet 'dispatcherServlet' 
+2017:10:02 14:29:27.205 INFO  --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet : FrameworkServlet 'dispatcherServlet': initialization started 
+2017:10:02 14:29:27.234 INFO  --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet : FrameworkServlet 'dispatcherServlet': initialization completed in 29 ms 
+2017:10:02 14:29:28.502 ERROR --- [http-nio-8080-exec-1] o.a.tomcat.jdbc.pool.ConnectionPool : Unable to create initial connections of pool. 
+org.postgresql.util.PSQLException: Connection refused. Check that the hostname and port are correct and that the postmaster is accepting TCP/IP connections.
+	at org.postgresql.core.v3.ConnectionFactoryImpl.openConnectionImpl(ConnectionFactoryImpl.java:136)
+	at org.postgresql.core.ConnectionFactory.openConnection(ConnectionFactory.java:66)
+	at org.postgresql.jdbc2.AbstractJdbc2Connection.<init>(AbstractJdbc2Connection.java:125)
+	at org.postgresql.jdbc3.AbstractJdbc3Connection.<init>(AbstractJdbc3Connection.java:30)
+	at org.postgresql.jdbc3g.AbstractJdbc3gConnection.<init>(AbstractJdbc3gConnection.java:22)
+	at org.postgresql.jdbc4.AbstractJdbc4Connection.<init>(AbstractJdbc4Connection.java:30)
+	at org.postgresql.jdbc4.Jdbc4Connection.<init>(Jdbc4Connection.java:24)
+	at org.postgresql.Driver.makeConnection(Driver.java:393)
+	at org.postgresql.Driver.connect(Driver.java:267)
+	at org.apache.tomcat.jdbc.pool.PooledConnection.connectUsingDriver(PooledConnection.java:310)
+	at org.apache.tomcat.jdbc.pool.PooledConnection.connect(PooledConnection.java:203)
+	at org.apache.tomcat.jdbc.pool.ConnectionPool.createConnection(ConnectionPool.java:735)
+	at org.apache.tomcat.jdbc.pool.ConnectionPool.borrowConnection(ConnectionPool.java:667)
+	at org.apache.tomcat.jdbc.pool.ConnectionPool.init(ConnectionPool.java:482)
+	at org.apache.tomcat.jdbc.pool.ConnectionPool.<init>(ConnectionPool.java:154)
+	at org.apache.tomcat.jdbc.pool.DataSourceProxy.pCreatePool(DataSourceProxy.java:118)
+	at org.apache.tomcat.jdbc.pool.DataSourceProxy.createPool(DataSourceProxy.java:107)
+	at org.apache.tomcat.jdbc.pool.DataSourceProxy.getConnection(DataSourceProxy.java:131)
+	at org.springframework.jdbc.datasource.DataSourceUtils.doGetConnection(DataSourceUtils.java:111)
+	at org.springframework.jdbc.datasource.DataSourceUtils.getConnection(DataSourceUtils.java:77)
+	at org.mybatis.spring.transaction.SpringManagedTransaction.openConnection(SpringManagedTransaction.java:82)
+	at org.mybatis.spring.transaction.SpringManagedTransaction.getConnection(SpringManagedTransaction.java:68)
+	at org.apache.ibatis.executor.BaseExecutor.getConnection(BaseExecutor.java:336)
+	at org.apache.ibatis.executor.SimpleExecutor.prepareStatement(SimpleExecutor.java:84)
+	at org.apache.ibatis.executor.SimpleExecutor.doQuery(SimpleExecutor.java:62)
+	at org.apache.ibatis.executor.BaseExecutor.queryFromDatabase(BaseExecutor.java:324)
+	at org.apache.ibatis.executor.BaseExecutor.query(BaseExecutor.java:156)
+	at org.apache.ibatis.executor.CachingExecutor.query(CachingExecutor.java:109)
+	at org.apache.ibatis.executor.CachingExecutor.query(CachingExecutor.java:83)
+	at org.apache.ibatis.session.defaults.DefaultSqlSession.selectList(DefaultSqlSession.java:148)
+	at org.apache.ibatis.session.defaults.DefaultSqlSession.selectList(DefaultSqlSession.java:141)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.mybatis.spring.SqlSessionTemplate$SqlSessionInterceptor.invoke(SqlSessionTemplate.java:433)
+	at com.sun.proxy.$Proxy60.selectList(Unknown Source)
+	at org.mybatis.spring.SqlSessionTemplate.selectList(SqlSessionTemplate.java:230)
+	at org.apache.ibatis.binding.MapperMethod.executeForMany(MapperMethod.java:137)
+	at org.apache.ibatis.binding.MapperMethod.execute(MapperMethod.java:75)
+	at org.apache.ibatis.binding.MapperProxy.invoke(MapperProxy.java:59)
+	at com.sun.proxy.$Proxy61.boardList(Unknown Source)
+	at com.board.controller.BoardListController.list(BoardListController.java:39)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:205)
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:133)
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:97)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:827)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:738)
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:85)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:963)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:897)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:970)
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:861)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:635)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:846)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:742)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:231)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:52)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.HiddenHttpMethodFilter.doFilterInternal(HiddenHttpMethodFilter.java:81)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:317)
+	at org.springframework.security.web.access.intercept.FilterSecurityInterceptor.invoke(FilterSecurityInterceptor.java:127)
+	at org.springframework.security.web.access.intercept.FilterSecurityInterceptor.doFilter(FilterSecurityInterceptor.java:91)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:331)
+	at org.springframework.security.web.access.ExceptionTranslationFilter.doFilter(ExceptionTranslationFilter.java:114)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:331)
+	at org.springframework.security.web.session.SessionManagementFilter.doFilter(SessionManagementFilter.java:137)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:331)
+	at org.springframework.security.web.authentication.AnonymousAuthenticationFilter.doFilter(AnonymousAuthenticationFilter.java:111)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:331)
+	at org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter.doFilter(SecurityContextHolderAwareRequestFilter.java:170)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:331)
+	at org.springframework.security.web.savedrequest.RequestCacheAwareFilter.doFilter(RequestCacheAwareFilter.java:63)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:331)
+	at org.springframework.security.web.authentication.AbstractAuthenticationProcessingFilter.doFilter(AbstractAuthenticationProcessingFilter.java:200)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:331)
+	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:116)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:331)
+	at org.springframework.security.web.header.HeaderWriterFilter.doFilterInternal(HeaderWriterFilter.java:64)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:331)
+	at org.springframework.security.web.context.SecurityContextPersistenceFilter.doFilter(SecurityContextPersistenceFilter.java:105)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:331)
+	at org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter.doFilterInternal(WebAsyncManagerIntegrationFilter.java:56)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:331)
+	at org.springframework.security.web.FilterChainProxy.doFilterInternal(FilterChainProxy.java:214)
+	at org.springframework.security.web.FilterChainProxy.doFilter(FilterChainProxy.java:177)
+	at org.springframework.web.filter.DelegatingFilterProxy.invokeDelegate(DelegatingFilterProxy.java:346)
+	at org.springframework.web.filter.DelegatingFilterProxy.doFilter(DelegatingFilterProxy.java:262)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:99)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.HttpPutFormContentFilter.doFilterInternal(HttpPutFormContentFilter.java:105)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:197)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at com.board.SimpleCorsFilter.doFilter(SimpleCorsFilter.java:29)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:198)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:96)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:478)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:140)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:80)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:87)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:342)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:799)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:66)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:861)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1455)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.lang.Thread.run(Thread.java:748)
+Caused by: java.net.ConnectException: Connection refused: connect
+	at java.net.DualStackPlainSocketImpl.connect0(Native Method)
+	at java.net.DualStackPlainSocketImpl.socketConnect(DualStackPlainSocketImpl.java:79)
+	at java.net.AbstractPlainSocketImpl.doConnect(AbstractPlainSocketImpl.java:350)
+	at java.net.AbstractPlainSocketImpl.connectToAddress(AbstractPlainSocketImpl.java:206)
+	at java.net.AbstractPlainSocketImpl.connect(AbstractPlainSocketImpl.java:188)
+	at java.net.PlainSocketImpl.connect(PlainSocketImpl.java:172)
+	at java.net.SocksSocketImpl.connect(SocksSocketImpl.java:392)
+	at java.net.Socket.connect(Socket.java:589)
+	at java.net.Socket.connect(Socket.java:538)
+	at java.net.Socket.<init>(Socket.java:434)
+	at java.net.Socket.<init>(Socket.java:211)
+	at org.postgresql.core.PGStream.<init>(PGStream.java:62)
+	at org.postgresql.core.v3.ConnectionFactoryImpl.openConnectionImpl(ConnectionFactoryImpl.java:76)
+	... 131 common frames omitted
+2017:10:02 14:29:28.538 ERROR --- [http-nio-8080-exec-1] o.a.c.c.C.[.[.[.[dispatcherServlet] : Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed; nested exception is org.mybatis.spring.MyBatisSystemException: nested exception is org.apache.ibatis.exceptions.PersistenceException: 
+### Error querying database.  Cause: org.springframework.jdbc.CannotGetJdbcConnectionException: Could not get JDBC Connection; nested exception is org.postgresql.util.PSQLException: Connection refused. Check that the hostname and port are correct and that the postmaster is accepting TCP/IP connections.
+### The error may exist in file [A:\Develop\workspace\board\target\classes\mappers\boardMapper.xml]
+### The error may involve com.board.mapper.BoardMapper.boardList
+### The error occurred while executing a query
+### Cause: org.springframework.jdbc.CannotGetJdbcConnectionException: Could not get JDBC Connection; nested exception is org.postgresql.util.PSQLException: Connection refused. Check that the hostname and port are correct and that the postmaster is accepting TCP/IP connections.] with root cause 
+java.net.ConnectException: Connection refused: connect
+	at java.net.DualStackPlainSocketImpl.connect0(Native Method)
+	at java.net.DualStackPlainSocketImpl.socketConnect(DualStackPlainSocketImpl.java:79)
+	at java.net.AbstractPlainSocketImpl.doConnect(AbstractPlainSocketImpl.java:350)
+	at java.net.AbstractPlainSocketImpl.connectToAddress(AbstractPlainSocketImpl.java:206)
+	at java.net.AbstractPlainSocketImpl.connect(AbstractPlainSocketImpl.java:188)
+	at java.net.PlainSocketImpl.connect(PlainSocketImpl.java:172)
+	at java.net.SocksSocketImpl.connect(SocksSocketImpl.java:392)
+	at java.net.Socket.connect(Socket.java:589)
+	at java.net.Socket.connect(Socket.java:538)
+	at java.net.Socket.<init>(Socket.java:434)
+	at java.net.Socket.<init>(Socket.java:211)
+	at org.postgresql.core.PGStream.<init>(PGStream.java:62)
+	at org.postgresql.core.v3.ConnectionFactoryImpl.openConnectionImpl(ConnectionFactoryImpl.java:76)
+	at org.postgresql.core.ConnectionFactory.openConnection(ConnectionFactory.java:66)
+	at org.postgresql.jdbc2.AbstractJdbc2Connection.<init>(AbstractJdbc2Connection.java:125)
+	at org.postgresql.jdbc3.AbstractJdbc3Connection.<init>(AbstractJdbc3Connection.java:30)
+	at org.postgresql.jdbc3g.AbstractJdbc3gConnection.<init>(AbstractJdbc3gConnection.java:22)
+	at org.postgresql.jdbc4.AbstractJdbc4Connection.<init>(AbstractJdbc4Connection.java:30)
+	at org.postgresql.jdbc4.Jdbc4Connection.<init>(Jdbc4Connection.java:24)
+	at org.postgresql.Driver.makeConnection(Driver.java:393)
+	at org.postgresql.Driver.connect(Driver.java:267)
+	at org.apache.tomcat.jdbc.pool.PooledConnection.connectUsingDriver(PooledConnection.java:310)
+	at org.apache.tomcat.jdbc.pool.PooledConnection.connect(PooledConnection.java:203)
+	at org.apache.tomcat.jdbc.pool.ConnectionPool.createConnection(ConnectionPool.java:735)
+	at org.apache.tomcat.jdbc.pool.ConnectionPool.borrowConnection(ConnectionPool.java:667)
+	at org.apache.tomcat.jdbc.pool.ConnectionPool.init(ConnectionPool.java:482)
+	at org.apache.tomcat.jdbc.pool.ConnectionPool.<init>(ConnectionPool.java:154)
+	at org.apache.tomcat.jdbc.pool.DataSourceProxy.pCreatePool(DataSourceProxy.java:118)
+	at org.apache.tomcat.jdbc.pool.DataSourceProxy.createPool(DataSourceProxy.java:107)
+	at org.apache.tomcat.jdbc.pool.DataSourceProxy.getConnection(DataSourceProxy.java:131)
+	at org.springframework.jdbc.datasource.DataSourceUtils.doGetConnection(DataSourceUtils.java:111)
+	at org.springframework.jdbc.datasource.DataSourceUtils.getConnection(DataSourceUtils.java:77)
+	at org.mybatis.spring.transaction.SpringManagedTransaction.openConnection(SpringManagedTransaction.java:82)
+	at org.mybatis.spring.transaction.SpringManagedTransaction.getConnection(SpringManagedTransaction.java:68)
+	at org.apache.ibatis.executor.BaseExecutor.getConnection(BaseExecutor.java:336)
+	at org.apache.ibatis.executor.SimpleExecutor.prepareStatement(SimpleExecutor.java:84)
+	at org.apache.ibatis.executor.SimpleExecutor.doQuery(SimpleExecutor.java:62)
+	at org.apache.ibatis.executor.BaseExecutor.queryFromDatabase(BaseExecutor.java:324)
+	at org.apache.ibatis.executor.BaseExecutor.query(BaseExecutor.java:156)
+	at org.apache.ibatis.executor.CachingExecutor.query(CachingExecutor.java:109)
+	at org.apache.ibatis.executor.CachingExecutor.query(CachingExecutor.java:83)
+	at org.apache.ibatis.session.defaults.DefaultSqlSession.selectList(DefaultSqlSession.java:148)
+	at org.apache.ibatis.session.defaults.DefaultSqlSession.selectList(DefaultSqlSession.java:141)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.mybatis.spring.SqlSessionTemplate$SqlSessionInterceptor.invoke(SqlSessionTemplate.java:433)
+	at com.sun.proxy.$Proxy60.selectList(Unknown Source)
+	at org.mybatis.spring.SqlSessionTemplate.selectList(SqlSessionTemplate.java:230)
+	at org.apache.ibatis.binding.MapperMethod.executeForMany(MapperMethod.java:137)
+	at org.apache.ibatis.binding.MapperMethod.execute(MapperMethod.java:75)
+	at org.apache.ibatis.binding.MapperProxy.invoke(MapperProxy.java:59)
+	at com.sun.proxy.$Proxy61.boardList(Unknown Source)
+	at com.board.controller.BoardListController.list(BoardListController.java:39)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:205)
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:133)
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:97)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:827)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:738)
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:85)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:963)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:897)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:970)
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:861)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:635)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:846)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:742)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:231)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:52)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.HiddenHttpMethodFilter.doFilterInternal(HiddenHttpMethodFilter.java:81)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:317)
+	at org.springframework.security.web.access.intercept.FilterSecurityInterceptor.invoke(FilterSecurityInterceptor.java:127)
+	at org.springframework.security.web.access.intercept.FilterSecurityInterceptor.doFilter(FilterSecurityInterceptor.java:91)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:331)
+	at org.springframework.security.web.access.ExceptionTranslationFilter.doFilter(ExceptionTranslationFilter.java:114)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:331)
+	at org.springframework.security.web.session.SessionManagementFilter.doFilter(SessionManagementFilter.java:137)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:331)
+	at org.springframework.security.web.authentication.AnonymousAuthenticationFilter.doFilter(AnonymousAuthenticationFilter.java:111)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:331)
+	at org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter.doFilter(SecurityContextHolderAwareRequestFilter.java:170)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:331)
+	at org.springframework.security.web.savedrequest.RequestCacheAwareFilter.doFilter(RequestCacheAwareFilter.java:63)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:331)
+	at org.springframework.security.web.authentication.AbstractAuthenticationProcessingFilter.doFilter(AbstractAuthenticationProcessingFilter.java:200)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:331)
+	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:116)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:331)
+	at org.springframework.security.web.header.HeaderWriterFilter.doFilterInternal(HeaderWriterFilter.java:64)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:331)
+	at org.springframework.security.web.context.SecurityContextPersistenceFilter.doFilter(SecurityContextPersistenceFilter.java:105)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:331)
+	at org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter.doFilterInternal(WebAsyncManagerIntegrationFilter.java:56)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:331)
+	at org.springframework.security.web.FilterChainProxy.doFilterInternal(FilterChainProxy.java:214)
+	at org.springframework.security.web.FilterChainProxy.doFilter(FilterChainProxy.java:177)
+	at org.springframework.web.filter.DelegatingFilterProxy.invokeDelegate(DelegatingFilterProxy.java:346)
+	at org.springframework.web.filter.DelegatingFilterProxy.doFilter(DelegatingFilterProxy.java:262)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:99)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.HttpPutFormContentFilter.doFilterInternal(HttpPutFormContentFilter.java:105)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:197)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at com.board.SimpleCorsFilter.doFilter(SimpleCorsFilter.java:29)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:198)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:96)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:478)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:140)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:80)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:87)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:342)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:799)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:66)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:861)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1455)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.lang.Thread.run(Thread.java:748)
+2017:10:02 14:35:16.146 INFO  --- [main] com.board.BoardApplication : Starting BoardApplication on HP with PID 5728 (A:\Develop\workspace\board\target\classes started by pi in A:\Develop\workspace\board) 
+2017:10:02 14:35:16.151 INFO  --- [main] com.board.BoardApplication : No active profile set, falling back to default profiles: default 
+2017:10:02 14:35:16.215 INFO  --- [main] o.s.b.c.e.AnnotationConfigEmbeddedWebApplicationContext : Refreshing org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@1b61f4a: startup date [Mon Oct 02 14:35:16 KST 2017]; root of context hierarchy 
+2017:10:02 14:35:17.830 INFO  --- [main] o.s.b.c.e.t.TomcatEmbeddedServletContainer : Tomcat initialized with port(s): 8080 (http) 
+2017:10:02 14:35:17.848 INFO  --- [main] o.a.catalina.core.StandardService : Starting service Tomcat 
+2017:10:02 14:35:17.850 INFO  --- [main] o.a.catalina.core.StandardEngine : Starting Servlet Engine: Apache Tomcat/8.5.14 
+2017:10:02 14:35:18.085 INFO  --- [localhost-startStop-1] o.apache.jasper.servlet.TldScanner : At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time. 
+2017:10:02 14:35:18.091 INFO  --- [localhost-startStop-1] o.a.c.c.C.[Tomcat].[localhost].[/] : Initializing Spring embedded WebApplicationContext 
+2017:10:02 14:35:18.096 INFO  --- [localhost-startStop-1] o.s.web.context.ContextLoader : Root WebApplicationContext: initialization completed in 1881 ms 
+2017:10:02 14:35:18.330 INFO  --- [localhost-startStop-1] o.s.b.w.s.FilterRegistrationBean : Mapping filter: 'simpleCorsFilter' to: [/*] 
+2017:10:02 14:35:18.330 INFO  --- [localhost-startStop-1] o.s.b.w.s.FilterRegistrationBean : Mapping filter: 'characterEncodingFilter' to: [/*] 
+2017:10:02 14:35:18.334 INFO  --- [localhost-startStop-1] o.s.b.w.s.FilterRegistrationBean : Mapping filter: 'httpPutFormContentFilter' to: [/*] 
+2017:10:02 14:35:18.339 INFO  --- [localhost-startStop-1] o.s.b.w.s.FilterRegistrationBean : Mapping filter: 'requestContextFilter' to: [/*] 
+2017:10:02 14:35:18.341 INFO  --- [localhost-startStop-1] o.s.b.w.s.DelegatingFilterProxyRegistrationBean : Mapping filter: 'springSecurityFilterChain' to: [/*] 
+2017:10:02 14:35:18.341 INFO  --- [localhost-startStop-1] o.s.b.w.s.FilterRegistrationBean : Mapping filter: 'hiddenHttpMethodFilter' to: [/*] 
+2017:10:02 14:35:18.341 INFO  --- [localhost-startStop-1] o.s.b.w.s.ServletRegistrationBean : Mapping servlet: 'dispatcherServlet' to [/] 
+2017:10:02 14:35:19.597 INFO  --- [main] o.s.s.w.DefaultSecurityFilterChain : Creating filter chain: org.springframework.security.web.util.matcher.AnyRequestMatcher@1, [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@162f4c6, org.springframework.security.web.context.SecurityContextPersistenceFilter@2714a7, org.springframework.security.web.header.HeaderWriterFilter@136df72, org.springframework.security.web.authentication.logout.LogoutFilter@12861aa, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@1fe3142, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@e53f6a, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@859f5a, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@169ea63, org.springframework.security.web.session.SessionManagementFilter@d1f1d4, org.springframework.security.web.access.ExceptionTranslationFilter@b0702e, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@38a7fe] 
+2017:10:02 14:35:19.713 INFO  --- [main] o.s.w.s.m.m.a.RequestMappingHandlerAdapter : Looking for @ControllerAdvice: org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@1b61f4a: startup date [Mon Oct 02 14:35:16 KST 2017]; root of context hierarchy 
+2017:10:02 14:35:19.782 INFO  --- [main] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/board/post/{bno}],methods=[PATCH]}" onto public java.lang.String com.board.controller.BoardListController.update(com.board.domain.BoardVO,int) throws java.lang.Exception 
+2017:10:02 14:35:19.782 INFO  --- [main] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/board/post],methods=[POST]}" onto public java.lang.String com.board.controller.BoardListController.write(com.board.domain.BoardVO) throws java.lang.Exception 
+2017:10:02 14:35:19.797 INFO  --- [main] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/board/delete/{bno}],methods=[DELETE]}" onto public java.lang.String com.board.controller.BoardListController.delete(int) throws java.lang.Exception 
+2017:10:02 14:35:19.797 INFO  --- [main] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/board],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView com.board.controller.BoardListController.list() throws java.lang.Exception 
+2017:10:02 14:35:19.797 INFO  --- [main] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/board/post/{bno}],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView com.board.controller.BoardListController.updateForm(int) throws java.lang.Exception 
+2017:10:02 14:35:19.797 INFO  --- [main] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/board/{bno}],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView com.board.controller.BoardListController.view(int) throws java.lang.Exception 
+2017:10:02 14:35:19.797 INFO  --- [main] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/board/post],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView com.board.controller.BoardListController.writeForm() throws java.lang.Exception 
+2017:10:02 14:35:19.797 INFO  --- [main] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/board/daily],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView com.board.controller.BoardListController.list3(javax.servlet.http.HttpServletRequest) throws java.lang.Exception 
+2017:10:02 14:35:19.797 INFO  --- [main] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/board],methods=[POST]}" onto public org.springframework.web.servlet.ModelAndView com.board.controller.BoardListController.list2() throws java.lang.Exception 
+2017:10:02 14:35:19.797 INFO  --- [main] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/createmember],methods=[POST]}" onto public java.lang.String com.board.controller.LoginController.join(com.board.domain.User) throws java.lang.Exception 
+2017:10:02 14:35:19.797 INFO  --- [main] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/createmember],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView com.board.controller.LoginController.joinform() throws java.lang.Exception 
+2017:10:02 14:35:19.797 INFO  --- [main] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/login],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView com.board.controller.LoginController.login() throws java.lang.Exception 
+2017:10:02 14:35:19.797 INFO  --- [main] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/login],methods=[POST]}" onto public java.lang.String com.board.controller.LoginController.login(com.board.domain.AuthenticationRequest,javax.servlet.http.HttpSession) throws java.io.IOException 
+2017:10:02 14:35:19.797 INFO  --- [main] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/member/{username}],methods=[PATCH]}" onto public java.lang.String com.board.controller.MemberController.update(com.board.domain.User,java.lang.String) throws java.lang.Exception 
+2017:10:02 14:35:19.813 INFO  --- [main] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/member],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView com.board.controller.MemberController.list(org.springframework.security.core.userdetails.UserDetails) throws com.board.controller.CustomAuthException 
+2017:10:02 14:35:19.813 INFO  --- [main] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/member/{username}],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView com.board.controller.MemberController.updateform(java.lang.String) throws java.lang.Exception 
+2017:10:02 14:35:19.813 INFO  --- [main] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/reply/delete/{bno}],methods=[DELETE]}" onto public java.lang.String com.board.controller.ReplyController.delete(int) throws java.lang.Exception 
+2017:10:02 14:35:19.813 INFO  --- [main] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/reply],methods=[POST]}" onto public java.lang.String com.board.controller.ReplyController.replyInsert(com.board.domain.Reply,javax.servlet.http.HttpServletRequest,com.board.domain.User) throws java.lang.Exception 
+2017:10:02 14:35:19.813 INFO  --- [main] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/sign],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView com.board.controller.SignBoardController.signready(org.springframework.security.core.userdetails.UserDetails) throws java.lang.Exception 
+2017:10:02 14:35:19.813 INFO  --- [main] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/sign/{docno}],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView com.board.controller.SignBoardController.signwrite(int,org.springframework.security.core.userdetails.UserDetails) throws java.lang.Exception 
+2017:10:02 14:35:19.813 INFO  --- [main] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/sign/post],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView com.board.controller.SignBoardController.signlist() throws java.lang.Exception 
+2017:10:02 14:35:19.813 INFO  --- [main] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/sign/permit],methods=[POST]}" onto public java.lang.String com.board.controller.SignBoardController.signok(org.springframework.security.core.userdetails.UserDetails,com.board.domain.Sign) throws java.lang.Exception 
+2017:10:02 14:35:19.813 INFO  --- [main] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/sign/post],methods=[POST]}" onto public java.lang.String com.board.controller.SignBoardController.signpost(com.board.domain.Sign) throws java.lang.Exception 
+2017:10:02 14:35:19.813 INFO  --- [main] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/sign/check/{signno}],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView com.board.controller.SignBoardController.signview(int,org.springframework.security.core.userdetails.UserDetails) throws java.lang.Exception 
+2017:10:02 14:35:19.813 INFO  --- [main] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/error]}" onto public org.springframework.http.ResponseEntity<java.util.Map<java.lang.String, java.lang.Object>> org.springframework.boot.autoconfigure.web.BasicErrorController.error(javax.servlet.http.HttpServletRequest) 
+2017:10:02 14:35:19.813 INFO  --- [main] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/error],produces=[text/html]}" onto public org.springframework.web.servlet.ModelAndView org.springframework.boot.autoconfigure.web.BasicErrorController.errorHtml(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse) 
+2017:10:02 14:35:19.851 INFO  --- [main] o.s.w.s.h.SimpleUrlHandlerMapping : Mapped URL path [/webjars/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler] 
+2017:10:02 14:35:19.851 INFO  --- [main] o.s.w.s.h.SimpleUrlHandlerMapping : Mapped URL path [/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler] 
+2017:10:02 14:35:19.898 INFO  --- [main] o.s.w.s.h.SimpleUrlHandlerMapping : Mapped URL path [/**/favicon.ico] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler] 
+2017:10:02 14:35:19.913 INFO  --- [main] o.s.b.a.w.WebMvcAutoConfiguration$WelcomePageHandlerMapping : Adding welcome page: class path resource [static/index.html] 
+2017:10:02 14:35:20.136 INFO  --- [main] o.s.j.e.a.AnnotationMBeanExporter : Registering beans for JMX exposure on startup 
+2017:10:02 14:35:20.198 INFO  --- [main] o.s.b.c.e.t.TomcatEmbeddedServletContainer : Tomcat started on port(s): 8080 (http) 
+2017:10:02 14:35:20.214 INFO  --- [main] com.board.BoardApplication : Started BoardApplication in 4.517 seconds (JVM running for 5.165) 
+2017:10:02 14:35:22.267 INFO  --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/] : Initializing Spring FrameworkServlet 'dispatcherServlet' 
+2017:10:02 14:35:22.273 INFO  --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet : FrameworkServlet 'dispatcherServlet': initialization started 
+2017:10:02 14:35:22.294 INFO  --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet : FrameworkServlet 'dispatcherServlet': initialization completed in 20 ms 
+2017:10:02 14:36:41.814 INFO  --- [main] com.board.BoardApplication : Starting BoardApplication on HP with PID 8008 (A:\Develop\workspace\board\target\classes started by pi in A:\Develop\workspace\board) 
+2017:10:02 14:36:41.814 INFO  --- [main] com.board.BoardApplication : No active profile set, falling back to default profiles: default 
+2017:10:02 14:36:41.883 INFO  --- [main] o.s.b.c.e.AnnotationConfigEmbeddedWebApplicationContext : Refreshing org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@1b61f4a: startup date [Mon Oct 02 14:36:41 KST 2017]; root of context hierarchy 
+2017:10:02 14:36:43.470 INFO  --- [main] o.s.b.c.e.t.TomcatEmbeddedServletContainer : Tomcat initialized with port(s): 8080 (http) 
+2017:10:02 14:36:43.493 INFO  --- [main] o.a.catalina.core.StandardService : Starting service Tomcat 
+2017:10:02 14:36:43.493 INFO  --- [main] o.a.catalina.core.StandardEngine : Starting Servlet Engine: Apache Tomcat/8.5.14 
+2017:10:02 14:36:43.749 INFO  --- [localhost-startStop-1] o.apache.jasper.servlet.TldScanner : At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time. 
+2017:10:02 14:36:43.754 INFO  --- [localhost-startStop-1] o.a.c.c.C.[Tomcat].[localhost].[/] : Initializing Spring embedded WebApplicationContext 
+2017:10:02 14:36:43.754 INFO  --- [localhost-startStop-1] o.s.web.context.ContextLoader : Root WebApplicationContext: initialization completed in 1871 ms 
+2017:10:02 14:36:43.954 INFO  --- [localhost-startStop-1] o.s.b.w.s.FilterRegistrationBean : Mapping filter: 'simpleCorsFilter' to: [/*] 
+2017:10:02 14:36:43.954 INFO  --- [localhost-startStop-1] o.s.b.w.s.FilterRegistrationBean : Mapping filter: 'characterEncodingFilter' to: [/*] 
+2017:10:02 14:36:43.954 INFO  --- [localhost-startStop-1] o.s.b.w.s.FilterRegistrationBean : Mapping filter: 'httpPutFormContentFilter' to: [/*] 
+2017:10:02 14:36:43.954 INFO  --- [localhost-startStop-1] o.s.b.w.s.FilterRegistrationBean : Mapping filter: 'requestContextFilter' to: [/*] 
+2017:10:02 14:36:43.954 INFO  --- [localhost-startStop-1] o.s.b.w.s.DelegatingFilterProxyRegistrationBean : Mapping filter: 'springSecurityFilterChain' to: [/*] 
+2017:10:02 14:36:43.954 INFO  --- [localhost-startStop-1] o.s.b.w.s.FilterRegistrationBean : Mapping filter: 'hiddenHttpMethodFilter' to: [/*] 
+2017:10:02 14:36:43.969 INFO  --- [localhost-startStop-1] o.s.b.w.s.ServletRegistrationBean : Mapping servlet: 'dispatcherServlet' to [/] 
+2017:10:02 14:36:45.317 INFO  --- [main] o.s.s.w.DefaultSecurityFilterChain : Creating filter chain: org.springframework.security.web.util.matcher.AnyRequestMatcher@1, [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@9a1f8d, org.springframework.security.web.context.SecurityContextPersistenceFilter@8e0dec, org.springframework.security.web.header.HeaderWriterFilter@b0702e, org.springframework.security.web.authentication.logout.LogoutFilter@6366cf, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@a6a68e, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@1fa1be3, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@1679798, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@565cbd, org.springframework.security.web.session.SessionManagementFilter@f19647, org.springframework.security.web.access.ExceptionTranslationFilter@122a1cc, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@a3a5e] 
+2017:10:02 14:36:45.486 INFO  --- [main] o.s.w.s.m.m.a.RequestMappingHandlerAdapter : Looking for @ControllerAdvice: org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@1b61f4a: startup date [Mon Oct 02 14:36:41 KST 2017]; root of context hierarchy 
+2017:10:02 14:36:45.555 INFO  --- [main] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/board/post/{bno}],methods=[PATCH]}" onto public java.lang.String com.board.controller.BoardListController.update(com.board.domain.BoardVO,int) throws java.lang.Exception 
+2017:10:02 14:36:45.555 INFO  --- [main] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/board/post],methods=[POST]}" onto public java.lang.String com.board.controller.BoardListController.write(com.board.domain.BoardVO) throws java.lang.Exception 
+2017:10:02 14:36:45.555 INFO  --- [main] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/board/delete/{bno}],methods=[DELETE]}" onto public java.lang.String com.board.controller.BoardListController.delete(int) throws java.lang.Exception 
+2017:10:02 14:36:45.571 INFO  --- [main] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/board],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView com.board.controller.BoardListController.list() throws java.lang.Exception 
+2017:10:02 14:36:45.571 INFO  --- [main] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/board/post/{bno}],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView com.board.controller.BoardListController.updateForm(int) throws java.lang.Exception 
+2017:10:02 14:36:45.571 INFO  --- [main] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/board/{bno}],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView com.board.controller.BoardListController.view(int) throws java.lang.Exception 
+2017:10:02 14:36:45.571 INFO  --- [main] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/board/post],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView com.board.controller.BoardListController.writeForm() throws java.lang.Exception 
+2017:10:02 14:36:45.571 INFO  --- [main] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/board],methods=[POST]}" onto public org.springframework.web.servlet.ModelAndView com.board.controller.BoardListController.list2() throws java.lang.Exception 
+2017:10:02 14:36:45.571 INFO  --- [main] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/board/daily],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView com.board.controller.BoardListController.list3(javax.servlet.http.HttpServletRequest) throws java.lang.Exception 
+2017:10:02 14:36:45.571 INFO  --- [main] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/createmember],methods=[POST]}" onto public java.lang.String com.board.controller.LoginController.join(com.board.domain.User) throws java.lang.Exception 
+2017:10:02 14:36:45.571 INFO  --- [main] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/login],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView com.board.controller.LoginController.login() throws java.lang.Exception 
+2017:10:02 14:36:45.571 INFO  --- [main] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/login],methods=[POST]}" onto public java.lang.String com.board.controller.LoginController.login(com.board.domain.AuthenticationRequest,javax.servlet.http.HttpSession) throws java.io.IOException 
+2017:10:02 14:36:45.571 INFO  --- [main] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/createmember],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView com.board.controller.LoginController.joinform() throws java.lang.Exception 
+2017:10:02 14:36:45.571 INFO  --- [main] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/member/{username}],methods=[PATCH]}" onto public java.lang.String com.board.controller.MemberController.update(com.board.domain.User,java.lang.String) throws java.lang.Exception 
+2017:10:02 14:36:45.571 INFO  --- [main] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/member],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView com.board.controller.MemberController.list(org.springframework.security.core.userdetails.UserDetails) throws com.board.controller.CustomAuthException 
+2017:10:02 14:36:45.571 INFO  --- [main] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/member/{username}],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView com.board.controller.MemberController.updateform(java.lang.String) throws java.lang.Exception 
+2017:10:02 14:36:45.586 INFO  --- [main] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/reply/delete/{bno}],methods=[DELETE]}" onto public java.lang.String com.board.controller.ReplyController.delete(int) throws java.lang.Exception 
+2017:10:02 14:36:45.586 INFO  --- [main] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/reply],methods=[POST]}" onto public java.lang.String com.board.controller.ReplyController.replyInsert(com.board.domain.Reply,javax.servlet.http.HttpServletRequest,com.board.domain.User) throws java.lang.Exception 
+2017:10:02 14:36:45.586 INFO  --- [main] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/sign/permit],methods=[POST]}" onto public java.lang.String com.board.controller.SignBoardController.signok(org.springframework.security.core.userdetails.UserDetails,com.board.domain.Sign) throws java.lang.Exception 
+2017:10:02 14:36:45.586 INFO  --- [main] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/sign/post],methods=[POST]}" onto public java.lang.String com.board.controller.SignBoardController.signpost(com.board.domain.Sign) throws java.lang.Exception 
+2017:10:02 14:36:45.586 INFO  --- [main] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/sign/post],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView com.board.controller.SignBoardController.signlist() throws java.lang.Exception 
+2017:10:02 14:36:45.586 INFO  --- [main] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/sign/{docno}],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView com.board.controller.SignBoardController.signwrite(int,org.springframework.security.core.userdetails.UserDetails) throws java.lang.Exception 
+2017:10:02 14:36:45.586 INFO  --- [main] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/sign],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView com.board.controller.SignBoardController.signready(org.springframework.security.core.userdetails.UserDetails) throws java.lang.Exception 
+2017:10:02 14:36:45.586 INFO  --- [main] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/sign/check/{signno}],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView com.board.controller.SignBoardController.signview(int,org.springframework.security.core.userdetails.UserDetails) throws java.lang.Exception 
+2017:10:02 14:36:45.586 INFO  --- [main] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/error]}" onto public org.springframework.http.ResponseEntity<java.util.Map<java.lang.String, java.lang.Object>> org.springframework.boot.autoconfigure.web.BasicErrorController.error(javax.servlet.http.HttpServletRequest) 
+2017:10:02 14:36:45.586 INFO  --- [main] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/error],produces=[text/html]}" onto public org.springframework.web.servlet.ModelAndView org.springframework.boot.autoconfigure.web.BasicErrorController.errorHtml(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse) 
+2017:10:02 14:36:45.618 INFO  --- [main] o.s.w.s.h.SimpleUrlHandlerMapping : Mapped URL path [/webjars/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler] 
+2017:10:02 14:36:45.618 INFO  --- [main] o.s.w.s.h.SimpleUrlHandlerMapping : Mapped URL path [/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler] 
+2017:10:02 14:36:45.671 INFO  --- [main] o.s.w.s.h.SimpleUrlHandlerMapping : Mapped URL path [/**/favicon.ico] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler] 
+2017:10:02 14:36:45.687 INFO  --- [main] o.s.b.a.w.WebMvcAutoConfiguration$WelcomePageHandlerMapping : Adding welcome page: class path resource [static/index.html] 
+2017:10:02 14:36:45.902 INFO  --- [main] o.s.j.e.a.AnnotationMBeanExporter : Registering beans for JMX exposure on startup 
+2017:10:02 14:36:45.956 INFO  --- [main] o.s.b.c.e.t.TomcatEmbeddedServletContainer : Tomcat started on port(s): 8080 (http) 
+2017:10:02 14:36:45.971 INFO  --- [main] com.board.BoardApplication : Started BoardApplication in 4.589 seconds (JVM running for 5.255) 
+2017:10:02 14:37:00.839 INFO  --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/] : Initializing Spring FrameworkServlet 'dispatcherServlet' 
+2017:10:02 14:37:00.845 INFO  --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet : FrameworkServlet 'dispatcherServlet': initialization started 
+2017:10:02 14:37:00.870 INFO  --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet : FrameworkServlet 'dispatcherServlet': initialization completed in 24 ms 
+2017:10:02 14:38:20.031 INFO  --- [main] com.board.BoardApplication : Starting BoardApplication on HP with PID 9308 (A:\Develop\workspace\board\target\classes started by pi in A:\Develop\workspace\board) 
+2017:10:02 14:38:20.045 INFO  --- [main] com.board.BoardApplication : No active profile set, falling back to default profiles: default 
+2017:10:02 14:38:20.092 INFO  --- [main] o.s.b.c.e.AnnotationConfigEmbeddedWebApplicationContext : Refreshing org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@1b61f4a: startup date [Mon Oct 02 14:38:20 KST 2017]; root of context hierarchy 
+2017:10:02 14:38:21.534 INFO  --- [main] o.s.b.c.e.t.TomcatEmbeddedServletContainer : Tomcat initialized with port(s): 8080 (http) 
+2017:10:02 14:38:21.541 INFO  --- [main] o.a.catalina.core.StandardService : Starting service Tomcat 
+2017:10:02 14:38:21.556 INFO  --- [main] o.a.catalina.core.StandardEngine : Starting Servlet Engine: Apache Tomcat/8.5.14 
+2017:10:02 14:38:21.781 INFO  --- [localhost-startStop-1] o.apache.jasper.servlet.TldScanner : At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time. 
+2017:10:02 14:38:21.781 INFO  --- [localhost-startStop-1] o.a.c.c.C.[Tomcat].[localhost].[/] : Initializing Spring embedded WebApplicationContext 
+2017:10:02 14:38:21.781 INFO  --- [localhost-startStop-1] o.s.web.context.ContextLoader : Root WebApplicationContext: initialization completed in 1689 ms 
+2017:10:02 14:38:21.966 INFO  --- [localhost-startStop-1] o.s.b.w.s.FilterRegistrationBean : Mapping filter: 'simpleCorsFilter' to: [/*] 
+2017:10:02 14:38:21.966 INFO  --- [localhost-startStop-1] o.s.b.w.s.FilterRegistrationBean : Mapping filter: 'characterEncodingFilter' to: [/*] 
+2017:10:02 14:38:21.966 INFO  --- [localhost-startStop-1] o.s.b.w.s.FilterRegistrationBean : Mapping filter: 'httpPutFormContentFilter' to: [/*] 
+2017:10:02 14:38:21.966 INFO  --- [localhost-startStop-1] o.s.b.w.s.FilterRegistrationBean : Mapping filter: 'requestContextFilter' to: [/*] 
+2017:10:02 14:38:21.966 INFO  --- [localhost-startStop-1] o.s.b.w.s.DelegatingFilterProxyRegistrationBean : Mapping filter: 'springSecurityFilterChain' to: [/*] 
+2017:10:02 14:38:21.966 INFO  --- [localhost-startStop-1] o.s.b.w.s.FilterRegistrationBean : Mapping filter: 'hiddenHttpMethodFilter' to: [/*] 
+2017:10:02 14:38:21.966 INFO  --- [localhost-startStop-1] o.s.b.w.s.ServletRegistrationBean : Mapping servlet: 'dispatcherServlet' to [/] 
+2017:10:02 14:38:23.199 INFO  --- [main] o.s.s.w.DefaultSecurityFilterChain : Creating filter chain: org.springframework.security.web.util.matcher.AnyRequestMatcher@1, [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@162f4c6, org.springframework.security.web.context.SecurityContextPersistenceFilter@2714a7, org.springframework.security.web.header.HeaderWriterFilter@136df72, org.springframework.security.web.authentication.logout.LogoutFilter@12861aa, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@1fe3142, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@e53f6a, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@859f5a, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@169ea63, org.springframework.security.web.session.SessionManagementFilter@d1f1d4, org.springframework.security.web.access.ExceptionTranslationFilter@b0702e, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@38a7fe] 
+2017:10:02 14:38:23.284 INFO  --- [main] o.s.w.s.m.m.a.RequestMappingHandlerAdapter : Looking for @ControllerAdvice: org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@1b61f4a: startup date [Mon Oct 02 14:38:20 KST 2017]; root of context hierarchy 
+2017:10:02 14:38:23.361 INFO  --- [main] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/board/post/{bno}],methods=[PATCH]}" onto public java.lang.String com.board.controller.BoardListController.update(com.board.domain.BoardVO,int) throws java.lang.Exception 
+2017:10:02 14:38:23.361 INFO  --- [main] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/board/post],methods=[POST]}" onto public java.lang.String com.board.controller.BoardListController.write(com.board.domain.BoardVO) throws java.lang.Exception 
+2017:10:02 14:38:23.361 INFO  --- [main] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/board/delete/{bno}],methods=[DELETE]}" onto public java.lang.String com.board.controller.BoardListController.delete(int) throws java.lang.Exception 
+2017:10:02 14:38:23.361 INFO  --- [main] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/board],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView com.board.controller.BoardListController.list() throws java.lang.Exception 
+2017:10:02 14:38:23.361 INFO  --- [main] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/board/post/{bno}],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView com.board.controller.BoardListController.updateForm(int) throws java.lang.Exception 
+2017:10:02 14:38:23.361 INFO  --- [main] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/board/{bno}],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView com.board.controller.BoardListController.view(int) throws java.lang.Exception 
+2017:10:02 14:38:23.377 INFO  --- [main] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/board/post],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView com.board.controller.BoardListController.writeForm() throws java.lang.Exception 
+2017:10:02 14:38:23.377 INFO  --- [main] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/board/daily],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView com.board.controller.BoardListController.list3(javax.servlet.http.HttpServletRequest) throws java.lang.Exception 
+2017:10:02 14:38:23.377 INFO  --- [main] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/board],methods=[POST]}" onto public org.springframework.web.servlet.ModelAndView com.board.controller.BoardListController.list2() throws java.lang.Exception 
+2017:10:02 14:38:23.377 INFO  --- [main] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/createmember],methods=[POST]}" onto public java.lang.String com.board.controller.LoginController.join(com.board.domain.User) throws java.lang.Exception 
+2017:10:02 14:38:23.377 INFO  --- [main] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/createmember],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView com.board.controller.LoginController.joinform() throws java.lang.Exception 
+2017:10:02 14:38:23.377 INFO  --- [main] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/login],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView com.board.controller.LoginController.login() throws java.lang.Exception 
+2017:10:02 14:38:23.377 INFO  --- [main] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/login],methods=[POST]}" onto public java.lang.String com.board.controller.LoginController.login(com.board.domain.AuthenticationRequest,javax.servlet.http.HttpSession) throws java.io.IOException 
+2017:10:02 14:38:23.437 INFO  --- [main] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/member/{username}],methods=[PATCH]}" onto public java.lang.String com.board.controller.MemberController.update(com.board.domain.User,java.lang.String) throws java.lang.Exception 
+2017:10:02 14:38:23.437 INFO  --- [main] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/member],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView com.board.controller.MemberController.list(org.springframework.security.core.userdetails.UserDetails) throws com.board.controller.CustomAuthException 
+2017:10:02 14:38:23.453 INFO  --- [main] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/member/{username}],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView com.board.controller.MemberController.updateform(java.lang.String) throws java.lang.Exception 
+2017:10:02 14:38:23.453 INFO  --- [main] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/reply/delete/{bno}],methods=[DELETE]}" onto public java.lang.String com.board.controller.ReplyController.delete(int) throws java.lang.Exception 
+2017:10:02 14:38:23.453 INFO  --- [main] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/reply],methods=[POST]}" onto public java.lang.String com.board.controller.ReplyController.replyInsert(com.board.domain.Reply,javax.servlet.http.HttpServletRequest,com.board.domain.User) throws java.lang.Exception 
+2017:10:02 14:38:23.453 INFO  --- [main] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/sign],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView com.board.controller.SignBoardController.signready(org.springframework.security.core.userdetails.UserDetails) throws java.lang.Exception 
+2017:10:02 14:38:23.453 INFO  --- [main] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/sign/{docno}],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView com.board.controller.SignBoardController.signwrite(int,org.springframework.security.core.userdetails.UserDetails) throws java.lang.Exception 
+2017:10:02 14:38:23.453 INFO  --- [main] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/sign/permit],methods=[POST]}" onto public java.lang.String com.board.controller.SignBoardController.signok(org.springframework.security.core.userdetails.UserDetails,com.board.domain.Sign) throws java.lang.Exception 
+2017:10:02 14:38:23.453 INFO  --- [main] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/sign/post],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView com.board.controller.SignBoardController.signlist() throws java.lang.Exception 
+2017:10:02 14:38:23.453 INFO  --- [main] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/sign/post],methods=[POST]}" onto public java.lang.String com.board.controller.SignBoardController.signpost(com.board.domain.Sign) throws java.lang.Exception 
+2017:10:02 14:38:23.453 INFO  --- [main] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/sign/check/{signno}],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView com.board.controller.SignBoardController.signview(int,org.springframework.security.core.userdetails.UserDetails) throws java.lang.Exception 
+2017:10:02 14:38:23.453 INFO  --- [main] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/error]}" onto public org.springframework.http.ResponseEntity<java.util.Map<java.lang.String, java.lang.Object>> org.springframework.boot.autoconfigure.web.BasicErrorController.error(javax.servlet.http.HttpServletRequest) 
+2017:10:02 14:38:23.453 INFO  --- [main] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/error],produces=[text/html]}" onto public org.springframework.web.servlet.ModelAndView org.springframework.boot.autoconfigure.web.BasicErrorController.errorHtml(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse) 
+2017:10:02 14:38:23.484 INFO  --- [main] o.s.w.s.h.SimpleUrlHandlerMapping : Mapped URL path [/webjars/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler] 
+2017:10:02 14:38:23.484 INFO  --- [main] o.s.w.s.h.SimpleUrlHandlerMapping : Mapped URL path [/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler] 
+2017:10:02 14:38:23.538 INFO  --- [main] o.s.w.s.h.SimpleUrlHandlerMapping : Mapped URL path [/**/favicon.ico] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler] 
+2017:10:02 14:38:23.553 INFO  --- [main] o.s.b.a.w.WebMvcAutoConfiguration$WelcomePageHandlerMapping : Adding welcome page: class path resource [static/index.html] 
+2017:10:02 14:38:23.770 INFO  --- [main] o.s.j.e.a.AnnotationMBeanExporter : Registering beans for JMX exposure on startup 
+2017:10:02 14:38:23.837 INFO  --- [main] o.s.b.c.e.t.TomcatEmbeddedServletContainer : Tomcat started on port(s): 8080 (http) 
+2017:10:02 14:38:23.839 INFO  --- [main] com.board.BoardApplication : Started BoardApplication in 4.21 seconds (JVM running for 4.842) 
+2017:10:02 14:38:29.346 INFO  --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/] : Initializing Spring FrameworkServlet 'dispatcherServlet' 
+2017:10:02 14:38:29.351 INFO  --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet : FrameworkServlet 'dispatcherServlet': initialization started 
+2017:10:02 14:38:29.368 INFO  --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet : FrameworkServlet 'dispatcherServlet': initialization completed in 17 ms 
+2017:10:02 14:43:01.295 INFO  --- [main] com.board.BoardApplication : Starting BoardApplication on HP with PID 11340 (A:\Develop\workspace\board\target\classes started by pi in A:\Develop\workspace\board) 
+2017:10:02 14:43:01.301 INFO  --- [main] com.board.BoardApplication : No active profile set, falling back to default profiles: default 
+2017:10:02 14:43:01.359 INFO  --- [main] o.s.b.c.e.AnnotationConfigEmbeddedWebApplicationContext : Refreshing org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@1b61f4a: startup date [Mon Oct 02 14:43:01 KST 2017]; root of context hierarchy 
+2017:10:02 14:43:02.955 INFO  --- [main] o.s.b.c.e.t.TomcatEmbeddedServletContainer : Tomcat initialized with port(s): 8080 (http) 
+2017:10:02 14:43:02.966 INFO  --- [main] o.a.catalina.core.StandardService : Starting service Tomcat 
+2017:10:02 14:43:02.966 INFO  --- [main] o.a.catalina.core.StandardEngine : Starting Servlet Engine: Apache Tomcat/8.5.14 
+2017:10:02 14:43:03.198 INFO  --- [localhost-startStop-1] o.apache.jasper.servlet.TldScanner : At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time. 
+2017:10:02 14:43:03.198 INFO  --- [localhost-startStop-1] o.a.c.c.C.[Tomcat].[localhost].[/] : Initializing Spring embedded WebApplicationContext 
+2017:10:02 14:43:03.215 INFO  --- [localhost-startStop-1] o.s.web.context.ContextLoader : Root WebApplicationContext: initialization completed in 1856 ms 
+2017:10:02 14:43:03.434 INFO  --- [localhost-startStop-1] o.s.b.w.s.FilterRegistrationBean : Mapping filter: 'simpleCorsFilter' to: [/*] 
+2017:10:02 14:43:03.434 INFO  --- [localhost-startStop-1] o.s.b.w.s.FilterRegistrationBean : Mapping filter: 'characterEncodingFilter' to: [/*] 
+2017:10:02 14:43:03.450 INFO  --- [localhost-startStop-1] o.s.b.w.s.FilterRegistrationBean : Mapping filter: 'httpPutFormContentFilter' to: [/*] 
+2017:10:02 14:43:03.450 INFO  --- [localhost-startStop-1] o.s.b.w.s.FilterRegistrationBean : Mapping filter: 'requestContextFilter' to: [/*] 
+2017:10:02 14:43:03.450 INFO  --- [localhost-startStop-1] o.s.b.w.s.DelegatingFilterProxyRegistrationBean : Mapping filter: 'springSecurityFilterChain' to: [/*] 
+2017:10:02 14:43:03.450 INFO  --- [localhost-startStop-1] o.s.b.w.s.FilterRegistrationBean : Mapping filter: 'hiddenHttpMethodFilter' to: [/*] 
+2017:10:02 14:43:03.450 INFO  --- [localhost-startStop-1] o.s.b.w.s.ServletRegistrationBean : Mapping servlet: 'dispatcherServlet' to [/] 
+2017:10:02 14:43:04.682 INFO  --- [main] o.s.s.w.DefaultSecurityFilterChain : Creating filter chain: org.springframework.security.web.util.matcher.AnyRequestMatcher@1, [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@1fe3142, org.springframework.security.web.context.SecurityContextPersistenceFilter@158daf2, org.springframework.security.web.header.HeaderWriterFilter@122a1cc, org.springframework.security.web.authentication.logout.LogoutFilter@1af3b44, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@7873d3, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@2efc59, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@1650aa6, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@1fed1ec, org.springframework.security.web.session.SessionManagementFilter@18ba04, org.springframework.security.web.access.ExceptionTranslationFilter@2b06fb, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@1de0371] 
+2017:10:02 14:43:04.767 INFO  --- [main] o.s.w.s.m.m.a.RequestMappingHandlerAdapter : Looking for @ControllerAdvice: org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@1b61f4a: startup date [Mon Oct 02 14:43:01 KST 2017]; root of context hierarchy 
+2017:10:02 14:43:04.851 INFO  --- [main] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/board/post/{bno}],methods=[PATCH]}" onto public java.lang.String com.board.controller.BoardListController.update(com.board.domain.BoardVO,int) throws java.lang.Exception 
+2017:10:02 14:43:04.851 INFO  --- [main] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/board/post],methods=[POST]}" onto public java.lang.String com.board.controller.BoardListController.write(com.board.domain.BoardVO) throws java.lang.Exception 
+2017:10:02 14:43:04.851 INFO  --- [main] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/board/delete/{bno}],methods=[DELETE]}" onto public java.lang.String com.board.controller.BoardListController.delete(int) throws java.lang.Exception 
+2017:10:02 14:43:04.851 INFO  --- [main] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/board],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView com.board.controller.BoardListController.list() throws java.lang.Exception 
+2017:10:02 14:43:04.851 INFO  --- [main] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/board/post/{bno}],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView com.board.controller.BoardListController.updateForm(int) throws java.lang.Exception 
+2017:10:02 14:43:04.851 INFO  --- [main] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/board/{bno}],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView com.board.controller.BoardListController.view(int) throws java.lang.Exception 
+2017:10:02 14:43:04.867 INFO  --- [main] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/board/post],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView com.board.controller.BoardListController.writeForm() throws java.lang.Exception 
+2017:10:02 14:43:04.867 INFO  --- [main] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/board],methods=[POST]}" onto public org.springframework.web.servlet.ModelAndView com.board.controller.BoardListController.list2() throws java.lang.Exception 
+2017:10:02 14:43:04.867 INFO  --- [main] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/board/daily],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView com.board.controller.BoardListController.list3(javax.servlet.http.HttpServletRequest) throws java.lang.Exception 
+2017:10:02 14:43:04.867 INFO  --- [main] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/createmember],methods=[POST]}" onto public java.lang.String com.board.controller.LoginController.join(com.board.domain.User) throws java.lang.Exception 
+2017:10:02 14:43:04.867 INFO  --- [main] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/login],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView com.board.controller.LoginController.login() throws java.lang.Exception 
+2017:10:02 14:43:04.867 INFO  --- [main] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/login],methods=[POST]}" onto public java.lang.String com.board.controller.LoginController.login(com.board.domain.AuthenticationRequest,javax.servlet.http.HttpSession) throws java.io.IOException 
+2017:10:02 14:43:04.867 INFO  --- [main] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/createmember],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView com.board.controller.LoginController.joinform() throws java.lang.Exception 
+2017:10:02 14:43:04.867 INFO  --- [main] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/member/{username}],methods=[PATCH]}" onto public java.lang.String com.board.controller.MemberController.update(com.board.domain.User,java.lang.String) throws java.lang.Exception 
+2017:10:02 14:43:04.867 INFO  --- [main] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/member],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView com.board.controller.MemberController.list(org.springframework.security.core.userdetails.UserDetails) throws com.board.controller.CustomAuthException 
+2017:10:02 14:43:04.867 INFO  --- [main] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/member/{username}],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView com.board.controller.MemberController.updateform(java.lang.String) throws java.lang.Exception 
+2017:10:02 14:43:04.867 INFO  --- [main] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/reply/delete/{bno}],methods=[DELETE]}" onto public java.lang.String com.board.controller.ReplyController.delete(int) throws java.lang.Exception 
+2017:10:02 14:43:04.867 INFO  --- [main] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/reply],methods=[POST]}" onto public java.lang.String com.board.controller.ReplyController.replyInsert(com.board.domain.Reply,javax.servlet.http.HttpServletRequest,com.board.domain.User) throws java.lang.Exception 
+2017:10:02 14:43:04.882 INFO  --- [main] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/sign/{docno}],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView com.board.controller.SignBoardController.signwrite(int,org.springframework.security.core.userdetails.UserDetails) throws java.lang.Exception 
+2017:10:02 14:43:04.882 INFO  --- [main] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/sign],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView com.board.controller.SignBoardController.signready(org.springframework.security.core.userdetails.UserDetails) throws java.lang.Exception 
+2017:10:02 14:43:04.882 INFO  --- [main] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/sign/permit],methods=[POST]}" onto public java.lang.String com.board.controller.SignBoardController.signok(org.springframework.security.core.userdetails.UserDetails,com.board.domain.Sign) throws java.lang.Exception 
+2017:10:02 14:43:04.882 INFO  --- [main] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/sign/check/{signno}],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView com.board.controller.SignBoardController.signview(int,org.springframework.security.core.userdetails.UserDetails) throws java.lang.Exception 
+2017:10:02 14:43:04.882 INFO  --- [main] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/sign/post],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView com.board.controller.SignBoardController.signlist() throws java.lang.Exception 
+2017:10:02 14:43:04.882 INFO  --- [main] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/sign/post],methods=[POST]}" onto public java.lang.String com.board.controller.SignBoardController.signpost(com.board.domain.Sign) throws java.lang.Exception 
+2017:10:02 14:43:04.882 INFO  --- [main] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/error]}" onto public org.springframework.http.ResponseEntity<java.util.Map<java.lang.String, java.lang.Object>> org.springframework.boot.autoconfigure.web.BasicErrorController.error(javax.servlet.http.HttpServletRequest) 
+2017:10:02 14:43:04.882 INFO  --- [main] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/error],produces=[text/html]}" onto public org.springframework.web.servlet.ModelAndView org.springframework.boot.autoconfigure.web.BasicErrorController.errorHtml(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse) 
+2017:10:02 14:43:04.920 INFO  --- [main] o.s.w.s.h.SimpleUrlHandlerMapping : Mapped URL path [/webjars/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler] 
+2017:10:02 14:43:04.920 INFO  --- [main] o.s.w.s.h.SimpleUrlHandlerMapping : Mapped URL path [/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler] 
+2017:10:02 14:43:04.951 INFO  --- [main] o.s.w.s.h.SimpleUrlHandlerMapping : Mapped URL path [/**/favicon.ico] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler] 
+2017:10:02 14:43:04.967 INFO  --- [main] o.s.b.a.w.WebMvcAutoConfiguration$WelcomePageHandlerMapping : Adding welcome page: class path resource [static/index.html] 
+2017:10:02 14:43:05.182 INFO  --- [main] o.s.j.e.a.AnnotationMBeanExporter : Registering beans for JMX exposure on startup 
+2017:10:02 14:43:05.251 INFO  --- [main] o.s.b.c.e.t.TomcatEmbeddedServletContainer : Tomcat started on port(s): 8080 (http) 
+2017:10:02 14:43:05.251 INFO  --- [main] com.board.BoardApplication : Started BoardApplication in 4.437 seconds (JVM running for 5.1) 
+2017:10:02 14:43:07.190 INFO  --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/] : Initializing Spring FrameworkServlet 'dispatcherServlet' 
+2017:10:02 14:43:07.194 INFO  --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet : FrameworkServlet 'dispatcherServlet': initialization started 
+2017:10:02 14:43:07.221 INFO  --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet : FrameworkServlet 'dispatcherServlet': initialization completed in 26 ms 
+2017:10:02 14:49:04.898 INFO  --- [main] com.board.BoardApplication : Starting BoardApplication on HP with PID 9596 (A:\Develop\workspace\board\target\classes started by pi in A:\Develop\workspace\board) 
+2017:10:02 14:49:04.903 INFO  --- [main] com.board.BoardApplication : No active profile set, falling back to default profiles: default 
+2017:10:02 14:49:04.968 INFO  --- [main] o.s.b.c.e.AnnotationConfigEmbeddedWebApplicationContext : Refreshing org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@1b61f4a: startup date [Mon Oct 02 14:49:04 KST 2017]; root of context hierarchy 
+2017:10:02 14:49:06.627 INFO  --- [main] o.s.b.c.e.t.TomcatEmbeddedServletContainer : Tomcat initialized with port(s): 8080 (http) 
+2017:10:02 14:49:06.647 INFO  --- [main] o.a.catalina.core.StandardService : Starting service Tomcat 
+2017:10:02 14:49:06.649 INFO  --- [main] o.a.catalina.core.StandardEngine : Starting Servlet Engine: Apache Tomcat/8.5.14 
+2017:10:02 14:49:06.889 INFO  --- [localhost-startStop-1] o.apache.jasper.servlet.TldScanner : At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time. 
+2017:10:02 14:49:06.904 INFO  --- [localhost-startStop-1] o.a.c.c.C.[Tomcat].[localhost].[/] : Initializing Spring embedded WebApplicationContext 
+2017:10:02 14:49:06.904 INFO  --- [localhost-startStop-1] o.s.web.context.ContextLoader : Root WebApplicationContext: initialization completed in 1936 ms 
+2017:10:02 14:49:07.089 INFO  --- [localhost-startStop-1] o.s.b.w.s.FilterRegistrationBean : Mapping filter: 'simpleCorsFilter' to: [/*] 
+2017:10:02 14:49:07.089 INFO  --- [localhost-startStop-1] o.s.b.w.s.FilterRegistrationBean : Mapping filter: 'characterEncodingFilter' to: [/*] 
+2017:10:02 14:49:07.089 INFO  --- [localhost-startStop-1] o.s.b.w.s.FilterRegistrationBean : Mapping filter: 'httpPutFormContentFilter' to: [/*] 
+2017:10:02 14:49:07.089 INFO  --- [localhost-startStop-1] o.s.b.w.s.FilterRegistrationBean : Mapping filter: 'requestContextFilter' to: [/*] 
+2017:10:02 14:49:07.089 INFO  --- [localhost-startStop-1] o.s.b.w.s.DelegatingFilterProxyRegistrationBean : Mapping filter: 'springSecurityFilterChain' to: [/*] 
+2017:10:02 14:49:07.089 INFO  --- [localhost-startStop-1] o.s.b.w.s.FilterRegistrationBean : Mapping filter: 'hiddenHttpMethodFilter' to: [/*] 
+2017:10:02 14:49:07.089 INFO  --- [localhost-startStop-1] o.s.b.w.s.ServletRegistrationBean : Mapping servlet: 'dispatcherServlet' to [/] 
+2017:10:02 14:49:08.392 INFO  --- [main] o.s.s.w.DefaultSecurityFilterChain : Creating filter chain: org.springframework.security.web.util.matcher.AnyRequestMatcher@1, [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@1fe3142, org.springframework.security.web.context.SecurityContextPersistenceFilter@158daf2, org.springframework.security.web.header.HeaderWriterFilter@122a1cc, org.springframework.security.web.authentication.logout.LogoutFilter@1af3b44, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@7873d3, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@2efc59, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@1650aa6, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@1fed1ec, org.springframework.security.web.session.SessionManagementFilter@18ba04, org.springframework.security.web.access.ExceptionTranslationFilter@2b06fb, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@1de0371] 
+2017:10:02 14:49:08.477 INFO  --- [main] o.s.w.s.m.m.a.RequestMappingHandlerAdapter : Looking for @ControllerAdvice: org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@1b61f4a: startup date [Mon Oct 02 14:49:04 KST 2017]; root of context hierarchy 
+2017:10:02 14:49:08.561 INFO  --- [main] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/board/post/{bno}],methods=[PATCH]}" onto public java.lang.String com.board.controller.BoardListController.update(com.board.domain.BoardVO,int) throws java.lang.Exception 
+2017:10:02 14:49:08.561 INFO  --- [main] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/board/post],methods=[POST]}" onto public java.lang.String com.board.controller.BoardListController.write(com.board.domain.BoardVO) throws java.lang.Exception 
+2017:10:02 14:49:08.561 INFO  --- [main] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/board/delete/{bno}],methods=[DELETE]}" onto public java.lang.String com.board.controller.BoardListController.delete(int) throws java.lang.Exception 
+2017:10:02 14:49:08.561 INFO  --- [main] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/board],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView com.board.controller.BoardListController.list() throws java.lang.Exception 
+2017:10:02 14:49:08.561 INFO  --- [main] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/board/post/{bno}],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView com.board.controller.BoardListController.updateForm(int) throws java.lang.Exception 
+2017:10:02 14:49:08.561 INFO  --- [main] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/board/{bno}],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView com.board.controller.BoardListController.view(int) throws java.lang.Exception 
+2017:10:02 14:49:08.561 INFO  --- [main] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/board/post],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView com.board.controller.BoardListController.writeForm() throws java.lang.Exception 
+2017:10:02 14:49:08.577 INFO  --- [main] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/board/daily],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView com.board.controller.BoardListController.list3(javax.servlet.http.HttpServletRequest) throws java.lang.Exception 
+2017:10:02 14:49:08.577 INFO  --- [main] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/board],methods=[POST]}" onto public org.springframework.web.servlet.ModelAndView com.board.controller.BoardListController.list2() throws java.lang.Exception 
+2017:10:02 14:49:08.577 INFO  --- [main] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/createmember],methods=[POST]}" onto public java.lang.String com.board.controller.LoginController.join(com.board.domain.User) throws java.lang.Exception 
+2017:10:02 14:49:08.577 INFO  --- [main] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/createmember],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView com.board.controller.LoginController.joinform() throws java.lang.Exception 
+2017:10:02 14:49:08.577 INFO  --- [main] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/login],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView com.board.controller.LoginController.login() throws java.lang.Exception 
+2017:10:02 14:49:08.577 INFO  --- [main] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/login],methods=[POST]}" onto public java.lang.String com.board.controller.LoginController.login(com.board.domain.AuthenticationRequest,javax.servlet.http.HttpSession) throws java.io.IOException 
+2017:10:02 14:49:08.577 INFO  --- [main] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/member/{username}],methods=[PATCH]}" onto public java.lang.String com.board.controller.MemberController.update(com.board.domain.User,java.lang.String) throws java.lang.Exception 
+2017:10:02 14:49:08.577 INFO  --- [main] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/member],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView com.board.controller.MemberController.list(org.springframework.security.core.userdetails.UserDetails) throws com.board.controller.CustomAuthException 
+2017:10:02 14:49:08.577 INFO  --- [main] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/member/{username}],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView com.board.controller.MemberController.updateform(java.lang.String) throws java.lang.Exception 
+2017:10:02 14:49:08.577 INFO  --- [main] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/reply/delete/{bno}],methods=[DELETE]}" onto public java.lang.String com.board.controller.ReplyController.delete(int) throws java.lang.Exception 
+2017:10:02 14:49:08.577 INFO  --- [main] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/reply],methods=[POST]}" onto public java.lang.String com.board.controller.ReplyController.replyInsert(com.board.domain.Reply,javax.servlet.http.HttpServletRequest,com.board.domain.User) throws java.lang.Exception 
+2017:10:02 14:49:08.577 INFO  --- [main] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/sign/post],methods=[POST]}" onto public java.lang.String com.board.controller.SignBoardController.signpost(com.board.domain.Sign) throws java.lang.Exception 
+2017:10:02 14:49:08.577 INFO  --- [main] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/sign/permit],methods=[POST]}" onto public java.lang.String com.board.controller.SignBoardController.signok(org.springframework.security.core.userdetails.UserDetails,com.board.domain.Sign) throws java.lang.Exception 
+2017:10:02 14:49:08.577 INFO  --- [main] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/sign/post],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView com.board.controller.SignBoardController.signlist() throws java.lang.Exception 
+2017:10:02 14:49:08.577 INFO  --- [main] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/sign/check/{signno}],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView com.board.controller.SignBoardController.signview(int,org.springframework.security.core.userdetails.UserDetails) throws java.lang.Exception 
+2017:10:02 14:49:08.577 INFO  --- [main] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/sign],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView com.board.controller.SignBoardController.signready(org.springframework.security.core.userdetails.UserDetails) throws java.lang.Exception 
+2017:10:02 14:49:08.577 INFO  --- [main] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/sign/{docno}],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView com.board.controller.SignBoardController.signwrite(int,org.springframework.security.core.userdetails.UserDetails) throws java.lang.Exception 
+2017:10:02 14:49:08.593 INFO  --- [main] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/error]}" onto public org.springframework.http.ResponseEntity<java.util.Map<java.lang.String, java.lang.Object>> org.springframework.boot.autoconfigure.web.BasicErrorController.error(javax.servlet.http.HttpServletRequest) 
+2017:10:02 14:49:08.593 INFO  --- [main] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/error],produces=[text/html]}" onto public org.springframework.web.servlet.ModelAndView org.springframework.boot.autoconfigure.web.BasicErrorController.errorHtml(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse) 
+2017:10:02 14:49:08.624 INFO  --- [main] o.s.w.s.h.SimpleUrlHandlerMapping : Mapped URL path [/webjars/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler] 
+2017:10:02 14:49:08.624 INFO  --- [main] o.s.w.s.h.SimpleUrlHandlerMapping : Mapped URL path [/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler] 
+2017:10:02 14:49:08.662 INFO  --- [main] o.s.w.s.h.SimpleUrlHandlerMapping : Mapped URL path [/**/favicon.ico] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler] 
+2017:10:02 14:49:08.677 INFO  --- [main] o.s.b.a.w.WebMvcAutoConfiguration$WelcomePageHandlerMapping : Adding welcome page: class path resource [static/index.html] 
+2017:10:02 14:49:08.893 INFO  --- [main] o.s.j.e.a.AnnotationMBeanExporter : Registering beans for JMX exposure on startup 
+2017:10:02 14:49:08.962 INFO  --- [main] o.s.b.c.e.t.TomcatEmbeddedServletContainer : Tomcat started on port(s): 8080 (http) 
+2017:10:02 14:49:08.962 INFO  --- [main] com.board.BoardApplication : Started BoardApplication in 4.529 seconds (JVM running for 5.226) 
+2017:10:02 14:49:11.223 INFO  --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/] : Initializing Spring FrameworkServlet 'dispatcherServlet' 
+2017:10:02 14:49:11.228 INFO  --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet : FrameworkServlet 'dispatcherServlet': initialization started 
+2017:10:02 14:49:11.250 INFO  --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet : FrameworkServlet 'dispatcherServlet': initialization completed in 21 ms 

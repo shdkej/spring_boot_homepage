@@ -21,6 +21,7 @@ import org.springframework.transaction.PlatformTransactionManager;
 import com.board.support.DB1;
 import com.board.support.DB2;
 import com.board.support.DB3;
+import com.board.support.DB4;
 
 
 public abstract class DatabaseConfig {
@@ -91,9 +92,28 @@ class Db3DatabaseConfig extends DatabaseConfig {
 	}
 	
 	@Bean(name = "db3SqlSessionFactory")
-	public SqlSessionFactory db2SqlSessionFactory(@Qualifier("db3DataSource") DataSource db3DataSource, ApplicationContext applicationContext) throws Exception{
+	public SqlSessionFactory db3SqlSessionFactory(@Qualifier("db3DataSource") DataSource db3DataSource, ApplicationContext applicationContext) throws Exception{
 		SqlSessionFactoryBean sessionFactoryBean = new SqlSessionFactoryBean();
 		configureSqlSessionFactory(sessionFactoryBean, db3DataSource);
+		return sessionFactoryBean.getObject();
+	}
+	
+}
+
+@Configuration
+@MapperScan(basePackages = "com.board.mapper", annotationClass = DB4.class, sqlSessionFactoryRef = "db4SqlSessionFactory")
+class Db4DatabaseConfig extends DatabaseConfig {
+
+	@Bean(name = "db4DataSource", destroyMethod = "close")
+	@ConfigurationProperties(prefix = "spring.db4.datasource")
+	public DataSource db4DataSource() {
+		return DataSourceBuilder.create().build();
+	}
+	
+	@Bean(name = "db4SqlSessionFactory")
+	public SqlSessionFactory db4SqlSessionFactory(@Qualifier("db4DataSource") DataSource db4DataSource, ApplicationContext applicationContext) throws Exception{
+		SqlSessionFactoryBean sessionFactoryBean = new SqlSessionFactoryBean();
+		configureSqlSessionFactory(sessionFactoryBean, db4DataSource);
 		return sessionFactoryBean.getObject();
 	}
 	

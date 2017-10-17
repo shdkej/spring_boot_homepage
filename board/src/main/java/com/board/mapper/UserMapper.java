@@ -2,12 +2,12 @@ package com.board.mapper;
 
 import java.util.List;
 
-import org.apache.ibatis.annotations.Mapper;
 import org.springframework.security.core.GrantedAuthority;
 
 import com.board.domain.User;
+import com.board.support.DB2;
 
-@Mapper
+@DB2
 public interface UserMapper {
 	public List<User> userlist();
 	public User readUser(String username);
@@ -17,5 +17,6 @@ public interface UserMapper {
 	public void deleteUser(String username);
 	public void deleteAuthority(String username);
 	public void memberUpdate(User user) throws Exception;
+	public User readUser1(String username);
 
 }

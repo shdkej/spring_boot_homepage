@@ -25,9 +25,6 @@
 <!--  Paper Dashboard core CSS    -->
 <link href="/bassets/css/paper-dashboard.css" rel="stylesheet" />
 
-<!--  CSS for Demo Purpose, don't include it in your project     -->
-<link href="/bassets/css/demo.css" rel="stylesheet" />
-
 <!--  Fonts and icons     -->
 <link
 	href="http://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css"
@@ -58,7 +55,7 @@
 			month = month2++;
 		}
 	%>
-
+	<sec:authentication property="principal.username" var="username" />
 	<div class="sidebar" data-background-color="white"
 		data-active-color="danger">
 		<div class="sidebar-wrapper">
@@ -73,15 +70,23 @@
 						<p>전체 글 보기</p>
 				</a></li>
 
-				<li class=""><a href="/board/${board.boardname }"> <i class="ti-view-list"></i>
-						<p>공유 자료</p>
+				<li class=""><a href="/member/${username}"> <i class="ti-user"></i>
+						<p>내 정보 관리</p>
 				</a></li>
 
-				<li class="active"><a
+				<li class=""><a
 					href="/board/daily?year=<%=year%>&amp;month=<%=month%>"> <i
 						class="ti-view-list"></i>
 						<p>업무일지</p>
 				</a></li>
+				<li class=""><a href="/sign/post"> <i
+						class="ti-view-list"></i>
+						<p>결재작성</p>
+				</a></li>
+				<li class=""><a href="/sign"> <i class="ti-view-list"></i>
+						<p>결재확인</p>
+				</a></li>
+
 				<sec:authorize access="hasRole('ROLE_ADMIN')">
 					<li class=""><a href="/member"> <i class="ti-user"></i>
 							<p>회원관리</p>
@@ -135,8 +140,6 @@
 					<div class="col-md-12">
 						<div class="card">
 							<div class="header">
-								<h4 class="title">업무일지</h4>
-								<p class="category">Daily News</p>
 							</div>
 </body>
 <script src="/bassets/js/jquery-1.10.2.js" type="text/javascript"></script>

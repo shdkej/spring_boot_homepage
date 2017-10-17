@@ -21,17 +21,16 @@
 				 <button>Login</button>
 				 <a href="/createmember" data-hover="회원가입" class="links"><p>회원가입</p></a>
 			</form>
-			 <c:if test="${param.error }">
+			<%-- <c:if test="${not empty error }"> --%>
 			<tr>
 				<td colspan="2">
 				<font color="red">
-				<p>Your login attempt was not successful, try again.</p>
-				<p>Reason : ${sessionScope["SPRING_SECURITY_LAST_EXCEPTION"].message}</p>
+				<p>${message}</p>
 				</font>
 				<c:remove scope="session" var="SPRING_SECURITY_LAST_EXCEPTION"/>
 				</td>
 			</tr>
-			</c:if>
+			
 			
 		</div>
 	</div>

@@ -28,7 +28,7 @@ public class UserServiceImpl implements UserService {
 	@Override
 	public UserDetails loadUserByUsername(String username)
 			throws UsernameNotFoundException {
-		User user = userMapper.readUser(username);
+		User user = userMapper.readUser1(username);
 		user.setAuthorities(getAuthorities(username));
 		return user;
 	}
@@ -36,12 +36,6 @@ public class UserServiceImpl implements UserService {
 	@Override
 	public Collection<GrantedAuthority> getAuthorities(String username) {
 		Collection<GrantedAuthority> authorities = userMapper.readAuthority(username);
-		
-		/*List<String> string_authorities = userMapper.readAuthority(username);
-		List<GrantedAuthority> authorities = new ArrayList<GrantedAuthority>();
-		for(String authority : string_authorities){
-			authorities.add(new SimpleGrantedAuthority(authority));
-		}*/
 		return authorities;
 	}
 

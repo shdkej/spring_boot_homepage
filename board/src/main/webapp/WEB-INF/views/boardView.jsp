@@ -60,7 +60,7 @@
 						<td>&nbsp;</td>
 						<td width="20%">${reply.r_date }</td>
 						<c:if test="${username == reply.r_name}">
-							<td><button type="button" aria-hidden="true" class="close"
+						<td><button type="button" aria-hidden="true" class="close" name="btnDelete"
 									onclick="reDelete(${reply.r_name })">×</button></td>
 						</c:if>
 					</tr>
@@ -69,9 +69,10 @@
 			<table width="100%" class="table table-striped">
 				<tr>
 					<form action="/reply" method="POST" >
+					<input type="hidden" name="bno" value="${board.bno}" />
 						<input type="hidden" name="r_name" value="${username }" />
 						<!-- <input type="hidden" name="r_password" value=""/> -->
-						<input type="hidden" name="bno" value="${board.bno}" />
+						
 					<tr><td><textarea id="content" name="r_content"
 							rows="5" maxlength="100" style="width:100%;"></textarea><span id="counter">###</span></td></tr>
 					<td><input type="submit" value="입력"
@@ -113,19 +114,6 @@ $(function() {
     $('#content').keyup();
 });
 </script>
-
-	<script type="text/javascript">
-	function reDelete(comment){
-		var msg = confirm("댓글을 삭제합니다.");
-		if(msg==true){
-			deleteCmt(comment);
-		}
-		else{
-			return false;
-		}
-	}
-	
-	</script>
 
 	<style>
 form {

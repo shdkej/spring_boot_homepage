@@ -6,22 +6,26 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 <mapper namespace="com.board.mapper.BoardMapper">
  
     <insert id="boardInsert" parameterType="com.board.domain.BoardVO">
-        insert into dailyboard
+        insert into dailyboard(subject,writer,content,hit)
             values
-        (#{bno},#{subject},#{content},#{writer},now(),0)
+        (#{subject},#{writer},#{content},0)
     </insert>
     
      <select id="boardListforday" parameterType = "com.board.domain.BoardVO" resultType="com.board.domain.BoardVO">
         select * from dailyboard
-        <![CDATA[
+<!--         <![CDATA[
          where reg_date between str_to_date(#{reg_date},'%Y-%m-%d')
          AND str_to_date(#{reg_date},'%Y-%m-%d')+100
+        ]]> -->
+        <![CDATA[
+        where reg_date between to_date(#{reg_date},'yy-mm-dd')
+        AND to_date(#{reg_date},'yy-mm-dd')+100 order by bno desc;
         ]]>
         <!-- select * from dailyboard where str_to_date(reg_date,'%y-%m-%D') like '%'||#{reg_date}||'%' -->
     </select> 
     
     <select id="boardList" resultType="com.board.domain.BoardVO">
-        select * from dailyboard
+        select * from dailyboard order by bno desc;
     </select>
      
     <select id="boardView" parameterType="int" resultType="com.board.domain.BoardVO">
@@ -46,9 +50,6 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		delete from dailyboard where bno = #{bno}
 	</delete>
 	
-	    <select id="boardList2" resultType="com.board.domain.Board2">
-        select * from #{boardname}
-    </select>
 	
 	
 </mapper>

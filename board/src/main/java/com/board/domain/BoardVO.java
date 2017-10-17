@@ -5,21 +5,13 @@ import java.sql.Date;
 public class BoardVO {
 	
 	
-	private String boardname;
-
 	private int bno;
 	private String subject;
     private String content;
     private String writer;
     private Date reg_date;
     private int hit;
-    
-	public String getBoardname() {
-		return boardname;
-	}
-	public void setBoardname(String boardname) {
-		this.boardname = boardname;
-	}
+
 	public Date getReg_date() {
 		return reg_date;
 	}

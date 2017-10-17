@@ -19,19 +19,18 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter{
 	@Autowired UserService userService;
 	
 
-
+	
 	protected void configure(HttpSecurity http) throws Exception{
 		http
 			.csrf().disable()
 			.sessionManagement().sessionCreationPolicy(SessionCreationPolicy.NEVER)
 				.and()
 			.authorizeRequests()
-				.antMatchers("/","/createmember","/logintemplelet/**","/assets/**","/images/**","/*.html").permitAll()
+				.antMatchers("/","/createmember","/logintemplelet/**","/assets/**","/images/**","/*.html","/bassets/**").permitAll()
 				.and()
 			.authorizeRequests()
 				.antMatchers("/login").permitAll()
-			//	.antMatchers("/board").hasAuthority("USER")
-				.antMatchers("/Member").hasAuthority("ROLE_ADMIN")
+				.antMatchers("/member").hasAuthority("ROLE_ADMIN")
 				.anyRequest().authenticated()
 				.and()
 				.formLogin()
