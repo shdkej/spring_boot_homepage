@@ -81,7 +81,7 @@ public class BoardListController {
 		
 		boardMapper.boardInsert(board);
 
-		return "redirect://localhost:8080/board";
+		return "redirect:/board";
 	}
 	
 	@RequestMapping(value="/{bno}", method=RequestMethod.GET)
@@ -116,7 +116,7 @@ public class BoardListController {
 		
 		boardMapper.boardUpdate(board);
 		
-		return "redirect://localhost:8080/board/"+bno;
+		return "redirect:/board/"+bno;
 	}
 	
 	@RequestMapping(value="/delete/{bno}", method=RequestMethod.DELETE)
@@ -124,6 +124,6 @@ public class BoardListController {
 		
 		boardMapper.boardDelete(bno);
 		
-		return "redirect://localhost:8080/board/";
+		return "redirect:/board/";
 	}
 }

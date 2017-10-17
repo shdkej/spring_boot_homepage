@@ -53,7 +53,7 @@ public class SignBoardController {
 		signMapper.signWrite(sign);
 		String username = sign.getName();
 //		NotificationService.send(username);
-		return "redirect://localhost:8080/sign";
+		return "redirect:/sign";
 	}
 	
 	@RequestMapping(value="/{docno}", method=RequestMethod.GET)
@@ -71,7 +71,7 @@ public class SignBoardController {
 	@RequestMapping(value="/permit",method=RequestMethod.POST)
 	public String signok(@AuthenticationPrincipal UserDetails userDetail,@ModelAttribute("Sign")Sign sign) throws Exception{
 		signMapper.signPermit(sign);
-		return "redirect://localhost:8080/sign";
+		return "redirect:/sign";
 	}
 	
 	@RequestMapping(value="/check/{signno}", method=RequestMethod.GET)

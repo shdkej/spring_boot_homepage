@@ -52,7 +52,7 @@ public class LoginController {
 //		User user = userService.readUser(username);
 //		NotificationService.start();
 		
-		return "redirect://localhost:8080/board";
+		return "redirect:/board";
 	}
 	
 	@RequestMapping(value="/createmember", method=RequestMethod.GET)
@@ -65,7 +65,7 @@ public class LoginController {
 		
 		userService.createUser(user);
 		
-		return "redirect://localhost:8080/login";
+		return "redirect:/login";
 	}
 
 }

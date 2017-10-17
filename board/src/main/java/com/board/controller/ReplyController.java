@@ -28,7 +28,7 @@ public class ReplyController {
 		String name = request.getUserPrincipal().getName();
 		NotificationService.start();
 		NotificationService.send(name);
-		return "redirect://localhost:8080/board/"+bno;
+		return "redirect:/board/"+bno;
 	}
 	
 	@RequestMapping(value="/reply/delete/{bno}", method=RequestMethod.DELETE)
@@ -36,7 +36,7 @@ public class ReplyController {
 		
 		replyMapper.replyDelete(bno);
 		
-		return "redirect://localhost:8080/board/";
+		return "redirect:/board/";
 	}
 	
 

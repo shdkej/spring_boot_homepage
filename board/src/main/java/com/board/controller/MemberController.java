@@ -47,10 +47,10 @@ public class MemberController {
 	public String update(@ModelAttribute("User")User user,@PathVariable("username")String username) throws Exception{
 		userMapper.memberUpdate(user);
 		if(username=="admin"){
-			return "redirect://localhost:8080/member";
+			return "redirect:/member";
 		}
 		else{
-			return "redirect://localhost:8080/member";
+			return "redirect:/member";
 		}
 	}
 	
