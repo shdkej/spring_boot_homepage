@@ -15,7 +15,7 @@
 	<div class="wrapper">
 		<jsp:include page="boardTemplelet.jsp"></jsp:include>
 		<table class="table table-striped">
-			<thead class="thide">
+			<thead>
 				<th>번호</th>
 				<th>제목</th>
 			</thead>
@@ -23,7 +23,7 @@
 
 				<c:forEach var="sign" items="${sign}">
 					<tr class="trtr">
-						<td class="thide" align="center" width="10%">${sign.docno }</td>
+						<td class="tbold" align="center" width="10%">${sign.docno }</td>
 						<td class="tbold"><a href="/sign/${sign.docno }">${sign.docname }</a></td>
 					</tr>
 				</c:forEach>

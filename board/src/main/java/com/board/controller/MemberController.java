@@ -17,26 +17,12 @@ import com.board.domain.User;
 import com.board.mapper.UserMapper;
 
 @Controller
-@Secured("ADMIN")
 @RequestMapping(value="/member")
 public class MemberController {
 
 	@Autowired
 	private UserMapper userMapper;
-	
-	@RequestMapping(method=RequestMethod.GET)
-	public ModelAndView list(@AuthenticationPrincipal UserDetails userDetail) throws CustomAuthException{
-		List<User> list = userMapper.userlist();
-		ModelAndView view = new ModelAndView();
-		view.addObject("list",list);
 
-		if(userDetail==null){
-			throw new CustomAuthException("관리자만 접속 가능합니다.");
-		}
-		
-		return view;
-	}
-	
 	@RequestMapping(value="/{username}", method=RequestMethod.GET)
 	public ModelAndView updateform(@PathVariable("username")String username) throws Exception{
 		User user = userMapper.readUser(username);
@@ -45,13 +31,11 @@ public class MemberController {
 	
 	@RequestMapping(value="/{username}", method=RequestMethod.PATCH)
 	public String update(@ModelAttribute("User")User user,@PathVariable("username")String username) throws Exception{
+
 		userMapper.memberUpdate(user);
-		if(username=="admin"){
-			return "redirect:/member";
-		}
-		else{
-			return "redirect:/member";
-		}
+
+		return "redirect:/board";
+
 	}
 	
 }

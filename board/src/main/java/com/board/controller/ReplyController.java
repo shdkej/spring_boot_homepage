@@ -26,8 +26,8 @@ public class ReplyController {
 		String bno = request.getParameter("bno");
 		replyMapper.replyInsert(reply);
 		String name = request.getUserPrincipal().getName();
-		NotificationService.start();
-		NotificationService.send(name);
+		//NotificationService.start();
+		//NotificationService.send(name);
 		return "redirect:/board/"+bno;
 	}
 	

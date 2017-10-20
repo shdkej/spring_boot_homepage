@@ -5,7 +5,8 @@ pageEncoding="EUC-KR"%>
 <html>
 <head>
 <meta charset="EUC-KR">
-<title>Insert title here</title>
+<title>ERROR</title>
+<link rel="icon" href="/images/favicon.ico" type="image/x-icon" />
 </head>
 <body>
 <table>

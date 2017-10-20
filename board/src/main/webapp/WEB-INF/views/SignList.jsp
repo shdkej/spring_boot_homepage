@@ -109,12 +109,13 @@
 					onclick="location.href='/sign/post'" class="btn"></td>
 			</tr>
 		</table>
+<c:choose>
+ 				<c:when test="${signs.checkman1 eq user.username or signs.checkman2 eq user.username or signs.checkman3 eq user.username}">
 <p><h4 class="title">결재한 문서</h4></p>
 		<table class="table table-striped">
 
  			<c:forEach var="signs" items="${sign}">
- 				<c:choose>
- 				<c:when test="${signs.checkman1 eq user.username or signs.checkman2 eq user.username or signs.checkman3 eq user.username}">
+ 				
 					<tr class="trtr">
 						<td class="thide" align="center" width="10%">${signs.signno }</td>
 						<td class="tbold"><a href="/sign/${signs.signno }">${signs.sign }</a></td>
@@ -122,10 +123,11 @@
 						<td align="center">${signs.reg_date }</td>
 						<td align="center">${signs.signlevel }</td>
 					</tr>
-				</c:when>
-				</c:choose>
+				
 			</c:forEach> 
 		</table>
+</c:when>
+				</c:choose>
 	</div>
 </body>
 

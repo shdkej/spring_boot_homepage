@@ -23,7 +23,7 @@
 		<jsp:include page="boardTemplelet.jsp"></jsp:include>
 
 		<div class="content table-responsive table-full-width">
-			<form action="/board/post" method="POST">
+			<form name="board" action="/board/post" onSubmit="return(check_form());" method="POST">
 
 				<table class="table table-striped">
 					<tr>
@@ -63,6 +63,16 @@
 		    });
 		    $('#editor').keyup();
 		});
+</script>
+<script>
+function check_form() {
+	if(!board.subject.value)
+	{
+		alert("적어주세요");
+		board.subject.focus();
+		return false;
+	}
+}
 </script>
 
 </body>

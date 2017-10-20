@@ -24,6 +24,8 @@
 						<input type="hidden" name="signdocname" value="${sign.docname }" />
 						<jsp:include page="/WEB-INF/WorkDocument/${sign.docno }.jsp"></jsp:include>
 					</tr>
+</table>
+<table>
 					<tr align="center">
 						<td align="center"><input type="submit" value="등록"
 							class="btn btn-info btn-fill btn-wd" /> <input type=button

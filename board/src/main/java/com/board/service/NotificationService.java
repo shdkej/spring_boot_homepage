@@ -16,7 +16,7 @@ public class NotificationService {
 
 		
 		try {
-			SocketAddress addr = new InetSocketAddress("192.168.0.6", 7777);
+			SocketAddress addr = new InetSocketAddress("192.168.0.54", 7777);
 			socket = SocketChannel.open();
 			socket.connect(addr);
 			while(true){

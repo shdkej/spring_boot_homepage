@@ -13,8 +13,7 @@
 	<div class="wrapper">
 		<jsp:include page="boardTemplelet.jsp"></jsp:include>
 		<div class="content table-responsive table-full-width">
-			<form:form commandName="User" action="/member/${user.username}"
-				method="PATCH">
+			<form:form name="member" commandName="User" action="summit()" 				method="PATCH">
 				<table class="table table-striped" width="50%">
 					<tr>
 						<td>&nbsp;</td>
@@ -111,5 +110,12 @@
 		</div>
 	</div>
 </body>
+
+<script>
+function summit(){
+	alert("complete");
+	document.location.href="/board";
+}
+</script>
 
 </html>

@@ -20,8 +20,6 @@
 <link rel="icon" href="/images/favicon.ico" type="image/x-icon" />
 <link href="/bassets/css/bootstrap.min.css" rel="stylesheet" />
 
-<!-- Animation library for notifications   -->
-<link href="/bssets/css/animate.min.css" rel="stylesheet" />
 <!--  Paper Dashboard core CSS    -->
 <link href="/bassets/css/paper-dashboard.css" rel="stylesheet" />
 
