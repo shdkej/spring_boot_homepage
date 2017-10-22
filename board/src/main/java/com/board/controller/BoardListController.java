@@ -1,20 +1,19 @@
 package com.board.controller;
 
+import java.io.BufferedOutputStream;
 import java.io.File;
 import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.OutputStream;
 import java.io.PrintWriter;
 import java.sql.Date;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -28,7 +27,6 @@ import com.board.domain.Reply;
 import com.board.mapper.BoardMapper;
 import com.board.mapper.ReplyMapper;
 import com.board.mapper.UserMapper;
-import com.board.service.NotificationService;
 
 
 @Controller
@@ -41,13 +39,12 @@ public class BoardListController {
 	private ReplyMapper replyMapper;
 	@Autowired
 	private UserMapper userMapper;
-
+	
 	@Value(value = "${ckeditor.storage.image.path}")
 	private String ckeditorStorageImagePath;
-	
+
 	@Value(value = "${ckeditor.access.image.url}")
 	private String ckeditorAccessImageUrl;
-	
 	
 	
 	@RequestMapping(method=RequestMethod.GET)
@@ -58,7 +55,7 @@ public class BoardListController {
 		
 		view.addObject("list",list);
 		view.setViewName("boardList");
-	
+
 		return view;
 	}
 	
@@ -143,56 +140,40 @@ public class BoardListController {
 		return "redirect:/board/";
 	}
 	
-	@RequestMapping(value="/ckeditorUpload" , method=RequestMethod.POST)
-	public void ckeditupload(HttpServletRequest request, HttpServletResponse response, @RequestParam MultipartFile upload) throws Exception{
+	@RequestMapping(value="/upload", method=RequestMethod.POST)
+	public String upload(Model model,@RequestParam("upload")MultipartFile file, HttpServletRequest request, HttpServletResponse response){
 
-		OutputStream out = null;
-		PrintWriter printWriter = null;
-		response.setCharacterEncoding("UTF-8");
-		response.setContentType("text/html;charset=utf-8");
-		
-		try{
-			
-			String filename = upload.getOriginalFilename();
-			byte[] bytes = upload.getBytes();
-			
-			String root_path_name = ckeditorStorageImagePath + "\\";
-			
-			File rootFile = new File(root_path_name);
-			if (! rootFile.exists()){
-				rootFile.mkdir();
-			}
-			
-			String path_name = rootFile + File.separator + filename;
-			File newfile = new File(path_name);
-			
-			String file_url = ckeditorAccessImageUrl;
-			out = new FileOutputStream(newfile);
-			out.write(bytes);
-			
-			String callback = request.getParameter("CKEditorFuncNum");
-			
-			printWriter = response.getWriter();
-			printWriter.println("<script type='text/javascript'>window.parent.CKEDITOR.tools.callFunction("
-					+ callback +",'" + file_url + "','업로드 완료'"+")</script>");
-			printWriter.flush();
-			
-		}catch(IOException e){
-			e.printStackTrace();
-		}finally{
+		if (!file.isEmpty()){
 			try{
-				if (out != null){
-					out.close();
-				}
-				if (printWriter != null){
-					printWriter.close();
-				}
-			}catch(IOException e){
+				response.setContentType("text/html; charset=UTF-8");
+				response.setHeader("Cache-Control", "no-cache");
+				response.setHeader("X-Frame-Options", "SAMEORIGIN");
+				PrintWriter out = response.getWriter();
+				
+				String fileClientName = file.getOriginalFilename();
+				String pathName = ckeditorStorageImagePath +"\\d" + fileClientName;
+				File newfile = new File(pathName);
+				byte[] bytes = file.getBytes();
+				BufferedOutputStream stream = new BufferedOutputStream(new FileOutputStream(newfile));
+				stream.write(bytes);
+				stream.close();
+				
+				String fileUrl = ckeditorAccessImageUrl + File.separator + newfile.getName();
+				
+				String callback = request.getParameter("CKEditorFuncNum");
+				String script = "<script type=\"javascript\">window.parent.CKEDITOR.tools.callFunction(" + callback + ", '" + fileUrl + "');</script>";
+				
+				out.println(script);
+				out.flush();
+				out.close();
+				model.addAttribute("file_path", fileUrl);
+				model.addAttribute("CKEditorFuncNum",callback);
+			}catch(Exception e){
 				e.printStackTrace();
 			}
-		} 
-		
-		return;
+			
+			
+		}
+		return "fileupload";
 	}
-	
 }

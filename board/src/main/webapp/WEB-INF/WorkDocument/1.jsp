@@ -7,7 +7,7 @@
 <html>
 <head>
 <meta charset="EUC-KR">
-<title>결재 작성 중</title>
+<title>Insert title here</title>
 </head>
 <style>
 tbody,tr,th,td {
@@ -43,9 +43,23 @@ input:focus,textarea:focus {
 			</tr>
 			<tr>
 				<td>${sign.name }</td>
-				<td>${user.username }</td>
-				<td></td>
-				<td></td>
+				<td><c:if test="${user.department eq me.department and user.name ne me.username and sign.checkman1 eq null}">
+						<input type="submit" value="결재" class="btn" />
+						</c:if>
+						<c:if test="${sign.checkman1 ne null }">${sign.checkman1 }</c:if>
+						</td>
+				<td><c:if test="${user.department eq me.department and user.name ne me.username and
+									 sign.checkman1 ne null and sign.checkman1 ne me.username and sign.checkman2 eq null}">
+						<input type="submit" value="결재" class="btn" />
+						</c:if>
+						<c:if test="${sign.checkman2 ne null }">${sign.checkman2 }</c:if>
+						</td>
+				<td><c:if test="${user.department eq me.department and user.name ne me.username and checkman2 ne null and 
+									sign.checkman1 ne me.username and sign.checkman2 ne me.username and sign.checkman3 eq null}">
+						<input type="submit" value="결재" class="btn" />
+						</c:if>
+						<c:if test="${sign.checkman3 ne null }">${sign.checkman3 }</c:if>
+						</td>
 			</tr>
 		</tbody>
 	</table>
@@ -55,30 +69,43 @@ input:focus,textarea:focus {
 			<td class="tdcolor">부서</td>
 			<td width="40%">
 			<c:choose>
-				<c:when test="${user.username eq username and sign.checkno lt 1}">
+				<c:when test="${user.username eq username and sign.checkno eq 1}">
 					${user.dep_name }
 					<input type="hidden" name="department" value="${user.department }" />
 				</c:when>
 				<c:when test="${user.username ne username}">
-				${sign.department},${user.username }
+				${user.dep_name}
 				</c:when>
 			</c:choose>
 				</td>
 			<td class="tdcolor">이름</td>
 			<td width="40%">
-				<input type="text" name="name" value="${username }" readOnly />
-				
+			<c:choose>
+				<c:when test="${user.username eq username and sign.checkno eq 1}">
+					<input type="text" name="name" value="${user.username }" />
+				</c:when>
+				<c:when test="${user.username ne username }">
+				${user.name}
+				</c:when>
+			</c:choose>
 			</td>
 		</tr>
 		<tr>
 			<td class="tdcolor">직급</td>
 			<td width="40%">
-					<input type="text" name="job_name" value="${user.job_name }" />		
+			<c:choose>
+<%-- 				<c:when test="${user.username eq username }">
+					<input type="text" name="job_name" value="${user.job_name }" />
+				</c:when> --%>
+				<c:when test="${user.username ne username }">
+				${user.job_name}
+				</c:when>
+			</c:choose>			
 </td>
 			<td class="tdcolor">기간</td>
 			<td width="40%">
 			<c:choose>
-				<c:when test="${user.username eq username }">
+				<c:when test="${user.username eq username and sign.checkno eq 1}">
 					<input type="date" name="reg_date" value="${sign.reg_date }" />
 				</c:when>
 				<c:when test="${user.username ne username }">
@@ -92,18 +119,17 @@ input:focus,textarea:focus {
 			
 			<td width="90%" colspan=3>
 			<c:choose>
-				<c:when test="${user.username eq null }">
-				0
+				<c:when test="${user.username eq username and sign.checkno eq 1}">
 				</c:when>
-				<c:when test="${user.username ne null }">
-				1
+				<c:when test="${user.username ne username }">
+				${sign.signcontent}
 				</c:when>
 			</c:choose>
 				</td>
 		</tr>
 		<tr>
 			<c:choose>
-			<c:when test="${user.username eq username and sign.checkno eq null}">
+			<c:when test="${user.username eq username and sign.checkno eq 1}">
 			<td class="tdcolor">내용</td>
 			<td width="90%" colspan=3>
 				<textarea type="text" rows="20" name="signcontent"></textarea>

@@ -1,6 +1,9 @@
 package com.board.controller;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.annotation.Secured;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Controller;
@@ -21,12 +24,9 @@ public class MemberController {
 	private UserMapper userMapper;
 
 	@RequestMapping(value="/{username}", method=RequestMethod.GET)
-	public ModelAndView updateform(@AuthenticationPrincipal UserDetails userDetail) throws Exception{
-		String username = userDetail.getUsername();
-		
-		User user = userMapper.readUser1(username);
-
-			return new ModelAndView("memberUpdate","user",user);
+	public ModelAndView updateform(@PathVariable("username")String username) throws Exception{
+		User user = userMapper.readUser(username);
+		return new ModelAndView("memberUpdate","user",user);
 	}
 	
 	@RequestMapping(value="/{username}", method=RequestMethod.PATCH)

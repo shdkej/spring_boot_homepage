@@ -12,9 +12,8 @@
 <body>
 	<div class="wrapper">
 		<jsp:include page="boardTemplelet.jsp"></jsp:include>
-		<sec:authentication property="principal.username" var="username" />
 		<div class="content table-responsive table-full-width">
-			<form:form name="member" commandName="User" action="/member/${username}" method="PATCH">
+			<form:form name="member" commandName="User" action="summit()" 				method="PATCH">
 				<table class="table table-striped" width="50%">
 					<tr>
 						<td>&nbsp;</td>
@@ -26,7 +25,7 @@
 					<tr>
 						<td>&nbsp;</td>
 						<td>직급</td>
-						<td><select name="job_id" class="ddropdown-select" dir="ltr">
+						<td><select name="job_id" class="ddropdown-select">
 								<option value="1">사원</option>
 								<option value="2">주임</option>
 								<option value="3">대리</option>
@@ -40,7 +39,7 @@
 					<tr>
 						<td>&nbsp;</td>
 						<td>부서</td>
-						<td><select name="department" class="ddropdown-select" tabindex="${user.department }">
+						<td><select name="department" class="ddropdown-select">
 								<option value="1">제어(PC)</option>
 								<option value="2">제어(PLC)</option>
 								<option value="3">전장</option>
@@ -111,5 +110,12 @@
 		</div>
 	</div>
 </body>
+
+<script>
+function summit(){
+	alert("complete");
+	document.location.href="/board";
+}
+</script>
 
 </html>

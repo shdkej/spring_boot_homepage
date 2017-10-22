@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta charset="EUC-KR">
-<title>결재작성중</title>
+<title>Insert title here</title>
 </head>
 <style>
 tbody,tr,th,td {

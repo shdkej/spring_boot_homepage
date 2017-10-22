@@ -5,105 +5,103 @@
 	uri="http://www.springframework.org/security/tags"%>
 <!DOCTYPE html>
 
-<html lang="en">
+<html>
 <head>
 <meta charset="UTF-8">
 
 <title>직원용</title>
 <link rel="icon" href="images/favicon.ico" type="image/x-icon" />
 <script type="text/javascript" src="/ckeditor/ckeditor.js"></script>
-<!-- include libraries(jQuery, bootstrap) -->
-<link href="http://netdna.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.css" rel="stylesheet">
-<script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.js"></script> 
-<script src="http://netdna.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.js"></script> 
-
-<!-- include summernote css/js-->
-<link href="http://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.8/summernote.css" rel="stylesheet">
-<script src="http://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.8/summernote.js"></script>
 
 </head>
 <body>
+	<style>
+#holder {
+	border: 2px dotted #3292A2;
+	width: 90%;
+	height: 50px;
+	color: #92AAB0;
+	text-align: center;
+	font-size: 24px;
+	padding-top: 12px;
+	margin-top: 10px;
+}
+</style>
+
+
+
+	<sec:authentication property="principal.username" var="username" />
+
+
 	<div class="wrapper">
-		 <jsp:include page="boardTemplelet.jsp"></jsp:include>
+		<jsp:include page="boardTemplelet.jsp"></jsp:include>
 
 		<div class="content table-responsive table-full-width">
-			<form name="board" action="/board/post" onSubmit="return(check_form());" method="POST" >
+			<form name="board" action="/board/post"
+				onSubmit="return(check_form());" method="POST">
 
 				<table class="table table-striped">
 					<tr>
 						<td width="100%"><input name="subject" maxlength="100"
 							placeholder="제목" class="form-control border-input"></td>
 						<td><input type="hidden" name="writer" size="50"
-							maxlength="50" value=""
+							maxlength="50" value="${username}"
 							class="form-control border-input"></td>
 					</tr>
 					<tr>
-						<td><textarea id="summernote" name="content"
-								style="width: 100%; height: 200px;"></textarea></td>
+						<td><textarea id="editor" name="content"
+								style="width: 100%; height: 200px;">
+								
+</textarea></td>
 					</tr>
 					<tr align="center">
 
-						<td colspan="2"><input type="submit" value="등록" class="btn" >
+						<td colspan="2"><input type="submit" value="등록" class="btn">
 							<input type=button value="취소" class="btn"
 							OnClick="window.location='/board'" />
 					</tr>
 				</table>
 			</form>
-			<form name="file" action="/upload" enctype="multipart/form-data" method="POST">
-			<input multiple="multiple" type="file" name="file" />
-			<input type="submit" value="ok"/>
-			</form>
 		</div>
-		
 	</div>
 
 	<script type="text/javascript">
 		//<![CDATA[
 		CKEDITOR.replace('editor', {
-			skin : 'moono-lisa',
-			toolbarCanCollapse:true,
-			enterMode:'2',
-			filebrowserImageUploadUrl : '/testup'
-			
+			skin : 'moono-lisa'
 		});
 		//]]>
 
 		$(function() {
-		    $('#editor').keyup(function (e){
-		        var content = $(this).val();
-		        $(this).height(((content.split('\n').length + 1) * 1.5) + 'em');
-		        $('#counter').html(content.length + '/100');
-		    });
-		    $('#editor').keyup();
+			$('#editor')
+					.keyup(
+							function(e) {
+								var content = $(this).val();
+								$(this)
+										.height(
+												((content.split('\n').length + 1) * 1.5)
+														+ 'em');
+								$('#counter').html(content.length + '/100');
+							});
+			$('#editor').keyup();
 		});
-</script>
-<script>
-function check_form() {
-	if(!board.subject.value)
-	{
-		alert("제목을 적어주세요");
-		board.subject.focus();
-		return false;
-	}
-}
+	</script>
+	<script>
+		function check_form() {
+			if (!board.subject.value) {
+				alert("적어주세요");
+				board.subject.focus();
+				return false;
+			}
+		}
+		// 이미지 파일 여부 판단
+		function checkImageType(fileName){
+		    var pattern = /jpg|gif|png|jpeg/i;
+		    return fileName.match(pattern);
+		}
 
-//이미지 파일 여부 판단
-function checkImageType(fileName){
-    var pattern = /jpg|gif|png|jpeg/i;
-    return fileName.match(pattern);
-}
-
-
-$(document).ready(function() {
-  $('#summernote').summernote({
-    height: 300,
-    minHeight: null,
-    maxHeight: null,
-    focus: true
-  });
-});
-
-</script>
+	</script>
+	</script>
 
 </body>
 </html>
