@@ -24,7 +24,7 @@
 </head>
 <body>
 	<div class="wrapper">
-		 <jsp:include page="boardTemplelet.jsp"></jsp:include>
+		<%-- <jsp:include page="boardTemplelet.jsp"></jsp:include> --%>
 
 		<div class="content table-responsive table-full-width">
 			<form name="board" action="/board/post" onSubmit="return(check_form());" method="POST" >

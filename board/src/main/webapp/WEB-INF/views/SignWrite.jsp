@@ -24,13 +24,11 @@
 						<input type="hidden" name="signdocname" value="${sign.docname }" />
 						<jsp:include page="/WEB-INF/WorkDocument/${sign.docno }.jsp"></jsp:include>
 					</tr>
-</table>
-<table>
 					<tr align="center">
-						<td align="center"><input type="submit" value="등록"
-							class="btn btn-info btn-fill btn-wd" /> <input type=button
-							value="취소" class="btn btn-info btn-fill btn-wd"
-							OnClick="window.location='/sign'" /></td>
+						<td align="center"><button type="submit"
+								class="btn btn-info btn-fill btn-wd">완료</button>
+							<button type="button" onclick="location.href='/sign'"
+								class="btn btn-info btn-fill btn-wd">취소</button></td>
 					</tr>
 				</table>
 			</form>

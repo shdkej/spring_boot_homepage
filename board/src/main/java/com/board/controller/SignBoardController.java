@@ -62,8 +62,9 @@ public class SignBoardController {
 		String username = userDetail.getUsername();
 		User user = userMapper.readUser(username);
 		Sign sign = signMapper.signDocView(docno);
-		mv.addObject("sign",sign);
+		String test = user.getUsername();
 		mv.addObject("user", user);
+		mv.addObject("sign",sign);
 		mv.setViewName("SignWrite");
 		return mv;
 	}

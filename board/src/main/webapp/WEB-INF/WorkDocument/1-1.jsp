@@ -43,9 +43,23 @@ input:focus,textarea:focus {
 			</tr>
 			<tr>
 				<td>${sign.name }</td>
-				<td>${user.username }</td>
-				<td></td>
-				<td></td>
+				<td><c:if test="${user.department eq me.department and user.name ne me.username and sign.checkman1 eq null}">
+						<input type="submit" value="결재" class="btn" />
+						</c:if>
+						<c:if test="${sign.checkman1 ne null }">${sign.checkman1 }</c:if>
+						</td>
+				<td><c:if test="${user.department eq me.department and user.name ne me.username and
+									 sign.checkman1 ne null and sign.checkman1 ne me.username and sign.checkman2 eq null}">
+						<input type="submit" value="결재" class="btn" />
+						</c:if>
+						<c:if test="${sign.checkman2 ne null }">${sign.checkman2 }</c:if>
+						</td>
+				<td><c:if test="${user.department eq me.department and user.name ne me.username and checkman2 ne null and 
+									sign.checkman1 ne me.username and sign.checkman2 ne me.username and sign.checkman3 eq null}">
+						<input type="submit" value="결재" class="btn" />
+						</c:if>
+						<c:if test="${sign.checkman3 ne null }">${sign.checkman3 }</c:if>
+						</td>
 			</tr>
 		</tbody>
 	</table>

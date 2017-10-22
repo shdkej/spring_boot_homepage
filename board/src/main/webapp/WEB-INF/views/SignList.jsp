@@ -32,12 +32,12 @@
 			month = month2++;
 		}
 	%>
-<sec:authentication property="principal.username" var="username" />
+	<sec:authentication property="principal.username" var="username" />
 
 	<div class="wrapper">
 		<jsp:include page="boardTemplelet.jsp"></jsp:include>
 
-								
+
 		<table width="100%" border="0" cellspacing="0" cellpadding="0">
 			<tr>
 				<td align="center"><a
@@ -74,7 +74,9 @@
 			</tr>
 		</table>
 
-								<p><h4 class="title">결재할 문서</h4></p>
+		<p>
+		<h4 class="title">결재할 문서</h4>
+		</p>
 		<table class="table table-striped">
 			<thead class="thide">
 				<th>번호</th>
@@ -83,21 +85,22 @@
 				<th>작성일</th>
 			</thead>
 			<tbody>
-				
+
 				<c:forEach var="signs" items="${sign}">
-				<c:choose>
-				<c:when test="${signs.signlevel le user.job_id }">
-					<tr class="trtr">
-						<td class="thide" align="center" width="10%"><a href="/sign/check/${signs.signno }">${signs.signno }</a></td>
-						<td class="tbold">${signs.docname }</td>
-						<td align="center">${signs.name}</td>
-						<td align="center">${signs.reg_date }</td>
-						<td align="center">${signs.signlevel }</td>
-					</tr>
-				</c:when>
-				</c:choose>
+					<c:choose>
+						<c:when test="${signs.signlevel le user.job_id }">
+							<tr class="trtr">
+								<td class="thide" align="center" width="10%"><a
+									href="/sign/check/${signs.signno }">${signs.signno }</a></td>
+								<td class="tbold">${signs.docname }</td>
+								<td align="center">${signs.name}</td>
+								<td align="center">${signs.reg_date }</td>
+								<td align="center">${signs.signlevel }</td>
+							</tr>
+						</c:when>
+					</c:choose>
 				</c:forEach>
-				
+
 			</tbody>
 		</table>
 		<table width="100%" cellpadding="0" cellspacing="0" border="0">
@@ -109,25 +112,27 @@
 					onclick="location.href='/sign/post'" class="btn"></td>
 			</tr>
 		</table>
-<c:choose>
- 				<c:when test="${signs.checkman1 eq user.username or signs.checkman2 eq user.username or signs.checkman3 eq user.username}">
-<p><h4 class="title">결재한 문서</h4></p>
+
+		<p>
+		<h4 class="title">결재한 문서</h4>
+		</p>
 		<table class="table table-striped">
 
- 			<c:forEach var="signs" items="${sign}">
- 				
-					<tr class="trtr">
-						<td class="thide" align="center" width="10%">${signs.signno }</td>
-						<td class="tbold"><a href="/sign/${signs.signno }">${signs.sign }</a></td>
-						<td align="center">${signs.name}</td>
-						<td align="center">${signs.reg_date }</td>
-						<td align="center">${signs.signlevel }</td>
-					</tr>
-				
-			</c:forEach> 
-		</table>
-</c:when>
+			<c:forEach var="signs" items="${sign}">
+				<c:choose>
+					<c:when
+						test="${signs.checkman1 eq user.username or signs.checkman2 eq user.username or signs.checkman3 eq user.username}">
+						<tr class="trtr">
+							<td class="thide" align="center" width="10%">${signs.signno }</td>
+							<td class="tbold"><a href="/sign/${signs.signno }">${signs.sign }</a></td>
+							<td align="center">${signs.name}</td>
+							<td align="center">${signs.reg_date }</td>
+							<td align="center">${signs.signlevel }</td>
+						</tr>
+					</c:when>
 				</c:choose>
+			</c:forEach>
+		</table>
 	</div>
 </body>
 
