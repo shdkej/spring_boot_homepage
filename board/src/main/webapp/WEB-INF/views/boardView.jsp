@@ -48,6 +48,17 @@
 
 		</div>
 	</div>
+<%-- 		<div class="card">
+		<div class="content table-responsive table-full-width">
+			<table width="100%" class="table table-striped">
+				<tr>
+				<c:forEach var="board" items="${board }">
+						<td align="left" width="10%">${board.file}</td>
+				</c:forEach>
+				</tr>
+			</table>
+			</div>
+			</div> --%>
 
 	<div class="card">
 		<div class="content table-responsive table-full-width">
@@ -91,11 +102,10 @@
 							<input type=button value="수정"
 								onclick="location.href='/board/post/${board.bno}'"
 								class="btn btn-info btn-fill btn-wd">
-							<input type="button" value="삭제" onclick="" class="btn"></td>
-							<%-- 													<form:form action="/board/post/${board.bno}"
-														method="DELETE">
-														<input type="submit" value="삭제">
-													</form:form> --%>
+							<input type="button" value="삭제" onclick="/board/delete/${board.bno}" class="btn"></td>
+							<form:form action="/board/delete/${board.bno}" method="DELETE">
+								<input type="submit" value="삭제">
+							</form:form>
 						</c:if>
 				</tr>
 			</table>

@@ -1,12 +1,11 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-	pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<%@ taglib prefix="sec"
-	uri="http://www.springframework.org/security/tags"%>
+<%@ taglib prefix="sec"	uri="http://www.springframework.org/security/tags"%>
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="EUC-KR">
+<meta charset="UTF-8">
 <title>Insert title here</title>
 </head>
 <style>
@@ -35,30 +34,31 @@ input:focus,textarea:focus {
 	<table width="100%">
 		<tbody>
 			<tr height="30">
-				<td rowspan="2" width="550" align="center"><h1>ÃâÀå¿Ï·áÈ®ÀÎ¼­</h1></td>
-				<td class="tdcolor">±â¾È</td>
-				<td class="tdcolor">°áÀç</td>
-				<td class="tdcolor">°áÀç</td>
-				<td class="tdcolor">°áÀç</td>
+				<td rowspan="2" width="550" align="center"><h1>ì¶œì¥ì™„ë£Œí™•ì¸ì„œ</h1></td>
+				<td class="tdcolor">ê¸°ì•ˆ</td>
+				<td class="tdcolor">ê²°ì¬</td>
+				<td class="tdcolor">ê²°ì¬</td>
+				<td class="tdcolor">ê²°ì¬</td>
 			</tr>
 			<tr>
 				<td>${sign.name }</td>
-				<td><c:if test="${user.department eq me.department and user.name ne me.username and sign.checkman1 eq null}">
-						<input type="submit" value="°áÀç" class="btn" />
+				<td><c:if test="${sign.department eq user.department and sign.checkman$1 eq null }">
+						<input type="submit" value="ê²°ì¬" class="btn" />
+						<input type="button" value="ë°˜ë ¤" class="btn" />
 						</c:if>
-						<c:if test="${sign.checkman1 ne null }">${sign.checkman1 }</c:if>
+						${sign.checkman$1 }
 						</td>
-				<td><c:if test="${user.department eq me.department and user.name ne me.username and
-									 sign.checkman1 ne null and sign.checkman1 ne me.username and sign.checkman2 eq null}">
-						<input type="submit" value="°áÀç" class="btn" />
+				<td><c:if test="${sign.department eq user.department and
+									 sign.checkman$1 ne null and sign.checkman$1 ne user.username and sign.checkman$2 eq null}">
+						<input type="submit" value="ê²°ì¬" class="btn" />
 						</c:if>
-						<c:if test="${sign.checkman2 ne null }">${sign.checkman2 }</c:if>
+						${sign.checkman$2 }
 						</td>
-				<td><c:if test="${user.department eq me.department and user.name ne me.username and checkman2 ne null and 
-									sign.checkman1 ne me.username and sign.checkman2 ne me.username and sign.checkman3 eq null}">
-						<input type="submit" value="°áÀç" class="btn" />
+				<td><c:if test="${sign.department eq user.department and checkman$2 ne null and 
+									  sign.checkman$3 eq null}">
+						<input type="submit" value="ê²°ì¬" class="btn" />
 						</c:if>
-						<c:if test="${sign.checkman3 ne null }">${sign.checkman3 }</c:if>
+						${sign.checkman$3 }
 						</td>
 			</tr>
 		</tbody>
@@ -66,78 +66,79 @@ input:focus,textarea:focus {
 	<div></div>
 	<table width="100%">
 		<tr>
-			<td class="tdcolor">ºÎ¼­</td>
+			<td class="tdcolor">ë¶€ì„œ</td>
 			<td width="40%">
 			<c:choose>
-				<c:when test="${user.username eq username and sign.checkno eq 1}">
+				<c:when test="${sign.signconfirm ne 1}">
 					${user.dep_name }
 					<input type="hidden" name="department" value="${user.department }" />
 				</c:when>
-				<c:when test="${user.username ne username}">
-				${user.dep_name}
-				</c:when>
+				<c:otherwise>
+				${sign.dep_name}
+				</c:otherwise>
 			</c:choose>
 				</td>
-			<td class="tdcolor">ÀÌ¸§</td>
+			<td class="tdcolor">ì´ë¦„</td>
 			<td width="40%">
 			<c:choose>
-				<c:when test="${user.username eq username and sign.checkno eq 1}">
-					<input type="text" name="name" value="${user.username }" />
+				<c:when test="${sign.signconfirm ne 1}">
+					<input type="text" name="name" value="${user.name }" />
 				</c:when>
-				<c:when test="${user.username ne username }">
-				${user.name}
-				</c:when>
+				<c:otherwise>
+				${sign.name}
+				</c:otherwise>
 			</c:choose>
 			</td>
 		</tr>
 		<tr>
-			<td class="tdcolor">Á÷±Ş</td>
+			<td class="tdcolor">ì§ê¸‰</td>
 			<td width="40%">
 			<c:choose>
-<%-- 				<c:when test="${user.username eq username }">
-					<input type="text" name="job_name" value="${user.job_name }" />
-				</c:when> --%>
-				<c:when test="${user.username ne username }">
-				${user.job_name}
+				<c:when test="${sign.signconfirm ne 1}">
+					${user.job_name}
+					<input type="hidden" name="signlevel" value="${user.job_id }" />
 				</c:when>
-			</c:choose>			
-</td>
-			<td class="tdcolor">±â°£</td>
+				<c:otherwise>
+				${sign.job_name}
+				</c:otherwise>
+			</c:choose>	
+			</td>		
+			<td class="tdcolor">ê¸°ê°„</td>
 			<td width="40%">
 			<c:choose>
-				<c:when test="${user.username eq username and sign.checkno eq 1}">
+				<c:when test="${sign.signconfirm ne 1}">
 					<input type="date" name="reg_date" value="${sign.reg_date }" />
 				</c:when>
-				<c:when test="${user.username ne username }">
+				<c:otherwise>
 				${sign.reg_date}
-				</c:when>
+				</c:otherwise>
 			</c:choose>
 			</td>
 		</tr>
 		<tr>
-			<td class="tdcolor">ÇÁ·ÎÁ§Æ®</td>
+			<td class="tdcolor">í”„ë¡œì íŠ¸</td>
 			
 			<td width="90%" colspan=3>
 			<c:choose>
-				<c:when test="${user.username eq username and sign.checkno eq 1}">
+				<c:when test="${sign.signconfirm ne 1}">
 				</c:when>
-				<c:when test="${user.username ne username }">
+				<c:otherwise>
 				${sign.signcontent}
-				</c:when>
+				</c:otherwise>
 			</c:choose>
 				</td>
 		</tr>
 		<tr>
 			<c:choose>
-			<c:when test="${user.username eq username and sign.checkno eq 1}">
-			<td class="tdcolor">³»¿ë</td>
+			<c:when test="${ sign.signconfirm ne 1}">
+			<td class="tdcolor">ë‚´ìš©</td>
 			<td width="90%" colspan=3>
 				<textarea type="text" rows="20" name="signcontent"></textarea>
 			</td>
 			</c:when>
-			<c:when test="${user.username ne username }">
+			<c:otherwise>
 				<td colspan=4 height="500" align="center">${sign.signcontent}</td>
-			</c:when>
+			</c:otherwise>
 			</c:choose>
 		</tr>
 	</table>
@@ -145,8 +146,8 @@ input:focus,textarea:focus {
 	<table height="250" width="100%">
 		<tr>
 			<td align="center" valign="bottom"><h2>
-					»ó±â »çÇ×Àº Æ²¸²¾øÀ½À» È®ÀÎÇÕ´Ï´Ù.<br /> ${sign.reg_date} <br />GVM.ltd
-					<h2></td>
+					ìƒê¸° ì‚¬í•­ì€ í‹€ë¦¼ì—†ìŒì„ í™•ì¸í•©ë‹ˆë‹¤.<br /> ${sign.reg_date} <br />GVM.ltd
+					</h2></td>
 		</tr>
 	</table>
 </body>

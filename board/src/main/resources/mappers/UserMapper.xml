@@ -3,19 +3,17 @@
 <mapper namespace="com.board.mapper.UserMapper">
 
 	<select id="userlist" resultType="com.board.domain.User">
-		SELECT * FROM users
-	</select>
-	
-	<select id="readUser1" parameterType="String" resultType="com.board.domain.User">
-		SELECT *
-		FROM users
-		WHERE username = #{username}
+		SELECT * FROM users u JOIN department d 
+		ON u.department = d.dep_no 
+		JOIN job j
+		ON u.job_id = j.job_id
+		order by num desc
 	</select>
 
 	<select id="readUser" parameterType="String" resultType="com.board.domain.User">
 		SELECT *
 		FROM users u JOIN job j
-		ON u.job_id = j.job_no
+		ON u.job_id = j.job_id
 		JOIN department d
 		ON u.department = d.dep_no
 		WHERE username = #{username}
@@ -42,9 +40,16 @@
 
 	</insert>
 
+	<update id="adminMemberUpdate" parameterType="com.board.domain.User">
+		update users set
+		job_id =  #{job_id},name = #{name}, department = #{department},  birth = #{birth}, mail = #{mail},
+		phone = #{phone}, address = #{address}, hire_date = #{hire_date}
+		where username = #{username}
+	</update>
+	
 	<update id="memberUpdate" parameterType="com.board.domain.User">
 		update users set
-		num=#{num}, job_id =  #{job_id},name = #{name}, department = #{department},  birth = #{birth}, mail = #{mail},
+		name = #{name},birth = #{birth}, mail = #{mail},
 		phone = #{phone}, address = #{address}, hire_date = #{hire_date}
 		where username = #{username}
 	</update>

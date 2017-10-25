@@ -24,6 +24,12 @@ public class MemberController {
 	private UserMapper userMapper;
 
 	@RequestMapping(value="/{username}", method=RequestMethod.GET)
+	public ModelAndView viewform(@PathVariable("username")String username) throws Exception{
+		User user = userMapper.readUser(username);
+		return new ModelAndView("membermain","user",user);
+	}
+	
+	@RequestMapping(value="/post/{username}", method=RequestMethod.GET)
 	public ModelAndView updateform(@PathVariable("username")String username) throws Exception{
 		User user = userMapper.readUser(username);
 		return new ModelAndView("memberUpdate","user",user);

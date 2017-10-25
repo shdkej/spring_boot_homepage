@@ -26,7 +26,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter{
 			.sessionManagement().sessionCreationPolicy(SessionCreationPolicy.NEVER)
 				.and()
 			.authorizeRequests()
-				.antMatchers("/","/createmember","/logintemplelet/**","/assets/**","/images/**","/*.html").permitAll()
+				.antMatchers("/test","/","/createmember","/logintemplelet/**","/assets/**","/images/**","/*.html").permitAll()
 				.and()
 			.authorizeRequests()
 				.antMatchers("/login").permitAll()

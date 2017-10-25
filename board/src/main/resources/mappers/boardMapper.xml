@@ -15,7 +15,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         select * from dailyboard
         <![CDATA[
          where reg_date between to_date(#{reg_date},'YY-mm-dd')
-         AND to_date(#{reg_date},'YY-mm-dd')+100 order by bno desc;
+         AND to_date(#{reg_date},'YY-mm-dd')+ interval '1 month' order by bno desc;
         ]]>
         <!-- select * from dailyboard where str_to_date(reg_date,'%y-%m-%D') like '%'||#{reg_date}||'%' -->
     </select> 

@@ -31,7 +31,11 @@ public class LoginController {
 	UserService userService;
 	@Autowired
 	AuthenticationManager authenticationManager;
-	
+
+	@RequestMapping(value="/test", method=RequestMethod.GET)
+	public ModelAndView test() throws Exception{
+		return new ModelAndView("test");
+	}
 	@RequestMapping(value="/login", method=RequestMethod.GET)
 	public ModelAndView login() throws Exception{
 		return new ModelAndView("loginform");

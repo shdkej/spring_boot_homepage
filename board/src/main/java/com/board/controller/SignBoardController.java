@@ -77,13 +77,11 @@ public class SignBoardController {
 	@RequestMapping(value="/check/{signno}", method=RequestMethod.GET)
 	public ModelAndView signview(@PathVariable("signno")int signno, @AuthenticationPrincipal UserDetails userDetail) throws Exception{
 		ModelAndView mv = new ModelAndView();
-		Sign sign = signMapper.signView1(signno);
-		User user = signMapper.signView2(signno);
+		Sign sign = signMapper.signView(signno);
 		String username = userDetail.getUsername();
-		User me = userMapper.readUser(username);
+		User user = userMapper.readUser(username);
 		mv.addObject("sign",sign);
 		mv.addObject("user", user);
-		mv.addObject("me",me);
 		mv.setViewName("SignView");
 		return mv;
 	}

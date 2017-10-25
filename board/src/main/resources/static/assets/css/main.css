@@ -1220,11 +1220,11 @@ body {
 }
 
 .about--options>a:nth-child(1) {
-	background-image: url("../img/about-winners.jpg")
+	background-image: url("../img/machine1.jpg")
 }
 
 .about--options>a:nth-child(2) {
-	background-image: url("../img/about-philosophy.jpg")
+	background-image: url("../img/machine2.jpg")
 }
 
 .about--options>a:nth-child(3) {

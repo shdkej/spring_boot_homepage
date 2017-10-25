@@ -18,13 +18,6 @@
 				<table class="table table-striped" width="50%">
 					<tr>
 						<td>&nbsp;</td>
-						<td>번호</td>
-						<td><input name="num" size="50" maxlength="100"
-							value="${user.num}" class="form-control border-input"></td>
-						<td>&nbsp;</td>
-					</tr>
-					<tr>
-						<td>&nbsp;</td>
 						<td>직급</td>
 						<td><select name="job_id" class="ddropdown-select">
 								<option value="1">사원</option>

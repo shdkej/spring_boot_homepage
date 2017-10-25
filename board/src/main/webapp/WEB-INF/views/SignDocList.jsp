@@ -16,15 +16,15 @@
 		<jsp:include page="boardTemplelet.jsp"></jsp:include>
 		<table class="table table-striped">
 			<thead>
-				<th>번호</th>
+				<th width="10%">번호</th>
 				<th>제목</th>
 			</thead>
 			<tbody>
 
 				<c:forEach var="sign" items="${sign}">
-					<tr class="trtr">
-						<td class="tbold" align="center" width="10%">${sign.docno }</td>
-						<td class="tbold"><a href="/sign/${sign.docno }">${sign.docname }</a></td>
+					<tr>
+						<td align="center" width="10%">${sign.docno }</td>
+						<td class="" align="center"><a href="/sign/${sign.docno }">${sign.docname }</a></td>
 					</tr>
 				</c:forEach>
 			</tbody>

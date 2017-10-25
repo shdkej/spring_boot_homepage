@@ -13,8 +13,7 @@ public interface SignMapper {
 	public List<Sign> signList() ;
 	public List<Sign> signRead() ;
 	public Sign signDocView(int docno);
-	public Sign signView1(int sno) ;
-	public User signView2(int sno) ;
+	public Sign signView(int sno) ;
 	public void signWritedoc(Sign sign) ;
 	public void signWrite(Sign sign) ;
 	public void signPermit(Sign sign) ;

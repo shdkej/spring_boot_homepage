@@ -10,20 +10,20 @@
 <meta charset="UTF-8">
 
 <title>직원용</title>
-<link rel="icon" href="images/favicon.ico" type="image/x-icon" />
-<script type="text/javascript" src="/ckeditor/ckeditor.js"></script>
-
+<link rel="icon" href="/images/favicon.ico" type="image/x-icon" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css">
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.8/summernote-bs4.css" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.8/summernote-bs4.js"></script>
 </head>
 <body>
-
 	<sec:authentication property="principal.username" var="username" />
-
-
 	<div class="wrapper">
-		<jsp:include page="boardTemplelet.jsp"></jsp:include>
-
 		<div class="content table-responsive table-full-width">
-			<form name="board" action="/board/post" onSubmit="return(check_form());" method="POST">
+			<form id="form1" name="board" action="/board/post"
+				onSubmit="return(check_form());" method="POST" enctype="multipart/form-data">
 
 				<table class="table table-striped">
 					<tr>
@@ -34,46 +34,60 @@
 							class="form-control border-input"></td>
 					</tr>
 					<tr>
-						<td><textarea id="editor" name="content"
-								style="width: 100%; height: 200px;"></textarea></td>
+						<td><textarea id="summernote" name="content"
+								style="width: 100%; height: 200px;"></textarea>
 					</tr>
 					<tr align="center">
-
-						<td colspan="2"><input type="submit" value="등록" class="btn" >
+						<td colspan="2"><input type="submit" value="등록" class="btn">
 							<input type=button value="취소" class="btn"
-							OnClick="window.location='/board'" />
+							OnClick="window.location='/board'" /></td>
 					</tr>
 				</table>
 			</form>
+			
 		</div>
 	</div>
-
 	<script type="text/javascript">
-		//<![CDATA[
-		CKEDITOR.replace('editor', {
-			skin : 'moono-lisa'
-		});
-		//]]>
 
-		$(function() {
-		    $('#editor').keyup(function (e){
-		        var content = $(this).val();
-		        $(this).height(((content.split('\n').length + 1) * 1.5) + 'em');
-		        $('#counter').html(content.length + '/100');
-		    });
-		    $('#editor').keyup();
-		});
-</script>
-<script>
-function check_form() {
-	if(!board.subject.value)
-	{
-		alert("적어주세요");
-		board.subject.focus();
-		return false;
+	function check_form() {
+		if(!board.subject.value)
+		{
+			alert("제목을 적어주세요");
+			board.subject.focus();
+			return false;
+		}
 	}
-}
-</script>
+		$(function() {
+			$('#editor')
+				.keyup(
+					function(e) {
+						var content = $(this).val();
+							$(this)
+								.height(
+									((content.split('\n').length + 1) * 1.5)
+									+ 'em');
+							$('#counter').html(content.length + '/100');
+					});
+			$('#editor').keyup();
+		});
+		
+
+      $('#summernote').summernote({
+        placeholder: 'Hello bootstrap 4',
+        tabsize: 2,
+        height: 300,
+        fontNames: ['NanumGothic',  'Arial', 'Arial Black', 'Comic Sans MS', 'Courier New', ],
+        fontNamesIgnoreCheck: ['fontA']
+      });
+      $('#summernote').summernote('justifyCenter');
+      $('#summernote').summernote('undo');
+      $('#summernote').summernote('redo');
+      $('#summernote').summernote('saveRange');
+      if ($('#summernote').summernote('isEmpty')) {
+    	  alert('contents is empty');
+    	}
+    </script>
+	
 
 </body>
 </html>

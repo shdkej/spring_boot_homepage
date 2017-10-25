@@ -34,8 +34,8 @@
 				<tbody>
 					<tr>
 						<td align="center" width="9%">${member.num }</td>
-						<td align="center" width="9%">${member.job_id}</td>
-						<td align="center" width="9%">${member.department}</td>
+						<td align="center" width="9%">${member.job_name}</td>
+						<td align="center" width="9%">${member.dep_name}</td>
 						<td align="center" width="10%"><a>${member.name}</a></td>
 						<td align="left" width="12%">${member.birth}</td>
 						<td align="center" width="15%">${member.mail}</td>

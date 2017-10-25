@@ -11,13 +11,13 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		(#{name},#{docno},#{docname},#{doctype},#{doclevel},#{content1},#{content2},#{content3},now())
 	</insert>
  	<insert id="signWrite" parameterType="com.board.domain.Sign">
-		insert into signboard(signlevel,signdocno,department,name,reg_date,signcontent)
+		insert into signboard(signdocno,department,name,signlevel,reg_date,signcontent)
 		values
-		(#{signlevel},#{signdocno},#{department},#{name},#{reg_date},#{signcontent})
+		(#{signdocno},#{department},#{name},#{signlevel},#{reg_date},#{signcontent})
 	</insert>
 
 	<select id="signList" resultType="com.board.domain.Sign">
-		select * from signdoc
+		select * from signdoc order by docno desc
 	</select>
 
 	<select id="signDocView" resultType="com.board.domain.Sign">
@@ -25,24 +25,18 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	</select>
 
 	<select id="signRead" resultType="com.board.domain.Sign">
-		select * from signboard b left outer join signdoc d on b.name=d.name
+		select * from signboard b left outer join signdoc d on b.signdocno=d.docno order by signno desc
 	</select>
 
-	<select id="signView1" parameterType="int" resultType="com.board.domain.Sign">
+	<select id="signView" parameterType="int" resultType="com.board.domain.Sign">
 		select *
-		from signboard b join user u on b.name=u.username join department d on u.department = d.dep_no join job j on u.job_id = j.job_no
+		from signboard b join users u on b.name=u.name join department d on u.department = d.dep_no join job j on u.job_id = j.job_id
 		where signno = #{signno}
 	</select>
 	
-	<select id="signView2" parameterType="int" resultType="com.board.domain.User">
-		select *
-		from signboard b join user u on b.name=u.username join department d on u.department = d.dep_no join job j on u.job_id = j.job_no 
-		where signno = #{signno}
-	</select>
-
 	<update id="signPermit" parameterType="com.board.domain.Sign">
 		update signboard set
-		checkno=checkno+1, checkman#{checkno}=#{name}, signlevel=signlevel+1
+		checkno=checkno+1, checkman#{checkno}=#{name}, signlevel=#{signlevel}+1
 		where signno = #{signno}
 	</update>
 

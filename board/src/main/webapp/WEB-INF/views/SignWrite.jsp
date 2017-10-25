@@ -15,22 +15,20 @@
 	<div class="wrapper">
 		<jsp:include page="boardTemplelet.jsp"></jsp:include>
 		<div class="content table-responsive table-full-width">
-			<form action="/sign/post" method="POST">
+			<form id="form1" action="/sign/post" method="POST">
 				<table class="table table-striped" width="100%" cellpadding="0"
 					cellspacing="0" border="0">
 					<tr>
-						<input type="hidden" name="signlevel" value="${user.job_id }" />
-						<input type="hidden" name="signdocno" value="${sign.docno }" />
-						<input type="hidden" name="signdocname" value="${sign.docname }" />
-						<jsp:include page="/WEB-INF/WorkDocument/${sign.docno }.jsp"></jsp:include>
+						<input type="hidden" name="signdocno" value="${sign.docno }"/>
+						<jsp:include page="/WEB-INF/WorkDocument/${sign.docno}.jsp"></jsp:include>
 					</tr>
-</table>
-<table>
+					</table>
+					<table width="100%" class="">
 					<tr align="center">
-						<td align="center"><input type="submit" value="등록"
-							class="btn btn-info btn-fill btn-wd" /> <input type=button
-							value="취소" class="btn btn-info btn-fill btn-wd"
-							OnClick="window.location='/sign'" /></td>
+						<td align="center"><button type="submit" form="form1" value="등록" style="width:10; height:10;"
+							class="btn btn-info btn-fill btn-wd" >등록</button>
+							<button value="취소" class="btn btn-info btn-fill btn-wd"
+							OnClick="window.location='/sign'">취소</button></td>
 					</tr>
 				</table>
 			</form>

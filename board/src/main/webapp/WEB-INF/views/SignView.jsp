@@ -20,8 +20,9 @@
 				<table class="table table-striped">
 					<tr>
 						<input type="hidden" name="signno" value="${sign.signno }"/>
-						<input type="hidden" name="checkno" value="${sign.checkno}"/>
-						<input type="hidden" name="name" value="${username}"/>
+						<input type="hidden" name="checkno" value="${sign.checkno }"/>
+						<input type="hidden" name="name" value="${user.name }"/>
+						<input type="hidden" name="signlevel" value="${user.job_id }"/>
 						<jsp:include page="/WEB-INF/WorkDocument/${sign.signdocno }.jsp"></jsp:include>
 					</tr>
 				</table>

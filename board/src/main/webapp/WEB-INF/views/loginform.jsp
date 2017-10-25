@@ -9,7 +9,7 @@
 <link rel="icon" href="/images/favicon.ico" type="/image/x-icon"/>
 <link rel="stylesheet" href="/logintemplelet/css/style.css">
 </head>
-<body>
+<body onLoad=stb()>
 	<div class="login-wrap">
 		<div class="form">
 		
@@ -37,6 +37,11 @@
 	
 
 </body>
+<script type="text/javascript">
+function stb(){
+	document.loginInfo.username.focus();
+	}
+</script>
 <script src='https://code.jquery.com/jquery-1.10.0.min.js'></script>
 
 <script src="/logintemplelet/js/index.js"></script>

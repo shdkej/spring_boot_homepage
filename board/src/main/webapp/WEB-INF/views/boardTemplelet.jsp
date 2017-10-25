@@ -4,16 +4,14 @@
 <%@ taglib prefix="sec"
 	uri="http://www.springframework.org/security/tags"%>
 <%@ page import="java.util.Calendar"%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="UTF-8">
 <meta
 	content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0'
 	name='viewport' />
 <meta name="viewport" content="width=device-width" />
-<link rel="apple-touch-icon" sizes="76x76"
-	href="/bassets/img/apple-icon.png">
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
 
 <title>직원용</title>
@@ -78,15 +76,15 @@
 						<p>업무일지</p>
 				</a></li>
 				<li class=""><a href="/sign/post"> <i
-						class="ti-view-list"></i>
+						class="ti-pencil"></i>
 						<p>결재작성</p>
 				</a></li>
-				<li class=""><a href="/sign"> <i class="ti-view-list"></i>
+				<li class=""><a href="/sign"> <i class="ti-export"></i>
 						<p>결재확인</p>
 				</a></li>
 
 				<sec:authorize access="hasRole('ROLE_ADMIN')">
-					<li class=""><a href="/member"> <i class="ti-user"></i>
+					<li class=""><a href="/admin"> <i class="ti-user"></i>
 							<p>회원관리</p>
 					</a></li>
 				</sec:authorize>
@@ -151,10 +149,6 @@
 
 <!--  Notifications Plugin    -->
 <script src="/bassets/js/bootstrap-notify.js"></script>
-
-<!--  Google Maps Plugin    -->
-<script type="text/javascript"
-	src="https://maps.googleapis.com/maps/api/js"></script>
 
 <!-- Paper Dashboard Core javascript and methods for Demo purpose -->
 <script src="/bassets/js/paper-dashboard.js"></script>

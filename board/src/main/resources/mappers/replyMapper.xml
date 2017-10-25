@@ -12,7 +12,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
     </insert>
     
     <select id="replyList" parameterType="int" resultType="com.board.domain.Reply">
-        select * from Reply where bno = #{bno}
+        select * from Reply where bno = #{bno} order by r_no desc
     </select>
      
     <select id="replyView" parameterType="int" resultType="com.board.domain.Reply">

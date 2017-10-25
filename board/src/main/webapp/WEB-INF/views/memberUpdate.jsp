@@ -10,44 +10,13 @@
 <link rel="icon" href="/images/favicon.ico" type="image/x-icon" />
 </head>
 <body>
+<sec:authentication property="principal.username" var="username" />
 	<div class="wrapper">
 		<jsp:include page="boardTemplelet.jsp"></jsp:include>
 		<div class="content table-responsive table-full-width">
-			<form:form name="member" commandName="User" action="summit()" 				method="PATCH">
+			<form:form name="member" commandName="User" action="/member/${username }" method="PATCH">
 				<table class="table table-striped" width="50%">
-					<tr>
-						<td>&nbsp;</td>
-						<td>번호</td>
-						<td><input name="num" size="50" maxlength="100"
-							value="${user.num}" class="form-control border-input"></td>
-						<td>&nbsp;</td>
-					</tr>
-					<tr>
-						<td>&nbsp;</td>
-						<td>직급</td>
-						<td><select name="job_id" class="ddropdown-select">
-								<option value="1">사원</option>
-								<option value="2">주임</option>
-								<option value="3">대리</option>
-								<option value="4">과장</option>
-								<option value="5">차장</option>
-						</select></td>
-						</div>
 
-					</tr>
-
-					<tr>
-						<td>&nbsp;</td>
-						<td>부서</td>
-						<td><select name="department" class="ddropdown-select">
-								<option value="1">제어(PC)</option>
-								<option value="2">제어(PLC)</option>
-								<option value="3">전장</option>
-								<option value="4">총무</option>
-								<option value="5">제조</option>
-								<option value="6">설계</option>
-						</select></td>
-					</tr>
 					<tr>
 						<td>&nbsp;</td>
 						<td>이름</td>

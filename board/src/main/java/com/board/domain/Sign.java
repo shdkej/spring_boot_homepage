@@ -20,9 +20,9 @@ public class Sign {
 	private String signtitle;
 	private String signcontent;
 	private int checkno;
-	private String checkman1;
-	private String checkman2;
-	private String checkman3;
+	private String checkman$1;
+	private String checkman$2;
+	private String checkman$3;
 	private int signconfirm;
 	private int signlevel;
 	private String sign;
@@ -30,7 +30,22 @@ public class Sign {
 	private int signdocno;
 	private int department;
 	
+	private String dep_name;
+	private String job_name;
 	
+	
+	public String getDep_name() {
+		return dep_name;
+	}
+	public void setDep_name(String dep_name) {
+		this.dep_name = dep_name;
+	}
+	public String getJob_name() {
+		return job_name;
+	}
+	public void setJob_name(String job_name) {
+		this.job_name = job_name;
+	}
 	public int getDepartment() {
 		return department;
 	}
@@ -115,24 +130,23 @@ public class Sign {
 	public void setCheckno(int checkno) {
 		this.checkno = checkno;
 	}
-
-	public String getCheckman1() {
-		return checkman1;
+	public String getCheckman$1() {
+		return checkman$1;
 	}
-	public void setCheckman1(String checkman1) {
-		this.checkman1 = checkman1;
+	public void setCheckman$1(String checkman$1) {
+		this.checkman$1 = checkman$1;
 	}
-	public String getCheckman2() {
-		return checkman2;
+	public String getCheckman$2() {
+		return checkman$2;
 	}
-	public void setCheckman2(String checkman2) {
-		this.checkman2 = checkman2;
+	public void setCheckman$2(String checkman$2) {
+		this.checkman$2 = checkman$2;
 	}
-	public String getCheckman3() {
-		return checkman3;
+	public String getCheckman$3() {
+		return checkman$3;
 	}
-	public void setCheckman3(String checkman3) {
-		this.checkman3 = checkman3;
+	public void setCheckman$3(String checkman$3) {
+		this.checkman$3 = checkman$3;
 	}
 	public int getSignconfirm() {
 		return signconfirm;
