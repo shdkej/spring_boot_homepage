@@ -858,6 +858,9 @@ body {
 	.intro--banner img {
 		display: none
 	}
+	.about img {
+		display: none
+	}
 }
 
 @media ( max-width : 600px) and (max-height: 750px) {
@@ -871,7 +874,7 @@ body {
 		margin-top: 0
 	}
 	.intro--options {
-		display: none
+		display: block
 	}
 }
 
@@ -1789,6 +1792,10 @@ body {
 	.outer-nav>li {
 		font-size: 44px
 	}
+}
+
+.hide{
+	display:none;
 }
 
 @media ( max-width : 600px) {

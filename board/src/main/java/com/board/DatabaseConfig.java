@@ -17,8 +17,6 @@ import org.springframework.context.annotation.Primary;
 import org.springframework.core.io.support.PathMatchingResourcePatternResolver;
 import org.springframework.jdbc.datasource.DataSourceTransactionManager;
 import org.springframework.transaction.PlatformTransactionManager;
-import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
-import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
 
 import com.board.support.DB1;
 import com.board.support.DB2;
@@ -119,13 +117,4 @@ class Db4DatabaseConfig extends DatabaseConfig {
 		return sessionFactoryBean.getObject();
 	}
 	
-}
-
-@Configuration
-class WebMvcConfig extends WebMvcConfigurerAdapter{
-	@Override
-	public void addResourceHandlers(ResourceHandlerRegistry registry){
-		registry.addResourceHandler("/board/upload/**").addResourceLocations("file:A:\\test\\");
-		super.addResourceHandlers(registry);
-	}
 }

@@ -7,37 +7,28 @@ import java.nio.ByteBuffer;
 import java.nio.channels.SocketChannel;
 import java.nio.charset.Charset;
 
-public class NotificationService {
+public class NotificationService{
 
 	
-	public static SocketChannel socket = null;
-
-	public static void start() throws IOException {
-
+	private SocketChannel socket = null;
+	//private static Selector selector;
+	private static ByteBuffer buf = ByteBuffer.allocate(256);
+	
+	public NotificationService() throws IOException {
 		
-		try {
-			SocketAddress addr = new InetSocketAddress("192.168.0.54", 7777);
-			socket = SocketChannel.open();
+			SocketAddress addr = new InetSocketAddress("59.27.177.110", 7777);
+			this.socket = SocketChannel.open();
 			socket.connect(addr);
-			while(true){
-			}
-			
-		} catch (IOException e) {
-			e.printStackTrace();
-		} finally {
-			if(socket.isConnected()==false)
-			socket.close();
-		}
+			//this.selector = Selector.open();
+			//socket.register(selector, SelectionKey.OP_ACCEPT);
+	}
+
+	public void send(String msg) throws IOException{
+		Charset charset = Charset.forName("UTF-8");
+		buf = charset.encode(msg);
+		socket.write(buf);
+		
 	}
 	
-	public static void send(String msg) throws IOException{
-
-		Charset charset = Charset.forName("UTF-8");
-		ByteBuffer buffer = charset.encode(msg);
-		while(true){
-			socket.write(buffer);
-		}
-	}
-
 
 }

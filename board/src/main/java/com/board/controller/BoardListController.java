@@ -4,8 +4,6 @@ import java.io.BufferedOutputStream;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
-import java.io.PrintWriter;
-import java.nio.file.Files;
 import java.sql.Date;
 import java.util.List;
 
@@ -13,9 +11,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -41,12 +37,6 @@ public class BoardListController {
 	private ReplyMapper replyMapper;
 	@Autowired
 	private UserMapper userMapper;
-	
-	@Value(value = "${ckeditor.storage.image.path}")
-	private String ckeditorStorageImagePath;
-
-	@Value(value = "${ckeditor.access.image.url}")
-	private String ckeditorAccessImageUrl;
 	
 	
 	@RequestMapping(method=RequestMethod.GET)
@@ -144,7 +134,7 @@ public class BoardListController {
 			try{
 				
 				byte[] bytes = file.getBytes();
-				File newfile = new File(ckeditorStorageImagePath);
+				File newfile = new File("/root");
 				BufferedOutputStream buff = new BufferedOutputStream(new FileOutputStream(newfile));
 				buff.write(bytes);
 				buff.close();
