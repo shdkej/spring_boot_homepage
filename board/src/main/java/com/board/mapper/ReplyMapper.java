@@ -10,10 +10,9 @@ public interface ReplyMapper {
 	
 		
 		public void replyInsert(Reply reply) throws Exception;
-
 		public List<Reply> replyList(int bno) throws Exception;
-		
 		public void replyDelete(int bno) throws Exception;
+		public void replyDeleteBoard(int bno) throws Exception;
 
 	}
 

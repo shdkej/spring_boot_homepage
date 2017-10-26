@@ -20,9 +20,12 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
     	
     </select>
  
-	<delete id="ReplyDelete" parameterType="int">
+	<delete id="replyDelete" parameterType="int">
 		delete from Reply where r_no = #{r_no}
 	</delete>
 	
+	<delete id="replyDeleteBoard" parameterType="int">
+		delete from Reply where bno = #{bno}
+	</delete>
 	
 </mapper>

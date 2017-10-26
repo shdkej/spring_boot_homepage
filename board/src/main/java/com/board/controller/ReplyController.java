@@ -31,12 +31,12 @@ public class ReplyController {
 		return "redirect:/board/"+bno;
 	}
 	
-	@RequestMapping(value="/reply/delete/{bno}", method=RequestMethod.DELETE)
-	public String delete(@PathVariable("bno") int bno) throws Exception{
+	@RequestMapping(value="/reply/delete/{r_no}", method=RequestMethod.DELETE)
+	public String delete(@PathVariable("r_no") int rno,HttpServletRequest request) throws Exception{
 		
-		replyMapper.replyDelete(bno);
-		
-		return "redirect:/board/";
+		replyMapper.replyDelete(rno);
+		String bno = request.getParameter("bno");
+		return "redirect:/board/"+bno;
 	}
 	
 

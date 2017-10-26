@@ -64,17 +64,19 @@
 		<div class="content table-responsive table-full-width">
 			<table width="100%" class="table table-striped">
 				<c:forEach var="reply" items="${reply }">
+				<form:form action="/reply/delete/${reply.r_no}" method="DELETE">
 					<tr>
+						
 						<td align="left" width="10%">${reply.r_name }</td>
 						<td>&nbsp;</td>
 						<td class="tleft" width="70%">${reply.r_content }</td>
-						<td>&nbsp;</td>
+						<td>&nbsp;<input type="hidden" name="bno" value="${board.bno}"/></td>
 						<td width="20%">${reply.r_date }</td>
 						<c:if test="${username == reply.r_name}">
-						<td><button type="button" aria-hidden="true" class="close" name="btnDelete"
-									onclick="reDelete(${reply.r_name })">×</button></td>
+						<td><button type="submit" aria-hidden="true" class="close" name="btnDelete">×</button></td>
 						</c:if>
 					</tr>
+				</form:form>
 				</c:forEach>
 			</table>
 			<table width="100%" class="table table-striped">

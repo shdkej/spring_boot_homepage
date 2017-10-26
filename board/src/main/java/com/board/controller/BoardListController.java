@@ -123,6 +123,7 @@ public class BoardListController {
 	public String delete(@PathVariable("bno") int bno) throws Exception{
 		
 		boardMapper.boardDelete(bno);
+		replyMapper.replyDeleteBoard(bno);
 		
 		return "redirect:/board/";
 	}
