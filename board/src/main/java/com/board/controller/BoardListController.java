@@ -25,6 +25,7 @@ import com.board.domain.Reply;
 import com.board.mapper.BoardMapper;
 import com.board.mapper.ReplyMapper;
 import com.board.mapper.UserMapper;
+import com.board.service.NotificationService;
 
 
 @Controller
@@ -51,6 +52,13 @@ public class BoardListController {
 		return view;
 	}
 	
+	@RequestMapping(method=RequestMethod.POST)
+	public ModelAndView list2() throws Exception{
+		List<BoardVO> list = boardMapper.boardList();
+		return new ModelAndView("boardList","list",list);
+	}
+	
+	
 	@RequestMapping(value="/daily", method=RequestMethod.GET)
 	public ModelAndView list3(HttpServletRequest request) throws Exception{
 
@@ -69,13 +77,7 @@ public class BoardListController {
 		return new ModelAndView("boardList","list",list);
 
 	}
-	
-	@RequestMapping(method=RequestMethod.POST)
-	public ModelAndView list2() throws Exception{
-		List<BoardVO> list = boardMapper.boardList();
-		return new ModelAndView("boardList","list",list);
-	}
-	
+
 	@RequestMapping(value="/post",method=RequestMethod.GET)
 	public ModelAndView writeForm() throws Exception{
 		return new ModelAndView("boardWrite");
@@ -83,7 +85,9 @@ public class BoardListController {
 	
 	@RequestMapping(value="/post",method=RequestMethod.POST)
 	public String write(@ModelAttribute("BoardVO") BoardVO board) throws Exception{
-		
+		String subject = board.getSubject();
+		NotificationService ns = new NotificationService();
+		ns.send("새 게시물이 올라왔습니다 : "+ subject);
 		boardMapper.boardInsert(board);
 
 		return "redirect:/board";

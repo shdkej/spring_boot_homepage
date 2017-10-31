@@ -34,12 +34,11 @@
 									<img class="avatar border-white"
 										src="assets/img/faces/face-2.jpg" alt="..." />
 									<h4 class="title">
-										Chet Faker<br /> <a href="#"><small>@chetfaker</small></a>
+										 <br /> <a href="#"><small></small></a>
 									</h4>
 								</div>
 								<p class="description text-center">
-									"I like the way you work it <br> No diggity <br> I
-									wanna bag it up"
+									
 								</p>
 							</div>
 							<hr>
@@ -154,7 +153,7 @@
 										</div>
 										<div class="col-md-4">
 											<div class="form-group">
-												<label for="exampleInputEmail1">Email address</label>
+												<label for="exampleInputEmail1">Email</label>
 												${user.mail }<input type="text" readonly="readonly"
 													class="form-control border-input"
 													placeholder=" ${user.mail}" value="${user.mail }">

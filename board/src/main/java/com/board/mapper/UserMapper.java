@@ -18,5 +18,6 @@ public interface UserMapper {
 	public void deleteAuthority(String username);
 	public void adminMemberUpdate(User user) throws Exception;
 	public void memberUpdate(User user) throws Exception;
+	public List<User> findSignMember(String username) throws Exception;
 
 }

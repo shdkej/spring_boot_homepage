@@ -52,8 +52,7 @@ public class LoginController {
 		session.setAttribute(HttpSessionSecurityContextRepository.SPRING_SECURITY_CONTEXT_KEY, SecurityContextHolder.getContext());
 		
 		User user = userService.readUser(username);
-		NotificationService ns = new NotificationService();
-		ns.send(user.getUsername());
+		
 		return "redirect:/board";
 	}
 	

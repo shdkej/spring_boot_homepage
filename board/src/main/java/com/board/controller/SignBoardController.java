@@ -16,6 +16,7 @@ import com.board.domain.Sign;
 import com.board.domain.User;
 import com.board.mapper.SignMapper;
 import com.board.mapper.UserMapper;
+import com.board.service.NotificationService;
 
 @Controller
 @RequestMapping(value="/sign")
@@ -52,7 +53,9 @@ public class SignBoardController {
 	public String signpost(@ModelAttribute("Sign")Sign sign) throws Exception{
 		signMapper.signWrite(sign);
 		String username = sign.getName();
-//		NotificationService.send(username);
+		NotificationService ns = new NotificationService();
+		
+		ns.send(username+"님이 결재를 올렸습니다.");
 		return "redirect:/sign";
 	}
 	

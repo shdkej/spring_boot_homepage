@@ -63,4 +63,8 @@
 		DELETE FROM authority
 		WHERE username = #{username}
 	</delete>
+	
+	<select id ="findSignMember" parameterType="String" resultType="com.board.domain.User">
+		SELECT * FROM users where department > 1
+	</select>
 </mapper>

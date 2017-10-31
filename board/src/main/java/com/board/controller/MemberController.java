@@ -1,9 +1,6 @@
 package com.board.controller;
 
-import java.util.List;
-
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.access.annotation.Secured;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Controller;
@@ -24,9 +21,14 @@ public class MemberController {
 	private UserMapper userMapper;
 
 	@RequestMapping(value="/{username}", method=RequestMethod.GET)
-	public ModelAndView viewform(@PathVariable("username")String username) throws Exception{
+	public ModelAndView viewform(@PathVariable("username")String username,@AuthenticationPrincipal UserDetails userDetail) throws Exception{
 		User user = userMapper.readUser(username);
-		return new ModelAndView("membermain","user",user);
+		String authname = userDetail.getUsername();
+		if(username == authname){
+			return new ModelAndView("membermain","user",user);
+		}else{
+			return new ModelAndView("error"); 
+		}
 	}
 	
 	@RequestMapping(value="/post/{username}", method=RequestMethod.GET)
