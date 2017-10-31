@@ -21,6 +21,7 @@
 	src: url(http://fonts.googleapis.com/earlyaccess/nanumbrushscript.css) format('serif');
 }
 
+
 .ct-blue {
   stroke: #7A9E9F !important; }
 
@@ -2918,7 +2919,9 @@ textarea.form-control {
     overflow-y: hidden;
     -ms-overflow-style: -ms-autohiding-scrollbar;
     -webkit-overflow-scrolling: touch; 
-     } }
+     } 
+     
+ }
 
 
 @media (max-width: 690px) {
@@ -2941,8 +2944,6 @@ border-bottom:1px solid #dddddd !important;
 table td{
 font-size:7px;
 }
-
-
 
 .tbold{
 display:block;

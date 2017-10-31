@@ -15,6 +15,7 @@ isAccountNonExpired boolean DEFAULT true,
 isAccountNonLocked boolean DEFAULT true,
 isCredentialsNonExpired boolean DEFAULT true,
 isEnabled boolean DEFAULT true,
+sign varchar(50) default null,
 CONSTRAINT fk_job FOREIGN KEY (job_id) REFERENCES job(job_no) ON DELETE CASCADE ON UPDATE CASCADE,
 CONSTRAINT fk_dep FOREIGN KEY (department) REFERENCES department(dep_no) ON DELETE CASCADE ON UPDATE CASCADE
 );
@@ -63,11 +64,11 @@ CREATE TABLE dailyboard (
 );
 
 CREATE TABLE reply (
-  bno serial primary key,
+  bno int,
   r_name varchar(45) DEFAULT NULL,
   r_password varchar(45) DEFAULT NULL,
   r_content varchar(150) DEFAULT NULL,
-  r_no int DEFAULT 0,
+  r_no serial primary key,
   r_date date DEFAULT NULL
 );
 
@@ -76,13 +77,12 @@ CREATE TABLE signboard (
   signno serial primary key,
   signtitle varchar(45) DEFAULT NULL,
   signcontent varchar(100) DEFAULT NULL,
-  checkno varchar(10) DEFAULT 1,
+  checkno int DEFAULT 1,
   checkman1 varchar(10) DEFAULT NULL,
   checkman2 varchar(10) DEFAULT NULL,
   checkman3 varchar(10) DEFAULT NULL,
-  signconfirm int DEFAULT 0,
+  signconfirm int DEFAULT 1,
   signlevel int DEFAULT 0,
-  sign varchar(45) DEFAULT NULL,
   denycouse varchar(55) DEFAULT NULL,
   reg_date date DEFAULT NULL,
   signdocno int DEFAULT NULL,

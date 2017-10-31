@@ -25,24 +25,24 @@
 				<tr>
 
 					<td align="left" width="76">제목</td>
-					<td width="319">${board.subject }</td>
+					<td class="tleft" width="319">${board.subject }</td>
 
 				</tr>
 				<tr>
 					<td align="left" width="76">이름</td>
-					<td width="319">${board.writer }</td>
+					<td class="tleft" width="319">${board.writer }</td>
 				</tr>
 				<tr>
 					<td align="left" width="76">작성일</td>
-					<td width="319">${board.reg_date}</td>
+					<td class="tleft" width="319">${board.reg_date}</td>
 
 				</tr>
 			</table>
 			<table width="100%" class="table table-striped">
 				<tr>
 					
-					<td class="tleft" width="319">${board.content }</td>
-					<td width="1" colspan="1" height="200">
+					<td class="tleft" width="100%">${board.content }</td>
+					<td width="1" colspan="1" height="auto">
 				</tr>
 			</table>
 
@@ -86,7 +86,7 @@
 						<!-- <input type="hidden" name="r_password" value=""/> -->
 						<input type="hidden" name="bno" value="${board.bno}" />
 					<tr><td><textarea id="content" name="r_content"
-							rows="5" maxlength="100" style="width:100%;"></textarea><span id="counter">###</span></td></tr>
+							rows="5" maxlength="100" style="width:100%;"></textarea><br/><span id="counter">###</span></td></tr>
 					<td><input type="submit" value="입력"
 						class="btn btn-fill btn-wd" align="center" /></td>
 					</form>
@@ -94,21 +94,19 @@
 			</table>
 			<table width="100%" class="table table-striped">
 				<tr align="center">
-					<td><input type=button value="글쓰기"
+				<form:form action="/board/delete/${board.bno}" method="DELETE">
+					<td class="trtr"><input type=button value="글쓰기"
 						onclick="location.href='/board/post'"
 						class="btn btn-info btn-fill btn-wd"/> <input type=button
 						value="목록" onclick="location.href='/board'"
 						class="btn btn-info btn-fill btn-wd"/>
-						<c:if
-							test="${username == board.writer}">
+						<c:if test="${username == board.writer}">
 							<input type=button value="수정"
 								onclick="location.href='/board/post/${board.bno}'"
 								class="btn btn-info btn-fill btn-wd">
-							<input type="button" value="삭제" onclick="/board/delete/${board.bno}" class="btn"></td>
-							<form:form action="/board/delete/${board.bno}" method="DELETE">
-								<input type="submit" value="삭제">
-							</form:form>
-						</c:if>
+								<input type="submit" value="삭제" class="btn btn-info btn-fill btn-wd">
+						</c:if></td>
+						</form:form>
 				</tr>
 			</table>
 		</div>
