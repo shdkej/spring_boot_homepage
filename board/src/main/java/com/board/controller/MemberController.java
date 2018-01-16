@@ -1,8 +1,6 @@
 package com.board.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.core.annotation.AuthenticationPrincipal;
-import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -21,14 +19,11 @@ public class MemberController {
 	private UserMapper userMapper;
 
 	@RequestMapping(value="/{username}", method=RequestMethod.GET)
-	public ModelAndView viewform(@PathVariable("username")String username,@AuthenticationPrincipal UserDetails userDetail) throws Exception{
+	public ModelAndView viewform(@PathVariable("username")String username) throws Exception{
 		User user = userMapper.readUser(username);
-		String authname = userDetail.getUsername();
-		if(username == authname){
-			return new ModelAndView("membermain","user",user);
-		}else{
-			return new ModelAndView("error"); 
-		}
+
+		return new ModelAndView("membermain","user",user);
+
 	}
 	
 	@RequestMapping(value="/post/{username}", method=RequestMethod.GET)
@@ -40,7 +35,7 @@ public class MemberController {
 	@RequestMapping(value="/{username}", method=RequestMethod.PATCH)
 	public String update(@ModelAttribute("User")User user,@PathVariable("username")String username) throws Exception{
 
-		userMapper.memberUpdate(user);
+		userMapper.updateMember(user);
 
 		return "redirect:/board";
 

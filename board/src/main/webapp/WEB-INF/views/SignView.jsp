@@ -16,7 +16,7 @@
 	<div class="wrapper">
 		<jsp:include page="boardTemplelet.jsp"></jsp:include>
 		<div class="content table-responsive table-full-width">
-			<form action="/sign/permit" method="POST">
+			<form id="form1" action="/sign/permit" method="POST">
 				<table class="table table-striped">
 					<tr>
 						<input type="hidden" name="signno" value="${sign.signno }"/>

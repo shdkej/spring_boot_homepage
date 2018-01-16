@@ -164,6 +164,32 @@ a {
   a:hover, a:focus {
     color: #3091B2;
     text-decoration: none; }
+    
+    form {
+	width: 500px;
+}
+textarea {
+	width: 490px;
+	height: 60px;
+	border: 2px solid #ccc;
+	padding: 3px;
+	color: #555;
+	font: 16px Arial, Helvetica, sans-serif;
+}
+
+form div {
+	position: relative;
+	margin: 1em 0;
+}
+
+form .counter {
+	position: absolute;
+	right: 0;
+	top: 0;
+	font-size: 20px;
+	font-weight: bold;
+	color: #ccc;
+}
 
 a:focus, a:active,
 button::-moz-focus-inner,
@@ -203,7 +229,9 @@ button:focus {
   -moz-transition: all 100ms ease-in;
   -o-transition: all 100ms ease-in;
   -ms-transition: all 100ms ease-in;
-  transition: all 100ms ease-in; }
+  transition: all 100ms ease-in;
+  width: 140px;
+   }
 
 .fa {
   width: 21px;
@@ -909,9 +937,6 @@ hr {
   .btn-xs.btn-simple {
     padding: 4px 5px; }
 
-.btn-wd {
-  min-width: 140px; }
-
 .btn-group.select {
   width: 100%; }
 
@@ -1132,7 +1157,9 @@ textarea.form-control {
 .table tbody tr > td,
 .table tfoot tr > th,
 .table tfoot tr > td {
-  border-top: 1px solid #CCC5B9; }
+  border-top: 1px solid #CCC5B9;
+  white-space:normal;
+   }
 .table > thead > tr > th {
   border-bottom-width: 0;
   font-size: 1.25em;
@@ -2936,6 +2963,9 @@ padding:2px !important;
   .table-responsive {
     overflow:hidden; }
 
+textarea{
+	width:100
+}
 .trtr{
 display:block;
 border-bottom:1px solid #dddddd !important;
@@ -2943,8 +2973,13 @@ border-bottom:1px solid #dddddd !important;
 
 table td{
 font-size:7px;
+word-wrap:break-word;
+white-space:nowrap;
+text-overflow:ellipsis;
 }
-
+.btn-wd{
+	width:50;
+	}
 .tbold{
 display:block;
 overflow:hidden !important;

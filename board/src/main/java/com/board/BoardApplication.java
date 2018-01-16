@@ -10,6 +10,7 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.filter.HiddenHttpMethodFilter;
 import org.springframework.web.servlet.view.InternalResourceViewResolver;
 
+
 @SpringBootApplication(scanBasePackages={"com.board"})
 public class BoardApplication extends SpringBootServletInitializer {
 

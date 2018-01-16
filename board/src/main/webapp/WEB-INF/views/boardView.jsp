@@ -40,9 +40,7 @@
 			</table>
 			<table width="100%" class="table table-striped">
 				<tr>
-					
-					<td class="tleft" width="100%">${board.content }</td>
-					<td width="1" colspan="1" height="auto">
+					<td width="100%">${board.content }</td>
 				</tr>
 			</table>
 
@@ -124,47 +122,7 @@ $(function() {
 });
 </script>
 
-	<style>
-form {
-	width: 500px;
-}
 
-label {
-	display: block;
-	font-size: 14px;
-}
-
-textarea {
-	width: 490px;
-	height: 60px;
-	border: 2px solid #ccc;
-	padding: 3px;
-	color: #555;
-	font: 16px Arial, Helvetica, sans-serif;
-}
-
-form div {
-	position: relative;
-	margin: 1em 0;
-}
-
-form .counter {
-	position: absolute;
-	right: 0;
-	top: 0;
-	font-size: 20px;
-	font-weight: bold;
-	color: #ccc;
-}
-
-form .warning {
-	color: #600;
-}
-
-form .exceeded {
-	color: #e00;
-}
-</style>
 </body>
 
 </html>

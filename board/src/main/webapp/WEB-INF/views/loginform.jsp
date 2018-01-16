@@ -31,8 +31,6 @@
 				<input type="password" name="password" placeholder="Password" /><br />
 				<input type="hidden" name="reg_date"/>
 				 <button>Login</button>
-				 
-				 <a href="/createmember" data-hover="회원가입" class="links"><p>회원가입</p></a>
 			</form>
 
 			

@@ -27,9 +27,18 @@ public class User implements UserDetails{
 	private boolean isCredentialsNonExpired; 
 	private boolean isEnabled; 
 	private Collection<? extends GrantedAuthority> authorities;
+	private int annual;
 
 
 	
+	public int getAnnual() {
+		return annual;
+	}
+
+	public void setAnnual(int annual) {
+		this.annual = annual;
+	}
+
 	public String getJob_name() {
 		return job_name;
 	}

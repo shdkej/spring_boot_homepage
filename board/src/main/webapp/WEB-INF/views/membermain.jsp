@@ -19,6 +19,7 @@
 </head>
 <body>
 <sec:authentication property="principal.username" var="username" />
+<c:if test="${username == user.username }">
 	<div class="wrapper">
 		<jsp:include page="boardTemplelet.jsp"></jsp:include>
 		<div class="content">
@@ -234,5 +235,9 @@
 				</div>
 			</div>
 		</div>
+</c:if>
+<c:if test="${username ne user.username }">
+You Can't See Me
+</c:if>
 </body>
 </html>

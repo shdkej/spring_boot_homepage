@@ -9,7 +9,7 @@
 <head>
 <link rel="icon" href="images/favicon.ico" type="image/x-icon" />
 <title>직원용</title>
-
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
 </head>
 <body>
 
@@ -36,6 +36,7 @@
 
 	<div class="wrapper">
 		<jsp:include page="boardTemplelet.jsp"></jsp:include>
+		<button onclick="showNotification();">알림 실행</button>
 
 			<table width="100%" border="0" cellspacing="0" cellpadding="0">
 				<tr>
@@ -102,9 +103,34 @@
 				</tr>
 				<tr align="center">
 					<td><input type=button value="글쓰기"
-						onclick="location.href='/board/post'" class="btn"></td>
+						onclick="ajaxtest(${username})" class="btn"></td>
+						<td><input type=button id="btn-test" value="test" class="btn"></td>
 				</tr>
 			</table>
 	</div>
+<script type="text/javascript">
+
+function showNotification(){
+	if(!window.webkitNotifications){
+		if(window.webkitNotifications.checkPermission() == 0){
+			var titleStr = "test";
+			var bodyStr = "Test";
+			var noti1 = window.webkitNotifications.createNotification(titleStr,bodyStr);
+			var noti2 = window.webkitNotifications.createHTMLNotification();
+			noti1.show();
+			
+		}else{
+			requesPermission(showNotification);
+		}
+	}else{
+		alert("현재 브라우저는 알람을 지원하지 않습니다");
+	}
+}
+
+function requestPermission(callback){
+	window.webkitNotifications.requestPermission(callback);
+}
+</script>
 </body>
+
 </html>

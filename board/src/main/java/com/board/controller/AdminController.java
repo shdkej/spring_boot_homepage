@@ -46,7 +46,7 @@ public class AdminController {
 	
 	@RequestMapping(value="/{username}", method=RequestMethod.PATCH)
 	public String update(@ModelAttribute("User")User user,@PathVariable("username")String username) throws Exception{
-		userMapper.adminMemberUpdate(user);
+		userMapper.updateAdminMember(user);
 		return "redirect:/admin";
 	
 	}

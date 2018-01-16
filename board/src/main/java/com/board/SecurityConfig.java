@@ -1,6 +1,7 @@
 package com.board;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.autoconfigure.security.oauth2.client.EnableOAuth2Sso;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.authentication.AuthenticationManager;
@@ -26,7 +27,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter{
 			.sessionManagement().sessionCreationPolicy(SessionCreationPolicy.NEVER)
 				.and()
 			.authorizeRequests()
-				.antMatchers("/test","/upload","/","/robots.txt","/createmember","/logintemplelet/**","/assets/**","/images/**","/*.html").permitAll()
+				.antMatchers("/test1","/test","/oauth","/upload","/","/robots.txt","/createmember","/logintemplelet/**","/assets/**","/images/**","/*.html").permitAll()
 				.and()
 			.authorizeRequests()
 				.antMatchers("/login").permitAll()

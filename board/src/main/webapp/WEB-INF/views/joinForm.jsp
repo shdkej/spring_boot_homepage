@@ -19,9 +19,9 @@
   
   <div class="form">
    <form method = "POST" action="/createmember" name=myform onSubmit="return(check_form());">
-       <br/><input type = "text" name="username" id="f1" placeholder="ID"/> <br/>
-       <input type = "password" name="password" id="f1" placeholder="Password"/> <br/>
-       <input type = "text" name="name" id="f1" placeholder="name"/> <br/>
+       <br/><input type = "text" name="username" id="username" placeholder="ID" oninput="checkId()"/> <br/>
+       <input type = "password" name="password" id="password" placeholder="Password"/> <br/>
+       <input type = "text" name="name" id="name" placeholder="name"/> <br/>
        <br/><br/>
 		<center><input type ="radio" name="gender" value="man" id="man" checked="checked"><label for="man"><b>man</b></label>
 		<input type ="radio" name="gender" value="woman" id="woman"><label for="woman"><b>woman</b></label></center><br/>
@@ -29,7 +29,7 @@
 		<input type="date" name="birth" placeholder="99-09-09 형식으로 입력 바랍니다."/><br/>
         <input type="email" name="mail" id="f20" placeholder="e-mail"/><br/>
         <input type="tel" name="phone" placeholder="Phone - '-'를 빼고 입력해 주세요."/><br/>
-        <center><input type="submit" value="가입" class="btn-blue"/>
+        <center><input id="joinbtn" type="submit" value="가입" class="btn-blue"/>
         <input type="button" value="뒤로가기" onclick="window.location='/login'" class="btn-blue"/></center>
     </form>
 
@@ -39,15 +39,7 @@
 
     <script src="/logintemplelet/js/index.js"></script>
 </body>
-<script type="text/javascript">
-var f1 = new LiveValidation('f1', { validMessage: 'OK'});
-f1.add( Validate.Presence , {failureMessage: "X" } );
-</script>  
-<script type="text/javascript">
-var f20 = new LiveValidation('f20');
-f20.add( Validate.Email );
-</script>  
-  <script>
+<script>
 
 function stb(){
 	document.myform.username.focus();
@@ -82,10 +74,27 @@ function check_form() {
 	return true;
 }
 
-</script>
+var idCheck = 0;
+function checkId(){
+	var inputed = $('#username').val();
+	$.ajax({
+		data : {
+			id : inputed
+		},
+	url : "/checkId",
+	success : function(data){
+		if(inputed=="" && data =='0'){
+			$("#joinbtn").prop("disabled",true);
+			$("#joinbtn").css("background-color", "#aaaaaa");
+			$("#username").css("background-color"),"#FFCECE");
+			idCheck = 0;
+		}else if(data == '1'){
+			$("#joinbtn").prop("disabled",false);
+			$("#joinbtn").css("background-color", "#B0F6AC");
+		}
+	}
+	});
+}
 
-<style>
-#validEmail{margin-top: 4px;margin-left: 9px;position: absolute;width:16px;height: 16px;}
-.text{font-family: Arial, Tahoma, Helvetica;}
-</style>
+</script>
 </html>

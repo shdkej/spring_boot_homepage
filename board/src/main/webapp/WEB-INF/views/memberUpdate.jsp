@@ -13,6 +13,7 @@
 </head>
 <body>
 <sec:authentication property="principal.username" var="username" />
+<c:if test="${username eq user.username }">
 	<div class="wrapper">
 		<jsp:include page="boardTemplelet.jsp"></jsp:include>
 		<div class="content table-responsive table-full-width">
@@ -80,6 +81,7 @@
 			</form:form>
 		</div>
 	</div>
+	</c:if>
 </body>
 
 <script>

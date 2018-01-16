@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.board.domain.Sign;
@@ -17,6 +18,7 @@ import com.board.domain.User;
 import com.board.mapper.SignMapper;
 import com.board.mapper.UserMapper;
 import com.board.service.NotificationService;
+import com.board.service.SignService;
 
 @Controller
 @RequestMapping(value="/sign")
@@ -24,18 +26,20 @@ public class SignBoardController {
 
 	@Autowired
 	SignMapper signMapper;
+	SignService signService;
 	@Autowired
 	UserMapper userMapper;
 	
 	
 	@RequestMapping(method=RequestMethod.GET)
-	public ModelAndView signready(@AuthenticationPrincipal UserDetails userDetail) throws Exception{
+	public @ResponseBody ModelAndView signready(@AuthenticationPrincipal UserDetails userDetail) throws Exception{
 		ModelAndView mv = new ModelAndView();
 		List<Sign> sign = signMapper.signRead();
 		String username = userDetail.getUsername();
 		User user = userMapper.readUser(username);
 		mv.addObject("sign", sign);
 		mv.addObject("user", user);
+		mv.addObject("TOTAL",3);
 		mv.setViewName("SignList");
 		return mv;
 	}
@@ -53,9 +57,9 @@ public class SignBoardController {
 	public String signpost(@ModelAttribute("Sign")Sign sign) throws Exception{
 		signMapper.signWrite(sign);
 		String username = sign.getName();
-		NotificationService ns = new NotificationService();
+/*		NotificationService ns = new NotificationService();
 		
-		ns.send(username+"님이 결재를 올렸습니다.");
+		ns.send(username+"님이 결재를 올렸습니다.");*/
 		return "redirect:/sign";
 	}
 	
@@ -74,6 +78,15 @@ public class SignBoardController {
 	@RequestMapping(value="/permit",method=RequestMethod.POST)
 	public String signok(@AuthenticationPrincipal UserDetails userDetail,@ModelAttribute("Sign")Sign sign) throws Exception{
 		signMapper.signPermit(sign);
+		ModelAndView mv = new ModelAndView();
+		String username = userDetail.getUsername();
+		User user = userMapper.readUser(username);
+		float count = 0;
+		if(sign.getSignlevel() == 5){
+			signMapper.signRegisterCheck();
+			int annual = user.getAnnual();
+			count = signService.countDay(sign);
+		}
 		return "redirect:/sign";
 	}
 	
@@ -86,6 +99,7 @@ public class SignBoardController {
 		mv.addObject("sign",sign);
 		mv.addObject("user", user);
 		mv.setViewName("SignView");
+
 		return mv;
 	}
 	

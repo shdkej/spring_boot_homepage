@@ -1,11 +1,12 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-	pageEncoding="EUC-KR"%>
-
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="sec"	uri="http://www.springframework.org/security/tags"%>
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="EUC-KR">
-<title>Insert title here</title>
+<meta charset="UTF-8">
+<title>ê·¼íƒœì‹ ì²­ì„œ</title>
 </head>
 <style>
 tbody,tr,th,td {
@@ -17,64 +18,159 @@ tbody,tr,th,td {
 	background-color: #f2f5f3;
 	width: 10%;
 }
-input,textarea{
-width:100%;
-height:100%;
-border:0;
+input,textarea {
+	width: 100%;
+	height: 100%;
+	border: 0;
 }
-input:focus, textarea:focus{
-outline:none;
+
+input:focus,textarea:focus {
+	outline: none;
 }
+
 </style>
 <body>
-	<table height="100" width="100%">
+	<sec:authentication property="principal.name" var="username" />
+	<table width="100%">
 		<tbody>
-			<tr height="20">
-
-				<td rowspan="2" width="550" align="center"><h1>±ÙÅÂ½ÅÃ»¼­</h1></td>
-				<td class="tdcolor">±â¾È</td>
-				<td class="tdcolor">°áÀç</td>
-				<td class="tdcolor">°áÀç</td>
-				<td class="tdcolor">°áÀç</td>
-
+			<tr height="30">
+				<td rowspan="2" width="550" align="center"><h1>ê·¼íƒœì‹ ì²­ì„œ</h1></td>
+				<td class="tdcolor">ê¸°ì•ˆ</td>
+				<td class="tdcolor">ê²°ì¬</td>
+				<td class="tdcolor">ê²°ì¬</td>
+				<td class="tdcolor">ê²°ì¬</td>
 			</tr>
 			<tr>
-				<td></td>
-				<td></td>
-				<td></td>
-				<td></td>
+				<td>${sign.name }</td>
+				<td><c:if test="${sign.department eq user.department and sign.checkman$1 eq null }">
+						<input type="submit" value="ê²°ì¬" class="btn" />
+						<input type="button" value="ë°˜ë ¤" class="btn" />
+						</c:if>
+						${sign.checkman$1 }
+						</td>
+				<td><c:if test="${sign.department eq user.department and
+									 sign.checkman$1 ne null and sign.checkman$1 ne user.username and sign.checkman$2 eq null}">
+						<input type="submit" value="ê²°ì¬" class="btn" />
+						</c:if>
+						${sign.checkman$2 }
+						</td>
+				<td><c:if test="${sign.department eq user.department and checkman$2 ne null and 
+									  sign.checkman$3 eq null}">
+						<input type="submit" value="ê²°ì¬" class="btn" />
+						</c:if>
+						${sign.checkman$3 }
+						</td>
 			</tr>
 		</tbody>
 	</table>
-	<table width="100%">
+	<div></div>
+	<table width="100%" id="intable">
 		<tr>
-			<td class="tdcolor">ºÎ¼­</td>
-			<td width="40%"><input type="text" name="dep_name" value="${user.dep_name }"/><input type="hidden" name="department" value="${user.department }"/></td>
-			<td class="tdcolor">ÀÌ¸§</td>
-			<td width="40%"><input type="text" name="name" value="${user.username }"></input></td>
+			<td class="tdcolor">ë¶€ì„œ</td>
+			<td width="40%">
+			<c:choose>
+				<c:when test="${sign.signconfirm ne 1}">
+					${user.dep_name }
+					<input type="hidden" name="department" value="${user.department }" />
+				</c:when>
+				<c:otherwise>
+				${sign.dep_name}
+				</c:otherwise>
+			</c:choose>
+				</td>
+			<td class="tdcolor">ì´ë¦„</td>
+			<td width="40%">
+			<c:choose>
+				<c:when test="${sign.signconfirm ne 1}">
+					<input type="text" name="name" value="${user.name }" />
+				</c:when>
+				<c:otherwise>
+				${sign.name}
+				</c:otherwise>
+			</c:choose>
+			</td>
 		</tr>
 		<tr>
-			<td class="tdcolor">Á÷±Ş</td>
-			<td width="40%"><input type="text" name="job_id" value="${user.job_name }"></input></td>
-			<td class="tdcolor">±â°£</td>
-			<td width="40%"><input type="date" name="reg_date"></input></td>
+			<td class="tdcolor">ì§ê¸‰</td>
+			<td width="40%">
+			<c:choose>
+				<c:when test="${sign.signconfirm ne 1}">
+					${user.job_name}
+					<input type="hidden" name="signlevel" value="${user.job_id }" />
+				</c:when>
+				<c:otherwise>
+				${sign.job_name}
+				</c:otherwise>
+			</c:choose>
+			</td>
+			<td class="tdcolor">ê¸°ê°„</td>
+			<td width="40%">
+			<c:choose>
+				<c:when test="${sign.signconfirm ne 1}">
+					ì‹œì‘ : <input type="date" name="reg_date" value="${sign.reg_date }" /> <input type="date" name="reg_date" value="${sign.reg_date }"//>
+				</c:when>
+				<c:otherwise>
+				${sign.reg_date} ~ ${sign.reg_date}
+				</c:otherwise>
+			</c:choose>
+			</td>
 		</tr>
 		<tr>
-			<td class="tdcolor">ÇÁ·ÎÁ§Æ®</td>
-			<td width="90%" colspan=3><input type="text" name="department" value="${user.department }"></input></td>
+			<td class="tdcolor">êµ¬ë¶„</td>
+			
+			<td width="90%" colspan=3>
+			<c:choose>
+				<c:when test="${sign.signconfirm ne 1}">
+				<select name="type" class="ddropdown-select">
+					<option value="1">ë°˜ì°¨</option>
+					<option value="2">ì—°ì°¨</option>
+					<option value="3">íœ´ê°€</option>
+					<option value="4">ì˜ˆë¹„êµ°</option>
+					<option value="5">ë³‘ê°€</option>
+				</select>
+				</c:when>
+				<c:otherwise>
+				${sign.type}
+				</c:otherwise>
+			</c:choose>
+				</td>
 		</tr>
 		<tr>
-			<td class="tdcolor" height="300">³»¿ë</td>
-			<td colspan=3><textarea name="signcontent"></textarea></td>
+			<c:choose>
+			<c:when test="${ sign.signconfirm ne 1}">
+			<td class="tdcolor">ë‚´ìš©</td>
+			<td width="90%" colspan=3>
+				<textarea type="text" rows="20" name="signcontent"></textarea>
+			</td>
+			</c:when>
+			<c:when test="${sign.denycouse}">
+			<td>${sign.denycouse}</td>
+			<input type="hidden" name="denycouse" value=""/>
+			</c:when>
+			<c:otherwise>
+				<td colspan=4 height="500" align="center">${sign.signcontent}</td>
+			</c:otherwise>
+			</c:choose>
 		</tr>
 	</table>
 
-	<table height="350" width="100%">
+	<table height="250" width="100%">
 		<tr>
 			<td align="center" valign="bottom"><h2>
-					»ó±â »çÇ×Àº Æ²¸²¾øÀ½À» È®ÀÎÇÕ´Ï´Ù.<br /> ${sign.reg_date} <br />GVM.ltd
-					<h2></td>
+					ìƒê¸° ì‚¬í•­ì€ í‹€ë¦¼ì—†ìŒì„ í™•ì¸í•©ë‹ˆë‹¤.<br /> ${sign.reg_date} <br />GVM.ltd
+					</h2></td>
+					<td><button name="button" value="test" onclick="check_form()"></button></td>
 		</tr>
 	</table>
 </body>
+<script>
+	function check_form() {
+			var denycouse = prompt("ê°„ë‹¨íˆ ì‚¬ìœ ë¥¼ ì ìœ¼ì‹œê² ìŠµë‹ˆê¹Œ?");
+			var form = document.form1;
+			form.denycouse.value = denycouse;
+			form.setAttribute("method","post");
+			form.setAttribute("action","/sign/deny");
+			form.submit();
+		}
+</script>
 </html>

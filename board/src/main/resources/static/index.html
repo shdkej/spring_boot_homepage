@@ -6,8 +6,8 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="description" content="GVM.ltd">
-  <meta name="keywords" content="global, template, html, sass, jquery">
+  <meta name="description" content=" 장비 소프트웨어 및 Machine Vision 전문 업체로서  충청 및 경기도권 장비 업체 및 대기업의 장비 소프트웨어 및  Machine Vision 개발 System을 구축하고 있습니다.">
+  <meta name="keywords" content="machine,vision,장비,설비">
   <meta name="author" content="original/Bucky Maler,to/nsh">
   
   <link rel="stylesheet" href="assets/css/main.css">
@@ -26,10 +26,10 @@
 <div class="perspective effect-rotate-left">
   <div class="container"><div class="outer-nav--return"></div>
     <div id="viewport" class="l-viewport">
-      <div class="l-wrapper">
+      <div itemscope itemtype="http://schema.org/Product" class="l-wrapper">
         <header class="header">
-          <a class="header--logo" href="/board">
-            <img src="assets/img/logo.png" alt="GVM">
+          <a itemprop="brand" itemscope itemtype="http://schema.org/Brand" class="header--logo" href="/board">
+            <img itemprop="logo" src="assets/img/logo.png" alt="GVM">
           </a>
           <button class="header--cta">고객센터</button>
           <div class="header--nav-toggle">
@@ -49,7 +49,7 @@
           <li class="l-section section section--is-active">
             <div class="intro">
               <div class="intro--banner">
-                <h1>GVM</h1>
+                <h1 itemprop="name">GVM</h1>
                 <button class="cta">고객센터
                   <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 150 118" style="enable-background:new 0 0 150 118;" xml:space="preserve">
                   <g transform="translate(0.000000,118.000000) scale(0.100000,-0.100000)">
@@ -70,6 +70,7 @@
                   <h3>Great</h3>
                 </a>
                 <a href="#open" class="about">
+                <meta itemprop="image" content="http://www.gvmltd.com/assets/img/machine2.jpg">
                   <h3>Value</h3>
                 </a>
                 <a href="#0" class="map">
@@ -200,6 +201,20 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
 <script>window.jQuery || document.write('<script src="assets/js/vendor/jquery-2.2.4.min.js"><\/script>')</script>
 <script src="assets/js/functions-min.js"></script>
+
+<script src="https://www.gstatic.com/firebasejs/4.8.1/firebase.js"></script>
+<script>
+  // Initialize Firebase
+  var config = {
+    apiKey: "AIzaSyBW_22gMlkiO-IBjlm20Ph4g9dgqv7AU-Y",
+    authDomain: "my-project-1498875153324.firebaseapp.com",
+    databaseURL: "https://my-project-1498875153324.firebaseio.com",
+    projectId: "my-project-1498875153324",
+    storageBucket: "",
+    messagingSenderId: "890867020640"
+  };
+  firebase.initializeApp(config);
+</script>
 <style>
 form {
 	width: 500px;

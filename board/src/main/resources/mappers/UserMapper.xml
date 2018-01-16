@@ -40,14 +40,14 @@
 
 	</insert>
 
-	<update id="adminMemberUpdate" parameterType="com.board.domain.User">
+	<update id="updateAdminMember" parameterType="com.board.domain.User">
 		update users set
 		job_id =  #{job_id},name = #{name}, department = #{department},  birth = #{birth}, mail = #{mail},
 		phone = #{phone}, address = #{address}, hire_date = #{hire_date}
 		where username = #{username}
 	</update>
 	
-	<update id="memberUpdate" parameterType="com.board.domain.User">
+	<update id="updateMember" parameterType="com.board.domain.User">
 		update users set
 		name = #{name},birth = #{birth}, mail = #{mail},
 		phone = #{phone}, address = #{address}, hire_date = #{hire_date}
@@ -67,4 +67,14 @@
 	<select id ="findSignMember" parameterType="String" resultType="com.board.domain.User">
 		SELECT * FROM users where department > 1
 	</select>
+	
+	<select id="checkId" parameterType="com.board.domain.User" resultType="int">
+		SELECT COALESCE(COUNT(*),0)
+		FROM users WHERE username = #{username}
+	</select>
+	
+	<update id="updateAnnual" parameterType="com.board.domain.User">
+		UPDATE users set annual = #{annual} where username = #{username}
+	</update>
+	
 </mapper>

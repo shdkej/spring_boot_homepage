@@ -5,8 +5,11 @@ import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.sql.Date;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
+import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
@@ -17,6 +20,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -41,14 +45,15 @@ public class BoardListController {
 	
 	
 	@RequestMapping(method=RequestMethod.GET)
-	public ModelAndView list() throws Exception{
+	public @ResponseBody ModelAndView list() throws Exception{
 		List<BoardVO> list = boardMapper.boardList();
 		
 		ModelAndView view = new ModelAndView();
 		
 		view.addObject("list",list);
 		view.setViewName("boardList");
-
+		
+		
 		return view;
 	}
 	
@@ -69,7 +74,7 @@ public class BoardListController {
 		
 		Date d = Date.valueOf(reg_date);
 		
-		BoardVO date = new BoardVO();
+	 	BoardVO date = new BoardVO();
 		date.setReg_date(d);
 		
 		List<BoardVO> list = boardMapper.boardListforday(date);
@@ -94,11 +99,25 @@ public class BoardListController {
 	}
 	
 	@RequestMapping(value="/{bno}", method=RequestMethod.GET)
-	public ModelAndView view(@PathVariable("bno") int bno) throws Exception{
+	public ModelAndView view(@PathVariable("bno") int bno,HttpServletRequest request,HttpServletResponse response) throws Exception{
 		
 		BoardVO board = boardMapper.boardView(bno);
 		List<Reply> reply = replyMapper.replyList(bno);
+		
+		Cookie cookies[] = request.getCookies();
+		Map<String, String> cookieMap = new HashMap<String, String>();
+		if(request.getCookies() != null){
+			for(int i=0;i<cookies.length;i++){
+				Cookie obj = cookies[i];
+				cookieMap.put(obj.getName(), obj.getValue());
+			}
+			String cookie_count = (String)cookieMap.get("hit");
+			
+		}
 		boardMapper.hitPlus(bno);
+		
+		
+		
 		ModelAndView view = new ModelAndView();
 		view.addObject("board", board);
 		view.addObject("reply",reply);
@@ -111,7 +130,8 @@ public class BoardListController {
 	public ModelAndView updateForm(@PathVariable("bno") int bno) throws Exception{
 		
 		BoardVO board = boardMapper.boardView(bno);
-		
+		NotificationService test = new NotificationService();
+		test.test();
 		return new ModelAndView("boardUpdate","board",board);
 	}
 	
@@ -149,4 +169,5 @@ public class BoardListController {
 			}
 	}
 	}
+	
 }

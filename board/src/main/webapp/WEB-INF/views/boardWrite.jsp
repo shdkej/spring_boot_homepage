@@ -17,8 +17,15 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.8/summernote-bs4.css" rel="stylesheet">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.8/summernote-bs4.js"></script>
+<style>
+@import url('http://fonts.googleapis.com/earlyaccess/nanumgothic.css');
+body,textarea,div,p{
+font-family:'Nanum Gothic';
+}
+</style>
 </head>
 <body>
+
 	<sec:authentication property="principal.username" var="username" />
 	<div class="wrapper">
 		<div class="content table-responsive table-full-width">
@@ -27,15 +34,13 @@
 
 				<table class="table table-striped">
 					<tr>
-						<td width="100%"><input name="subject" maxlength="100"
-							placeholder="제목" class="form-control border-input"></td>
-						<td><input type="hidden" name="writer" size="50"
-							maxlength="50" value="${username}"
-							class="form-control border-input"></td>
+						<td><input name="subject" maxlength="100"
+							placeholder="제목" class="form-control border-input">
+						<input type="hidden" name="writer" value="${username}"/></td>
 					</tr>
 					<tr>
-						<td><textarea id="summernote" name="content"
-								style="width: 100%; height: 200px;"></textarea>
+						<td><textarea id="summernote" name="content"></textarea></td>
+						
 					</tr>
 					<tr align="center">
 						<td colspan="2"><input type="submit" value="등록" class="btn">
@@ -44,7 +49,6 @@
 					</tr>
 				</table>
 			</form>
-			
 		</div>
 	</div>
 	<script type="text/javascript">
@@ -71,11 +75,11 @@
 			$('#editor').keyup();
 		});
 		
-
-      $('#summernote').summernote({
+       $('#summernote').summernote({
         placeholder: 'Hello bootstrap 4',
         tabsize: 2,
-        height: 300,
+        disableResizeEditor: true,
+        height: 500,
         fontNames: ['NanumGothic',  'Arial', 'Arial Black', 'Comic Sans MS', 'Courier New', ],
         fontNamesIgnoreCheck: ['fontA']
       });
@@ -86,6 +90,25 @@
       if ($('#summernote').summernote('isEmpty')) {
     	  alert('contents is empty');
     	}
+      $('#summernote').summernote({
+    	  popover: {
+    	    air: [
+    	      ['color', ['color']],
+    	      ['font', ['bold', 'underline', 'clear']]
+    	    ]
+    	  }
+    	});
+      $('#summernote').summernote({
+    	  toolbar: [
+    	    // [groupName, [list of button]]
+    	    ['style', ['bold', 'italic', 'underline', 'clear']],
+    	    ['font', ['strikethrough', 'superscript', 'subscript']],
+    	    ['fontsize', ['fontsize']],
+    	    ['color', ['color']],
+    	    ['para', ['ul', 'ol', 'paragraph']],
+    	    ['height', ['height']]
+    	  ]
+    	});
     </script>
 	
 
