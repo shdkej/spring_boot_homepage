@@ -6,6 +6,7 @@ RUN apt-get update -qq
 RUN apt-get install -y -qq vim git
 #COPY server.xml /usr/local/conf/server.xml
 RUN sed -i '/autoDeploy="true">/a\<Context docBase="gvm" path="/" reloadable="true"/>' conf/server.xml
+RUN cp -avT $CATALINA_HOME/webapps.dist/manager $CATALINA_HOME/webapps/manager
 RUN sed -i '/<Context/a\<!--' webapps/manager/META-INF/context.xml
 RUN sed -i '/allow=/a\-->' webapps/manager/META-INF/context.xml
 
