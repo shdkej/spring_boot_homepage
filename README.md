@@ -1,5 +1,5 @@
 # spring_boot_homepage
-
+[![Build Status](https://travis-ci.org/shdkej/spring_boot_homepage.svg?branch=master)](https://travis-ci.org/shdkej/spring_boot_homepage)
 # Usage
 ```
 docker pull docker.pkg.github.com/shdkej/spring_boot_homepage/tomcat:latest
