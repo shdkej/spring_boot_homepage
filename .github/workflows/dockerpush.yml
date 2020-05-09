@@ -71,3 +71,15 @@ jobs:
 
           docker tag image $IMAGE_ID:$VERSION
           docker push $IMAGE_ID:$VERSION
+          
+      - name: Deploy Docker Image to Heroku App
+        uses: jctaveras/heroku-deploy@v1.1.0
+        with:
+          # Email linked to your Heroku account
+          email: shdkej@gmail.com
+          # Your Heroku API Key
+          api_key: "${{ secrets.herokuapi }}"
+          # Your Heroku App Name
+          app_name: what-was-that
+          # Dokerfile path
+          dockerfile: Dockerfile
