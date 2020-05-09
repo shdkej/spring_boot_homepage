@@ -23,4 +23,4 @@ jobs:
     - name: Heroku deploy app
       env:
         HEROKU_API_KEY: ${{ secrets.herokuapi }}
-      run: heroku war:deploy ./gvm.war --app what-was-that
+      run: heroku war:deploy gvm.war --app what-was-that --webapp-runner 8.5.50.0
