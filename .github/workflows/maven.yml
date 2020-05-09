@@ -19,7 +19,8 @@ jobs:
     - name: Heroku install java plugin
       env: 
         HEROKU_API_KEY: ${{ secrets.herokuapi }}
-      run: heroku plugins:install java
+      #run: heroku plugins:install java
+      run: heroku plugins:install heroku-cli-deploy
     - name: Heroku deploy app
       env:
         HEROKU_API_KEY: ${{ secrets.herokuapi }}
