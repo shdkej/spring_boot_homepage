@@ -82,4 +82,4 @@ jobs:
           # Your Heroku App Name
           app_name: what-was-that
           # Dokerfile path
-          dockerfile: Dockerfile
+          dockerfile: ./
