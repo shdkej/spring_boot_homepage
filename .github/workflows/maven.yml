@@ -15,13 +15,3 @@ jobs:
         java-version: 1.8
     - name: Build with Maven
       run: mvn -B package --file board/pom.xml
-
-    - name: Heroku install java plugin
-      env: 
-        HEROKU_API_KEY: ${{ secrets.herokuapi }}
-      #run: heroku plugins:install java
-      run: heroku plugins:install heroku-cli-deploy
-    - name: Heroku deploy app
-      env:
-        HEROKU_API_KEY: ${{ secrets.herokuapi }}
-      run: heroku war:deploy gvm.war --app what-was-that --webapp-runner 8.5.50.0
